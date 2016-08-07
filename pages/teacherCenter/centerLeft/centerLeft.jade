@@ -1,0 +1,42 @@
+.pc-center-left
+    .g-content-left(ng-controller="TeacherCenterController")
+        .m-le-img
+            img.u-le-img(ng-src="{{sessionService.user.iconUrl}}")
+        .m-bgcolor(ng-class="{'u-bgcolor':type == 'myServer'}")
+            .m-le-server
+                a(href="/myServer" ng-click=('myServer'))
+                    img.u-stu-img(src="http://image.1yingli.cn/img/new/myServer.png")
+                    .u-le 我的服务
+        .m-bgcolor(ng-class="{'u-bgcolor':type == 'myStudent'}")
+            .m-le-student
+                a(href="/myStudent" ng-click=('myStudent'))
+                    img.u-stu-imgt(src="http://image.1yingli.cn/img/new/myStudent.png")
+                    .u-le 学员订单
+        .m-bgcolor(ng-class="{'u-bgcolor':type == 'myMoney'}")
+            .m-le-wallet
+                a(href="/myMoney" ng-click=('myMoney'))
+                    img.u-stu-img(src="http://image.1yingli.cn/img/new/teacher-center-icon2.png")
+                    .u-le 我的钱包
+        .m-bgcolor(ng-class="{'u-bgcolor':type == 'tutorPage'}")
+            .m-le-tutor
+                a(href="/tutorPage" ng-click=('tutorPage'))
+                    img.u-stu-img(src="http://image.1yingli.cn/img/new/teacher-center-icon3.png")
+                    .u-le 修改信息
+        .m-bgcolor(ng-class="{'u-bgcolor':type == 'tutorComment'}")
+            .m-le-comment
+                a(href="/tutorComment" ng-click=('tutorComment'))
+                    img.u-stu-img(src="http://image.1yingli.cn/img/new/teacher-center-icon4.png")
+                    .u-le 查看评价
+        .m-bgcolor
+            .m-le-essay(ng-click="teacherCenterService.showPassageSub = !teacherCenterService.showPassageSub")
+                img.u-stu-img(src="http://image.1yingli.cn/img/new/teacher-center-icon5.png")
+                .u-le 我的文章
+            .m-le-none(ng-show="teacherCenterService.showPassageSub")
+                a(href="/editPassage")
+                    .u-none(ng-class="{'u-none-active' : teacherCenterService.menuIndex == 0}") ● 写文章
+                a(href="/passageList/2")
+                    .u-none(ng-class="{'u-none-active' : teacherCenterService.menuIndex == 3}") ● 审核通过的文章
+                a(href="/passageList/0")
+                    .u-none(ng-class="{'u-none-active' : teacherCenterService.menuIndex == 1}") ● 正在审核的文章
+                a(href="/passageList/1")
+                    .u-none(ng-class="{'u-none-active' : teacherCenterService.menuIndex == 2}") ● 审核未通过

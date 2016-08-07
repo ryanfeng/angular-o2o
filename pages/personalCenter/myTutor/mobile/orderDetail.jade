@@ -1,0 +1,31 @@
+.mobile-orderDetail
+    .app
+        .g-title
+            img.u-close(src="http://image.1yingli.cn/img/new/mobile-close.png" ng-click="back()")
+            .m-tt-content
+                .m-tt-img
+                    img.u-tt-img(ng-src="{{data.teacherUrl?data.teacherUrl:(data.iconUrl?data.iconUrl:'http://image.1yingli.cn/img/img.png')}}")
+                    .u-tt-name {{data.teacherName?data.teacherName:data.name}}
+                .m-tt-show
+                    .u-show-tt {{data.title}}
+                    .u-show-price 原价：{{data.price}}元/{{data.numeral}}{{data.quantifier}}
+                    .u-show-price 实际付款：{{data.originPrice}}元
+        .g-content
+            .m-content-title
+                img.u-content-img(src="http://image.1yingli.cn/img/new/question.png")
+                .u-content-title 学员提的问题：
+            .m-textarea {{data.question}}
+            .m-content-title
+                img.u-content-img(src="http://image.1yingli.cn/img/new/problem.png")
+                .u-content-title 学员目前状况：
+            .m-textarea {{data.userIntroduce}}
+            .m-content-title
+                img.u-content-img(src="http://image.1yingli.cn/img/new/time.png")
+                .u-content-title 预约时间：
+            .m-input {{data.okTime != ''? data.okTime : data.selectTimes}}
+        .g-bottom
+            .u-bt-tt 联系方式
+            .u-bt-tel 电话：{{data.phone}}
+            .u-bt-wx 微信：{{data.contact}}
+            .u-bt-email 邮箱：{{data.email}}
+        .g-unmber 订单号：{{data.orderId}}

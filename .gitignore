@@ -1,0 +1,15 @@
+.idea
+/bower_components
+/node_modules
+/yiyingli.js
+/app.js
+/redirect.js
+/redirect-new1.js
+*.html
+/*.css
+/pages/**/*.css
+*.css.map
+/gulpfile.js
+/deploy
+/docs
+/config.js

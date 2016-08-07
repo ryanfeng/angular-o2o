@@ -1,0 +1,36 @@
+.pc-protocol{
+  .g-main{
+    background: #eff3f5;
+    padding-top: 30px;
+    padding-bottom: 60px;
+    color: #9aabb8;
+    font-size: 15px;
+    .g-content{
+      background: #ffffff;
+      width: 860px;
+      padding:111px 60px 148px;
+      line-height: 25px;
+      margin: 0 auto;
+      .p-t {
+        width: 100%;
+        font-size: 25px;
+        color: #33495f;
+        height: 25px;
+        margin-bottom: 40px;
+        label{
+          border-left: 4px solid #33495f;
+          margin-right: 10px;
+          height: 25px;
+          display: inline-block;
+          float: left;
+        }
+        span{
+          display: inline-block;
+          height: 25px;
+          position: relative;
+          top: -2px;
+        }
+      }
+    }
+  }
+}

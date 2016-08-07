@@ -1,0 +1,21 @@
+doctype html
+html(ng-app="app" lang="zh" xmlns:wb="http://open.weibo.com/wb")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport" content="initial-scale=1, width=device-width,height=device-height, maximum-scale=1, user-scalable=no")
+        meta(name="apple-mobile-web-app-capable" content="yes")
+        meta(name="msapplication-tap-highlight" content="no")
+        title(ng-bind="metatags.title?metatags.title:'一英里 - 一对一经验交易平台'") 一英里 - 一对一经验交易平台
+        meta(name="description" content="{{ metatags.description?metatags.description:'「一英里」专注于一对一咨询，致力于打造最便捷畅通的大学生线上交流平台，打破信息不对称的壁垒，轻松连接高校名企精英与万千追梦学子。' }}")
+        meta(name="robots" content="{{ metatags.robots?metatags.robots:'index, follow' }}")
+        meta(name="keywords" content="{{ metatags.keywords?metatags.keywords:'咨询,求职,经验,解决问题,世界名校,一对一' }}")
+        meta(name="fragment" content="!")
+        link(rel="stylesheet" href="/yiyingli.css")
+        link(rel="Shortcut Icon" href="http://image.1yingli.cn/img/logo0.png")
+        link(rel="Bookmark" href="http://image.1yingli.cn/img/logo0.png")
+        link(rel="stylesheet" href="/css/johndyer/mediaelementplayer.min.css")
+        script(type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js")
+        script(type="text/javascript" src="/yiyingli.js")
+    body
+        .ui-prevent-touchmove-defaults(ng-view)
+        ng-include(src="'/pages/common/alert/alert.html'")

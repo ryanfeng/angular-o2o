@@ -1,0 +1,41 @@
+.pc-forget
+    .g-body
+        .g-content
+            a(ng-click="closeForm();")
+                img.m-close(src="http://image.1yingli.cn/img/new/guan.png")
+            .m-form-title 找回密码
+            form.g-form(novalidate name="myform")
+                p.s-l-m
+                    label.s-l-m-ph(ng-click="isSelectPhone=false" ng-class="{'s-l-m-ph-active':!isSelectPhone}")
+                        span.s-l-m-ph-img
+                        span 手机号
+                    label.s-l-m-em(ng-click="isSelectPhone=true" ng-class="{'s-l-m-em-active':isSelectPhone}")
+                        span.s-l-m-em-img
+                        span 邮箱
+                .m-select(ng-mouseleave="isShowCountry=false;" ng-show="!isSelectPhone")
+                    .u-select(ng-click="isShowCountry = !isShowCountry;")
+                        img.select-country(ng-src="{{country.flag}}")
+                        label#phoneCode {{country.code}}
+                        img.select-sub(src="http://image.1yingli.cn/img/new/select-arrow.png")
+                        label |
+                    ul.u-select-ul(ng-if="isShowCountry" )
+                        li.u-select-li(ng-click="selectCountry($index);" ng-repeat="country in countrys")
+                            img.select-country(ng-src="{{country.flag}}")
+                            label {{country.code}}
+                p.m-form-p1
+                    input.u-user(type="text" ng-class="{'short-input':!isSelectPhone}" placeholder="{{!isSelectPhone?'手机号':'邮箱'}}" name="username" ng-model="username" ng-change="isNameVa = true")
+                p.u-has-error(ng-show="!isNameVa") 请输入手机号或邮箱!
+                p.m-form-p2
+                    input.u-user(ng-attr-type="{{showPass?'text':'password'}}" placeholder="输入新密码" name="password" ng-model="password" ng-change="isPassVa = true")
+                    span.l-pass-img(ng-class="{'l-pass-img-avtive':showPass}" ng-click="showPass = !showPass")
+                p.u-has-error(ng-show="!isPassVa") 密码必须6~20字符,不能全是数字!
+                p.m-form-p3
+                    input.u-user(ng-attr-type="{{showCoPass?'text':'password'}}" placeholder="确认新密码" name="repassword" ng-model="repassword" ng-change="isRePassVa = true")
+                    span.l-pass-img(ng-class="{'l-pass-img-avtive':showCoPass}" ng-click="showCoPass = !showCoPass")
+                p.u-has-error(ng-show="!isRePassVa") 密码必须6~20字符,不能全是数字!
+                p
+                    input.u-validate(type="text" placeholder="6位验证码" name="validateCode" ng-model="validateCode" ng-change="isCodeVa = true")
+                    button.u-validate-button(ng-click="getValidateCode();") {{codeString}}
+                p.u-has-error(ng-show="!isCodeVa") 输入验证码!
+                p.m-form-footer 修改完成后请妥善保管您的密码
+                button.u-form-revise(ng-click="submitPassModify()") 确认修改

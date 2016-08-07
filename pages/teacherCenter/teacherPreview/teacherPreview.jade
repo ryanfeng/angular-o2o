@@ -1,0 +1,90 @@
+.pc-teacherNew.pc-teacherPreview {
+    .header
+        ng-include(src="'/pages/common/header/header.html'")
+    .contrain
+        .bg-img(style="background:url({{(teacher.bgUrl)?teacher.bgUrl:person_bg}});background-size: cover;")
+        .c-main
+            .main-left
+                .m-block.l-info
+                    img.p-img(ng-src='{{teacher.iconUrl}}')
+                    p.p-name {{teacher.name}}
+                    p.p-record {{teacher.simpleinfo}}
+                    p.p-address {{teacher.address}}
+                    .u-theme
+                        img(ng-repeat="resource in teacher.resources" ng-src="{{resource.flag?resource.srcPC:resource.srcPCNo}}", ng-class="{'lastthme': $last}")
+                    label.p-like(ng-click="likeOrDisTeacher();" ng-class="{'p-like-active':isLikeTeacher}")
+                    label.p-xj.p-numebr
+                        p 想见
+                        label {{teacher.likeNo}}
+                    label.p-jg.p-numebr
+                        p 见过
+                        label {{teacher.finishNo}}
+                .m-block.l-score
+                    ul
+                        li
+                            p 好评率
+                            label {{teacher.praiseRatio * 100 | number:2}}%
+                        li
+                            p 响应率
+                            label {{teacher.answerRatio * 100 | number:2}}%
+                        li.last-li
+                            p 响应时间
+                            label {{teacher.answerTime / 3600 | number:2}}小时
+                p.l-title 经历
+                .m-block.l-exprience
+                    .e-block(ng-repeat='studyEx in teacher.studyExperience')
+                        p.e-b-name {{studyEx.schoolName}}
+                        p.e-b-info {{studyEx.major + &quot;&nbsp;&nbsp;&quot; + studyEx.degree}}
+                        p.e-b-time {{studyEx.startTime | dateFormatTime}} - {{studyEx.endTime | dateFormatTime}}
+                    .e-block(ng-repeat='workEx in teacher.workExperience')
+                        p.e-b-name {{workEx.companyName}}
+                        p.e-b-info {{workEx.position}}
+                        p.e-b-time {{workEx.startTime | dateFormatTime}} - {{workEx.endTime | dateFormatTime}}
+            .main-right
+                .m-block.r-about-ta
+                    .m-top
+                        label.m-t-title 关于TA
+                        label.m-yls
+                            span {{teacher.mile}}
+                            | 英里
+                        img.yls-img(ng-click="" src="http://image.1yingli.cn/img/new/yls.png")
+                    .m-c
+                        .bootStrap.u-content(ng-bind-html="teacher.introduce | to_trusted" ng-class="{'u-content-all':showAll}")
+                        .u-content-cover(ng-class="{'u-content-cover-none' : showAll}")
+                    .m-fx
+                        label.fx-title 分享
+                        img.u-weibo(ng-src="{{isWB?'http://image.1yingli.cn/img/new/weibo-pc1.png':'http://image.1yingli.cn/img/new/weibo-pc.png'}}" ng-mouseenter="isWB = true;" ng-mouseleave="isWB = false;")
+                        img.u-weixin(ng-src="{{isWX?'http://image.1yingli.cn/img/new/weixin-pc1.png':'http://image.1yingli.cn/img/new/weixin-pc.png'}}"
+                                    ng-mouseenter="isWX = true;showQRCode=true; makeQrCode();"
+                                    ng-mouseleave="isWX=false;showQRCode=false;")
+                        img.u-showArrow(ng-show="!showArrow" src="{{showAll?'http://image.1yingli.cn/img/new/arrow-up.png':'http://image.1yingli.cn/img/new/arrow-down.png'}}" ng-click="showAll = !showAll")
+                    .m-ds
+                        label.ds-bt 赏
+                        label.ds-num 已有15人打赏
+                .m-block.r-about-ta.r-talk
+                    .m-top
+                        label.m-t-title TA的闲聊
+                    .m-c.m-c-talk
+                        .u-xl
+                            label.xl-title {{teacher.topic}}
+                            label.xl-score
+                                span {{teacher.score | number:2}}
+                                | 分
+                            label.xl-bt(ng-click="makeAppoint();") 立即约见
+                            label.xl-price
+                                | ¥
+                                span {{teacher.price}}
+                                | /20分钟
+                .m-block.r-services(ng-controller="TeacherServiceController")
+                    .m-top.m-t-topic
+                        label.m-t-title TA的服务
+                    .m-t-No 不支持预览
+                .m-block.r-pj-wz
+                    .m-top.m-t-topic
+                        label.m-t-title 导师文章
+                    div(ng-controller="TeacherArticleController")
+                        div
+                            .m-t-No 不支持预览
+    .m-back-button(ng-click="back()") 返回
+    ng-include(src="'/pages/common/layerOrderInfo/orderinfo.html'")
+    ng-include(src="'/pages/common/footer/footer.html'")

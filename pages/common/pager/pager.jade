@@ -1,0 +1,10 @@
+.pc-pager
+   .g-page-number(ng-show="data && data.totalPage > 0")
+      //.u-btnStart(ng-click="currentPage!=1?changePage(1):undefined")
+      .u-btnLast(ng-click="currentPage!=1?changePage(currentPage - 1):undefined")
+      .u-pager(ng-repeat="page in data.totalPageArray track by $index")
+         .u-ellipsis(ng-if="(currentPage - 1 >3) && ($index == 1)")  ...
+         .u-page(ng-class="{'u-active' : $index + 1 == currentPage}" ng-click="changePage($index + 1)" ng-if="($index + 1 == data.totalPage)||($index + 1 == 1)||(currentPage - $index - 1  > -3 && currentPage - $index - 1  < 3) || ($index + 1 - currentPage > -3 && $index + 1 - currentPage < 3)") {{$index + 1}}
+         .u-ellipsis(ng-if="data.totalPage - currentPage >3 && ($index == data.totalPage - 2)")  ...
+      .u-btnNext(ng-click="currentPage != data.totalPage?changePage(currentPage + 1):undefined")
+      //.u-btnEnd(ng-click="currentPage != data.totalPage?changePage(data.totalPage):undefined")

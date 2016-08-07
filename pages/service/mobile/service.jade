@@ -1,0 +1,148 @@
+.mobile-service
+    ng-include(src="'/pages/common/header/mobile/sidebars.html'")
+    ng-include(src="'/pages/common/header/mobile/header.html'")
+    .app
+        #slide.g-header
+            .cc.tibooslider
+                #slideul.cc
+                    .m-header(ng-repeat="url in service.imageUrls.split(',')"
+                    style="background-image:url({{(url)?url:person_bg | changeImageToServiceStyle}});"
+                    ng-swipe-left="showTopNext('#slide')" ng-swipe-right="showTopPre('#slide')"
+                    ng-class="{'m-header-disable': $index>0}" ng-click="showBigImg(url,$index);")
+                .titCell
+                    div
+                        span.li(ng-repeat="url in service.imageUrls.split(',')")
+                .prev
+                .next
+        .g-ct
+            .m-title
+                .m-order
+                    .u-order-tt
+                        .u-tt-show {{serviceService.kindTips[service.kind].text}}
+                        label.u-tt-title {{service.title}}
+                    .u-order-summary {{service.summary}}
+                    .u-order-price ¥{{service.onsale=='true'?service.priceTemp:service.price}}
+                        span /{{service.numeral}}{{service.quantifier}}
+                    .u-order-score(ng-show="service.score >= 5") {{service.score}}
+                        span 分
+                    .u-order-score(ng-show="service.score < 5")
+                        span.u-price-span 暂无评分
+                    .m-score
+                        .u-see {{service.finishNo}}人见过
+                        .u-want {{service.likeNo}}人想见
+                .m-detail
+                    .m-left 详情
+                    .m-right
+                        .u-name(ng-show="service.talkWay == 1")
+                            label 约见地点
+                            span {{service.address}}
+                        .u-name(ng-show="service.talkWay == 0")
+                            label 约见地点
+                            span 线上约见
+                        .u-name
+                            label 可约次数
+                            span {{service.count}} 次
+                        .u-name
+                            label 空闲时间
+                            span {{service.freeTime}}
+                .m-feature
+                    .m-left 特点
+                    .m-right
+                        .m-right-box(ng-repeat="tip in service.tips" ng-show="tip")
+                            img(src="http://image.1yingli.cn/img/new/gou.png")
+                            .u-name {{serviceService.kindTips[service.kind].data[tip - 1]}}
+                .m-show
+                    .m-good
+                        .u-h-score(ng-show="service.praiseRatio >= 0.3") {{service.praiseRatio * 100 | number:1}}%
+                        .u-h-score(ng-show="service.praiseRatio < 0.3") 暂无
+                        .u-h-name 好评率
+                    .m-respond
+                        .u-h-score(ng-show="service.answerRatio >= 0.3") {{service.answerRatio * 100 | number:1}}%
+                        .u-h-score(ng-show="service.answerRatio < 0.3") 暂无
+                        .u-h-name 响应率
+                    .m-day
+                        .u-h-score(ng-show="service.answerTime != 0") {{service.answerTime / 3600 | number:1}}天
+                        .u-h-score(ng-show="service.answerTime == 0") 暂无
+                        .u-h-name 响应时间
+                .m-division
+                .m-hd-about
+                    .u-topic-on(ng-click="isAbout = false" ng-class="{'u-active':!isAbout}") 服务介绍
+                    .u-topic(ng-click="isAbout = true" ng-class="{'u-active':isAbout}") 关于TA
+                .m-bd-about
+                    p.u-content.bootStrap(ng-show="!isAbout" ng-bind-html="service.content | to_trusted" ng-class="{'u-content-all':isShowTA}")
+                    p.u-content.bootStrap(ng-show="isAbout" ng-bind-html="teacher.introduce | to_trusted" ng-class="{'u-content-all':isShowTA}")
+                    .m-division-block(ng-if="!isShowTA")
+                    .m-division-block-btn(ng-click="isShowTA=!isShowTA;") {{!isShowTA ?'点击展开':'收起'}}
+                .m-division
+                .m-hd-comment
+                    span.u-blue-block
+                    span.u-topic 评论
+                    span.u-comment-number 收到{{data.count}}条评论
+                .m-bd-comment
+                    .u-list(ng-repeat='comment in data.data')
+                        .u-one-hd
+                            img.u-face(ng-src="{{comment.iconUrl?comment.iconUrl:person_img}}")
+                            .m-left
+                                .u-left-name(ng-bind="comment.nickName")
+                                .u-left-lab(ng-bind="comment.createTime | date:'yyyy-MM-dd'")
+                            img.u-start(ng-src="http://image.1yingli.cn/img/star-y.png", ng-repeat="sc in comment.score track by $index" ng-class="{'u-start-first': $first}")
+                        .u-server-title {{comment.serviceTitle}}
+                        .u-one-bd(ng-bind="comment.content")
+                    ng-include(src="'/pages/common/pager/mobile/pager.html'")
+                .m-division
+                .m-personal
+                    a(ng-href="/teacher/{{teacher.teacherId}}")
+                        img.u-img(ng-src="{{teacher.iconUrl}}")
+                        .m-p-info
+                            .u-name {{teacher.name}}
+                            .u-position {{teacher.simpleinfo}}
+                    .m-personal-score
+                        .m-left
+                            .u-num {{teacher.finishNo}}
+                            .u-word 见过
+                        .m-right
+                            .u-num  {{teacher.likeNo}}
+                            .u-word 想见
+                .m-hd-record
+                    .u-list(ng-repeat='studyEx in teacher.studyExperience')
+                        p.u-list-record {{studyEx.schoolName}}  {{studyEx.major + &quot;&nbsp;&nbsp;&quot; + studyEx.degree}}
+                        p.u-list-time {{studyEx.startTime | dateFormatTime}} - {{studyEx.endTime | dateFormatTime}}
+                    .u-list(ng-repeat='workEx in teacher.workExperience')
+                        p.u-list-record {{workEx.companyName}}  {{workEx.position}}
+                        p.u-list-time {{workEx.startTime | dateFormatTime}} - {{workEx.endTime | dateFormatTime}}
+                .m-division
+    .app.m-bottom
+        .m-teacher(ng-show="isShowCount")
+            label.u-add(ng-click="serviceCount>1?serviceCount = serviceCount - 1:''") -
+            input.u-num(ng-model="serviceCount" type="text" ng-blur="formatIntegerMobile(serviceCount);")
+            label.u-minus(ng-click="service.count>serviceCount?serviceCount = serviceCount + 1:''") +
+            label.u-btn(ng-click="isShopping?addMobileShopping():makeMobileAppoint()") 确定
+        .m-share-block(ng-show="isShare")
+            label.u-title-share 分享至
+            a.m-wbshare#wbshare(target="_blank")
+                img.u-wb-share(src="http://image.1yingli.cn/img/new/weibo-pc1.png")
+            img.u-wx-share(src="http://image.1yingli.cn/img/new/weixin-pc1.png" ng-click="isWXMask=true")
+        .m-share
+            img(src="http://image.1yingli.cn/img/new/share_ui.png" ng-click="isShare = !isShare; isShowCount = false")
+            .u-bt-name 分享
+        .m-collect
+            img(ng-src="{{isLikeServicePro?'http://image.1yingli.cn/img/new/mo-likelist.png':'http://image.1yingli.cn/img/new/collect_ui.png'}}" ng-click="likeServer()")
+            .u-bt-name 收藏
+        .u-add(ng-click="showCountBlock();isShopping = true; isShare = false") 加入购物车
+        .u-order(ng-click="showCountBlock();isShopping = false; isShare = false") 立即预约
+    .app
+        ng-include(src="'/pages/common/footer/mobile/footer.html'")
+    .mask(ng-show="isWXMask" ng-click="isWXMask = !isWXMask")
+        .text
+            | 请点击右上角<br>发送给朋友或分享到朋友圈<br>让更多人看到
+        img(src="http://image.1yingli.cn/photo/quan.png")
+    .mask-img(ng-show="imgIsShow" ng-click="imgIsShow = false;" style="line-height:{{windowHeight}}px")
+        img(ng-src="{{bigImg | changeImageToServiceStyle}}" ng-swipe-left="leftBigImg()" ng-swipe-right="rightBigImg()")
+    .m-introduce-button(ng-click="showIntroduce=true")
+        img.u-button(src="http://image.1yingli.cn/img/new/introduce-man2.png")
+        //img.u-mark(src="http://image.1yingli.cn/img/new/introduce-question.png" ng-class="{'u-mark-active': showIntroduce!=true}")
+        img.u-cloud(src="http://image.1yingli.cn/img/new/introduce-cloud.png")
+        img.u-slogan(src="http://image.1yingli.cn/img/new/introduce-slogan.gif")
+    .mask2(ng-show="showIntroduce")
+        img.u-close(src="http://image.1yingli.cn/img/new/close_green.png" ng-click="showIntroduce=false")
+        img.u-introduce(src="http://image.1yingli.cn/img/new/introduce.png")

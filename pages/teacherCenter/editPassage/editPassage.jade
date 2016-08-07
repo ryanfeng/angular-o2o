@@ -1,0 +1,45 @@
+.pc-editPassage
+    .hd
+        ng-include(src="'/pages/common/header/header.html'")
+    .g-title
+        .m-title-root
+            a(href="/") 一英里
+            | &nbsp;>&nbsp;
+            a(href="/myTutor") 个人中心
+            | &nbsp;>&nbsp;
+            a(href="/myStudent") 导师中心
+            | &nbsp;>&nbsp;
+        .m-title-now 我的文章
+    .g-content
+        ng-include(src="'/pages/teacherCenter/centerLeft/centerLeft.html'")
+        .g-content-right
+            .m-right-title 我的文章 | 写文章
+            .m-titleE
+                .u-name 标题
+                input.u-title(type="text" ng-model="passageService.title" placeholder="请输入标题")
+            .m-brief
+                .u-name 简介
+                textarea.u-summary(placeholder="请输入简介" ng-model="passageService.summary")
+            .m-content
+                .u-name 正文
+                .bootStrap
+                    div(text-angular="text-angular" name="htmlContent" ng-model="passageService.passage")
+            .m-tag
+                .u-name 标签
+                tags-input.u-tags-input(ng-model="passageService.tags" placeholder="请输入标签" min-length="1" add-on-space="true")
+            .m-img
+                .u-name 封面
+                .m-addImg(type="file" ngf-select="upLoadCover($file, $invalidFiles)")
+                    .m-add-img(ng-show="passageService.coverUrl == ''")
+                        .u-add-introduce 点击添加封面
+                        img.u-add-show(src="http://image.1yingli.cn/img/new/addimg.jpg")
+                    img.m-cover(ng-src="{{passageService.coverUrl}}" ng-show="passageService.coverUrl != ''"
+                    ng-mouseover="show=true" ng-mouseleave="show=false")
+                    .u-add-introduce(ng-show="show==true" ng-mouseover="show=true" ng-mouseleave="show=false") 点击更改封面
+                    img.u-add-show(ng-show="show==true" src="http://image.1yingli.cn/img/new/addimg.jpg" ng-mouseover="show=true" ng-mouseleave="show=false")
+                    .u-mark(ng-show="show==true" ng-mouseover="show=true" ng-mouseleave="show=false")
+            .u-hr
+            .m-buttons
+                .u-button(ng-click="passageService.createPassage()") 发布
+                .u-button(ng-click="passageService.createToPreview()") 预览
+    ng-include(src="'/pages/common/footer/footer.html'")

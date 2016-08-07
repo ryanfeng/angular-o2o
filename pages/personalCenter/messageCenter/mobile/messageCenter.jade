@@ -1,0 +1,18 @@
+.mobile-message-center
+    ng-include(src="'/pages/common/header/mobile/sidebars.html'")
+    ng-include(src="'/pages/common/header/mobile/header.html'")
+    .app
+        .g-center
+            .g-center-topic(ng-controller="PersonalController")
+                img(src="http://image.1yingli.cn/img/new/message.png")
+                label 消息中心
+            .g-center-remind
+                .m-center-remind(ng-repeat="notice in data.data")
+                    label.u-ct-date {{notice.time | date:'yyyy/MM/dd' : '+0800'}}
+                    label.u-ct-time {{notice.time | date:'HH:mm:ss' : '+0800'}}
+                    .u-ct-mess(ng-bind-html="notice.title | to_trusted" ng-class="{'u-ct-mess-all': notice.hide == true}")
+                    img.m-center-remind-img(ng-src="{{notice.hide?'http://image.1yingli.cn/img/new/arrow-up.png':'http://image.1yingli.cn/img/new/arrow-down.png'}}" ng-click="notice.hide = !notice.hide;")
+                .m-empty(ng-show="!data || !data.data || data.data.length < 1")
+        ng-include(src="'/pages/common/pager/mobile/pager.html'")
+    ng-include(src="'/pages/common/footer/mobile/footer.html'")
+

@@ -1,0 +1,40 @@
+.mobile-shopping
+    ng-include(src="'/pages/common/header/mobile/sidebars.html'")
+    ng-include(src="'/pages/common/header/mobile/header.html'")
+    .app.m-block
+        .m-box(ng-repeat="oneShopping in shopping")
+            .u-top
+                .u-t-b(ng-click="selectAll(oneShopping.teacherId);")
+                    span.u-t-radio(ng-class="{'u-t-radio-active':oneShopping.isCheck}")
+                 a(href="/teacher/{{oneShopping.teacherId}}")
+                    img.u-img(ng-src="{{oneShopping.iconUrl}}")
+                .u-bt(ng-click="isEdit = !isEdit") {{isEdit?'完成':'编辑'}}
+                label.u-name {{oneShopping.name}}
+                label.u-info {{oneShopping.simpleinfo}}
+            .u-service(ng-repeat="service in oneShopping.services")
+                .u-t-b
+                    label.u-t-check(ng-class="{'u-t-check-active':service.isCheck}" ng-click="saveService(service.serviceProId, oneShopping.teacherId);")
+                a(ng-href="/service/{{service.serviceProId}}")
+                    img.u-img(ng-src="{{service.data.imageUrls.split(',')[0] | changeImageToServiceStyle}}")
+                .u-t-show-b(ng-show="!isEdit")
+                    .u-title(ng-click="lookOrder(service.serviceProId);") {{service.data.title}}
+                    .u-con(ng-click="lookOrder(service.serviceProId);") {{service.data.summary}}
+                    .u-tag 服
+                    .u-number × {{service.count}}
+                    .u-price ¥{{service.data.price}}/{{service.data.numeral+service.data.quantifier}}
+                .u-t-edit-b(ng-show="isEdit")
+                    label.u-add(ng-click="(1 < service.count)?service.count=service.count-1:''") -
+                    label.u-number {{service.count}}
+                    label.u-del(ng-click="(service.data.count > service.count)?service.count = service.count+1:''") +
+                    .u-delete(ng-click="deleteService(service.serviceProId)") 删除
+                    p.u-con {{service.data.summary}}
+        img.u-none-img(src="http://image.1yingli.cn/img/new/empty.png" ng-show="shopping == undefined || shopping.length <=0")
+        ng-include(src="'/pages/common/pager/mobile/pager.html'")
+    .app.u-bottom(ng-show="shopping.length >0")
+        label.u-topic 已选服务{{chooseServiceNum}}件
+        label.u-total-bt(ng-click="balanceAll();") 结算
+        label.u-total-price
+            |合计：¥
+            span {{allMoney}}
+    .app
+        ng-include.app(src="'/pages/common/footer/mobile/footer.html'")

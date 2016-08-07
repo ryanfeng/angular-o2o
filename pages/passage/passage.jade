@@ -1,0 +1,84 @@
+.pc-passage
+    .hd
+        ng-include(src="'/pages/common/header/header.html'")
+    .g-mn
+        .g-ct
+            .g-ct-hd
+                .u-title {{passage.title}}
+                .u-date-time {{passage.createTime | date: 'yyyy-MM-dd HH:mm': '+0800'}}
+                .u-author 作者：
+                    a(ng-href="/teacher/{{passage.teacherId}}" title="{{passage.teacherName}} - {{passage.simpleinfo}}")
+                        span.u-name {{passage.editorName}}
+            .m-passage
+                .bootStrap(ng-bind-html="passage.content | to_trusted")
+                .u-vote-l 浏览量：{{passage.lookno}}
+            .g-ct-bt
+                .m-tags(ng-if="passage.tag")
+                    span(ng-show="passage.tag") 标签：
+                    .u-tag(ng-show="passage.tag" ng-repeat="tag in passage.tag.split(',')" ) {{tag}}
+                .m-b-bt-f
+                    .m-share
+                        .u-share
+                            | 分享到：
+                            a#wbshare
+                                img.sh-img(ng-src="{{weiboUrl}}" ng-mouseenter="weiboUrl='http://image.1yingli.cn/img/new/weibo-share-hover.png'" ng-mouseleave="weiboUrl='http://image.1yingli.cn/img/new/weibo-share.png'")
+                            img.sh-img(ng-src="{{weixinUrl}}" ng-mouseenter="makeQrCode(); weixinUrl='http://image.1yingli.cn/img/new/weixin-share-hover.png';" ng-mouseleave="showQRCode=false; weixinUrl='http://image.1yingli.cn/img/new/weixin-share.png';")
+                            .u-vote-qrcode#qrcode(ng-class="{'u-vote-qrcode-active':showQRCode}")
+                    span(ng-show="passage.onReward != 'false'")
+                        label.u-donation(ng-click="isRaward = !isRaward") 赏
+                        label.u-donation-text 已有{{passage.rewardNumber}}人打赏
+                    .m-block(ng-show="isRaward")
+                        span 金额：
+                        input(ng-model="money" type="text" ng-change="isValidate = false" ng-class="{'errorMessage': isValidate}")
+                        .u-button(ng-click="submitForm();") 确定
+                        span.u-yuan 元
+                    .m-vote
+                        .u-vote(ng-click="likePassage()")
+                            .b-img
+                            | 赞
+                            | {{passage.likeno}}
+            .g-ct-tj
+                .tj-h
+                    label.tj-h-t 相关文章
+                .tj-b(ng-repeat="passage in passages")
+                    img.b-img(ng-src="{{passage.imageUrl}}")
+                    .b-con {{passage.title}}
+                    .n-time {{passage.createTime | date: 'yyyy-MM-dd HH:mm': '+0800'}}
+                    .n-content {{passage.summary}}
+                    a.n-detail(ng-click="nextAboutPassage(passage.passageId)"
+                    title="{{passage.title}}"
+                    ng-href="/passage/{{passage.passageId}}") 查看详情>>
+    .m-photo
+        img.u-photo(ng-src="{{passage.teacherIcon}}")
+        span.u-name {{passage.teacherName}}
+        .u-simpleinfo {{passage.simpleinfo.split(" ")[0]}}
+        .u-simpleinfo {{passage.simpleinfo.split(" ")[1]}}
+        a(ng-href="/teacher/{{passage.teacherId}}" title="{{passage.teacherName}} - {{passage.simpleinfo}}")
+            img.u-btn(src="http://image.1yingli.cn/img/new/btn.gif")
+            .u-btn-s(ng-show="false")
+    .g-mask(ng-show="showPayStyle || showWxPay" ng-click="hide()")
+    .g-choosePay(ng-show="showPayStyle")
+        .m-title 确认付款，请选择您支付的方式
+            .m-form(ng-init="payMethod=1")
+                .m-choose(ng-click="payMethod = '1'")
+                    input.u-input(type="radio" ng-model="payMethod" value='1')
+                    img.u-pay-img(src="http://image.1yingli.cn/img/pay_01.png")
+                .m-choose(ng-click="payMethod = '3'")
+                    input.u-input(type="radio" ng-model="payMethod" value='3')
+                    img.u-pay-img(src="http://image.1yingli.cn/img/pay_03.jpg")
+            .m-confirm
+                form.u-form(name='myForm' id="myForm" action='{{payUrl[3] | trustUrl}}', method='post', accept-charset="utf-8")
+                    input(name="money" type='hidden' ng-value="money")
+                    input(size='30', name='uid', value='{{sessionService.user.uid}}', type='hidden')
+                    input(size='30', name='teacherName', type='hidden', value='{{nameEncode(passage.teacherName)}}')
+                    input(size='30', name='callback', type='hidden', value="{{urlCallback}}")
+                    input(size='30', name='teacherId', type='hidden', value='{{passage.teacherId}}')
+                    input(size='30', name='passageId', type='hidden', value='{{passage.passageId}}')
+                    input.u-button(type='submit' value="确定" ng-show="payMethod!=3")
+                .u-button(ng-click="wxPay()" ng-show="payMethod==3") 确定
+                .u-button(ng-click="hide()") 取消
+    .g-wxPay(ng-show="showWxPay")
+        .m-title 请扫码二维码支付
+            #wxcode.u-qrcode
+            .u-button(ng-click="refresh()") 完成支付
+    ng-include(src="'/pages/common/footer/footer.html'")

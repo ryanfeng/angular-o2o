@@ -1,0 +1,26 @@
+.mobile-theme
+    ng-include(src="'/pages/common/header/mobile/sidebars.html'")
+    ng-include(src="'/pages/common/header/mobile/header.html'")
+    .app
+        .g-bk
+            img.u-bk(ng-src="{{bg}}")
+        .g-ct
+            .m-server-box(ng-repeat="teacher in teachers")
+                a(ng-href="/service/{{teacher.serviceProId}}")
+                    img.u-box-img(ng-src="{{teacher.imageUrls.split(',')[0] | changeImageToServiceStyle}}")
+                    .m-box-right
+                        .m-right-tt {{teacher.title}}
+                            .u-tt-show {{serviceService.kindTips[teacher.kind].text}}
+                        .u-right-name {{teacher.teacherName}}
+                        .m-right-post {{teacher.teacherSimpleInfo}}
+                        .m-right-price ¥{{teacher.onsale=='true'?teacher.priceTemp:teacher.price}}/{{teacher.numeral + teacher.quantifier}}
+                    .m-score(ng-show="teacher.score >= 5") {{teacher.score}}
+                        span 分
+                    .m-score(ng-show="teacher.score < 5")
+                        span 暂无评分
+                    .u-server-want 成交
+                        span {{teacher.finishNo}}
+                        | 笔
+            a.u-more(ng-href="/search?tips={{themeService.serviceConfig[themeId].tid}}" ng-show="flag") 查看更多服务
+        ng-include(src="'/pages/common/pager/mobile/pager.html'" ng-show="!flag")
+        ng-include(src="'/pages/common/footer/mobile/footer.html'")

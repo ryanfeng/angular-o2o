@@ -1,0 +1,171 @@
+.pc-addServer
+    .hd
+        ng-include(src="'/pages/common/header/header.html'")
+    .g-title
+        .m-title-root
+            a(href="/") 一英里
+            | &nbsp;>&nbsp;
+            a(href="/myTutor") 个人中心
+            | &nbsp;>&nbsp;
+            a(href="/myStudent") 导师中心
+            | &nbsp;>&nbsp;
+        .m-title-now {{isEdit?"修改服务":'添加服务'}}
+    .g-content
+        ng-include(src="'/pages/teacherCenter/centerLeft/centerLeft.html'")
+        .g-content-right
+            .m-right-title {{isEdit?"修改服务":'添加服务'}}
+                .u-title-back(ng-click="goBack()") < 返回
+            .m-f-title 服务形式
+                span(ng-show="isEdit") 编辑修改服务形式不需要审核
+            .m-server
+                .m-times
+                    .u-name-low 可约次数
+                    .m-box
+                        input.u-times(type="number" min="1" step="1" ng-model="server.count")
+                        span.u-times-option 次
+                        p.u-p(ng-show="count") 必填
+                .m-price
+                    .u-name-low 价格
+                    .m-box
+                        input.u-price(type="number" min="0" step="1" ng-model="server.price")
+                        span.u-price-option 元/
+                        input.u-price(type="number" min="0.5" step="0.5" ng-model="server.numeral")
+                        select.u-select(ng-model="server.quantifier")
+                            option(value="次") 次
+                            option(value="小时") 小时
+                        p.u-p(ng-show="numeral") 必填
+                    .u-example-price 例如：100元/1小时
+                .m-discount
+                    .u-name 是否打折
+                    .m-box
+                        .m-name-box
+                            input.u-type(name="discount" type="radio" ng-value="true" ng-model="server.onsale")
+                            span.u-type-option 是
+                            input.u-type(name="discount" type="radio" ng-value="false" ng-model="server.onsale")
+                            span.u-type-option 否
+                .m-discountP
+                    .u-name-low 折后价格
+                    .m-box
+                        input.u-times(type="number" min="1" step="1" ng-model="server.priceTemp" ng-disabled="!server.onsale")
+                        span.u-times-option 元
+                        p.u-p(ng-show="discountP") 必填
+                .m-freetime
+                    .u-name-low 空闲时间
+                    .m-box
+                        input.u-freetime(type="text" ng-model="server.freeTime")
+                        p.u-p(ng-show="freeTime") 必填
+                .m-shelf
+                    .u-name 是否上架
+                    .m-box
+                        .m-name-box
+                            input.u-type(name="shelf" type="radio" ng-value="true" ng-model="server.onshow")
+                            span.u-type-option 是
+                            input.u-type(name="shelf" type="radio" ng-value="false" ng-model="server.onshow")
+                            span.u-type-option 否
+                hr.m-hr
+                .m-s-title 服务内容
+                    .u-lock(ng-show="isEdit" ng-click="showEdit = !showEdit")
+                        .u-lock-name 编辑修改服务内容需要时间审核
+                        .u-lock-show 点击解锁
+                div(ng-show="!isEdit || showEdit")
+                    .m-type
+                        .u-name 服务类型
+                        .m-box
+                            .m-name-box(ng-repeat="(index,ser) in service.kindTips")
+                                input.u-type(name="type" type="radio" ng-value="index" ng-model="server.kind")
+                                span.u-type-option {{ser.text}}
+                    .m-label
+                        .u-name 特色标签
+                        .m-box
+                            .m-label-box(ng-repeat="(index,data) in service.kindTips[server.kind].data")
+                                input.u-label(name="label" type="checkbox" ng-value="index+1" ng-model="server.tip[index+1]")
+                                span.u-label-option {{data}}
+                            p.u-p(ng-show="tip") 最少选择一项
+                    .m-way
+                        .u-name 服务方式
+                        .m-box
+                            .m-box-way
+                                input.u-way(name="way" type="radio" ng-value="0" ng-model="server.talkWay")
+                                span.u-way-option 线上
+                            .m-box-wayT
+                                input.u-way(name="way" type="radio" ng-value="1" ng-model="server.talkWay")
+                                span.u-way-option 线下
+                                input.u-way-input(ng-disabled="server.talkWay == 0" ng-model="server.address")
+                                p.u-addressP(ng-show="address") 必填
+                    .m-img
+                        .u-name-low 图片展示
+                        .m-box-img
+                            .m-add-img(ng-repeat="(index,url) in server.imageUrls")
+                                img.u-img(ng-src="{{url}}" ng-mouseover="sha=true")
+                                .u-shadow(ng-show="sha == true" ng-mouseleave="sha=false")
+                                    .u-del(ng-click="del(index)") 删除
+                            .m-add-img(ngf-select="modifyPersonPortrait($file, $invalidFiles)"
+                            accept="image/*" ngf-max-size="10MB" ng-hide = "server.imageUrls.length == 5")
+                                .u-add-introduce(ng-show = "server.imageUrls.length == 0") 点击添加图片第一张为封面
+                                img.u-add-show(src="http://image.1yingli.cn/img/new/addimg.jpg" ng-show = "server.imageUrls.length == 0")
+                                .m-sign(ng-show = "server.imageUrls.length != 0")
+                                    .u-heng
+                                    .u-shu
+                            p.u-imgP(ng-show="imageUrls") 至少选择上传一张图片
+                        .u-example-img 已添加张数{{server.imageUrls.length}}/5
+                    .m-stitle
+                        .u-name-low 服务标题
+                        .m-box
+                            input.u-stitle(type="text" ng-model="server.title")
+                            p.u-p(ng-show="title") 必填
+                        .u-example 例如：100元/1小时
+                    .m-brief
+                        .u-name-low 服务简介
+                        .m-box
+                            textarea.u-brief(type="text" ng-model="server.summary")
+                            p.u-p(ng-show="summary") 必填
+                        .u-example 例如：100元/1小时
+                    .m-introduce
+                        .u-name-low 服务介绍
+                        .m-box
+                            .u-textarea.bootStrap
+                                div(text-angular="text-angular" name="topicContent" ng-model="server.content")
+                            p.u-p(ng-show="content") 必填
+                div(ng-show="isEdit && !showEdit")
+                    .m-type
+                        .u-name 服务类型
+                        .m-box
+                            .m-name-box {{service.kindTips[server.kind].text}}
+                    .m-label
+                        .u-name 特色标签
+                        .m-box
+                            .m-label-box(ng-repeat="(index,data) in service.kindTips[server.kind].data")
+                                span.u-label-option.u-label-option-show(ng-show="server.tip[index+1]") {{data}}
+                    .m-way
+                        .u-name 服务方式
+                        .m-box
+                            .m-box-way(ng-show="server.talkWay == 0")
+                                span.u-way-option.u-way-option-show 线上
+                            .m-box-way(ng-show="server.talkWay == 1")
+                                span.u-way-option.u-way-option-show 线下: {{server.address}}
+                    .m-img
+                        .u-name-low 图片展示
+                        .m-box-img
+                            .m-add-img(ng-repeat="(index,url) in server.imageUrls")
+                                img.u-img(ng-src="{{url}}" ng-mouseover="sha=true")
+                        .u-example-img 已添加张数{{server.imageUrls.length}}/5
+                    .m-stitle
+                        .u-name-low 服务标题
+                        .m-box
+                            .u-stitle.u-stitle-show {{server.title}}
+                    .m-brief
+                        .u-name-low 服务简介
+                        .m-box
+                            .u-brief.u-brief-show {{server.summary}}
+                    .m-introduce
+                        .u-name-low 服务介绍
+                        .m-box
+                            .bootStrap
+                                div(ng-bind-html="server.content | to_trusted")
+                            p.u-p(ng-show="content") 必填
+
+                .m-botton
+                    .u-botton-show(ng-click="toPreview()") 预览
+                    .u-botton-confirm(ng-click="save()") 确认
+                    .u-botton-cancel(ng-click="goBack()") 取消
+    ng-include(src="'/pages/common/footer/footer.html'")

@@ -1,0 +1,70 @@
+.pc-header(ng-controller="HeaderController")
+    .header-hd
+        a(href="/" title="一英里")
+            .f-fl.u-logo
+        .u-search.f-fl
+            angucomplete-alt(id="ex5" placeholder="搜索：导师 / 学校 / 专业" pause="400" text-searching="搜索中……" input-changed="inputChanged"
+            selected-object="changeWord" remote-api-handler="searchAPI" text-no-results="暂无相关结果" on-key-down="onKeyDown"
+            input-class="u-ipt" remote-url-data-field="result" title-field="trim()" origin-string="true" minlength="1")
+            img.f-fl.u-search-img(ng-click="toSearch()" src="http://image.1yingli.cn/img/new/glass_blue.png")
+            div(ng-mouseenter="isShowSelect = true" ng-mouseleave="isShowSelect = false")
+                .m-drop
+                    .u-drop-name {{searchAutoCompleteService.searchType==1?"导师":"服务"}}
+                    img.u-drop-img(src="http://image.1yingli.cn/img/new/arrow-down.png")
+                .m-empty
+                .m-down(ng-show="isShowSelect")
+                    .u-tog
+                    .u-tog-w
+                    .u-down-name(ng-click="searchAutoCompleteService.searchType=0" ng-class="{'u-down-name-active':searchAutoCompleteService.searchType==0}") 服务
+                    .u-down-name(ng-click="searchAutoCompleteService.searchType=1" ng-class="{'u-down-name-active':searchAutoCompleteService.searchType==1}") 导师
+                        // img(src="http://image.1yingli.cn/img/new/current.png" ng-show="searchType==1")
+        ul.f-fr.u-lst(ng-mouseenter="showLogOut = true;" ng-mouseleave="showLogOut = false;")
+            li.u-lst-item.u-lst-main.z-select(ng-mouseenter="isShowThemeClass=true;" ng-mouseleave="isShowThemeClass=false;")
+                label.bd-none-theme 服务分类
+                .block-border(ng-show="isShowThemeClass")
+                ul.u-lst-items(ng-show="isShowThemeClass")
+                    li.u-lst-item-one(ng-repeat="theme in themeService.serviceConfig")
+                        a(ng-href="/theme/{{theme.id}}" analytics-on="click" title="{{theme.name}}"
+                        analytics-category="head" analytics-action="theme" analytics-label="{{theme.id}}")
+                            img(ng-src="{{theme.headerImg1}}" id="blackImgUrl")
+                            img(ng-src="{{theme.headerImg}}" id="whiteImgUrl")
+                            span {{theme.name}}
+            li.u-lst-item.u-lst-item-right2(ng-click="becomeTeacher();" ng-mouseenter="isShowThemeClass1=true;"
+                ng-mouseleave="isShowThemeClass1=false;" ng-hide="sessionService.user && sessionService.user.teacherId")
+                a.bd-left(analytics-category="head" analytics-action="becomeTeacher" analytics-label="0")
+                    label.bd-none 成为导师
+                    .block-border(ng-show="isShowThemeClass1")
+            a(href="/login" ng-if="sessionService.user == undefined")
+                li.u-lst-item(ng-mouseenter="isShowThemeClass2=true;" ng-mouseleave="isShowThemeClass2=false;")
+                    .bd-left
+                        label.bd-none 登录
+                        .block-border(ng-show="isShowThemeClass2")
+            a(href="/register" ng-if="sessionService.user == undefined")
+                li.u-lst-item.z-last(ng-mouseenter="isShowThemeClass3=true;" ng-mouseleave="isShowThemeClass3=false;")
+                    .bd-left
+                        label.bd-none 注册
+                        .block-border(ng-show="isShowThemeClass3")
+            a(href="/shopping" ng-if="sessionService.user != undefined" )
+                li.u-lst-item.z-no-hover.u-lst-item-right
+                    label.shopping-bt
+                    span.shopping-count(ng-bind="shoppingNum"  ng-show="shoppingNum != 0 && shoppingNum < 10")
+                    span.shopping-count-more(ng-show="shoppingNum >= 10")
+            a(href="/messageCenter" ng-if="sessionService.user != undefined" )
+                li.u-lst-item.z-no-hover.u-lst-item-right1.u-lst-item-left
+                    label.message-bt(ng-show="messageNum != 0")
+                    label.message-bt-none(ng-show="messageNum == 0")
+                    span.shopping-count(ng-bind="messageNum" ng-show="messageNum != 0 && messageNum < 10")
+                    span.shopping-count-more(ng-show="messageNum >= 10")
+            a(href="/myTutor" ng-if="sessionService.user != undefined")
+                li.u-lst-item.z-last(ng-mouseenter="isShowThemeClass4=true;" ng-mouseleave="isShowThemeClass4=false;")
+                    .bd-left
+                        label.bd-none
+                            img.lo-face(ng-src="{{sessionService.user.iconUrl?sessionService.user.iconUrl:'http://image.1yingli.cn/img/new/header/default-avator.png'}}")
+                            | {{sessionService.user.nickName}}
+                        .block-border(ng-show="isShowThemeClass4")
+            span.m-logout.f-animation(ng-if="sessionService.user != undefined" ng-class="{'m-logout-active':showLogOut}"
+            ng-click="sessionService.logout()")
+                li.u-lst-item.z-last(ng-mouseenter="isShowThemeClass4=true;" ng-mouseleave="isShowThemeClass4=false;")
+                    .bd-left
+                        label.bd-none 注销
+                        .block-border(ng-show="isShowThemeClass4")

@@ -1,0 +1,53 @@
+.mobile-tutorPage
+    ng-include(src="'/pages/common/header/mobile/sidebars.html'")
+    ng-include(src="'/pages/common/header/mobile/header.html'")
+    .app
+        .g-bk
+            ng-include(src="'/pages/teacherCenter/centerLeft/mobile/centerLeft.html'")
+            .m-content
+                .m-ct-top
+                    .u-top-name 编辑
+                    img.u-top-img(src="http://image.1yingli.cn/img/new/icon-pen-blue.png")
+                .m-ct-info
+                    .m-info-academic
+                        .u-name 头衔
+                        input.u-academic-input(ng-model="data.simpleinfo")
+                    .m-info-revise
+                        .u-name.u-name-re 咨询方式
+                        img.u-revise-img(src="http://image.1yingli.cn/images/tel11.png" ng-show="data.talkWay[0] == 11" ng-click="data.talkWay[0] = 10 ")
+                        img.u-revise-img(src="http://image.1yingli.cn/images/tel01.png" ng-show="data.talkWay[0] != 11" ng-click="data.talkWay[0] = 11")
+                        img.u-revise-img(src="http://image.1yingli.cn/images/tel22.png" ng-show="data.talkWay[1] == 22" ng-click="data.talkWay[1] = 20")
+                        img.u-revise-img(src="http://image.1yingli.cn/images/tel02.png" ng-show="data.talkWay[1] != 22" ng-click="data.talkWay[1] = 22")
+                        img.u-revise-img(src="http://image.1yingli.cn/images/tel33.png" ng-show="data.talkWay[2] == 33" ng-click="data.talkWay[2] = 30")
+                        img.u-revise-img(src="http://image.1yingli.cn/images/tel03.png" ng-show="data.talkWay[2] != 33" ng-click="data.talkWay[2] = 33")
+                    .m-info-address
+                        .u-name 常驻地区
+                        input.u-address-input(ng-model="data.address")
+                    .m-info-topic
+                        .u-name 话题
+                        input.u-topic-input(ng-model="data.serviceTitle")
+                    .m-info-number
+                        .u-name 本周可预约次数
+                        input.u-number-input(type="type" ng-model="data.timeperweek" ng-blur="formatInteger()")
+                        span.u-span 次
+                    .m-info-time
+                        .u-name 每次可咨询时间
+                        .u-reduce(ng-click="data.serviceTime != 0.5?data.serviceTime = data.serviceTime-0.5:0;") -
+                        span.u-span {{data.serviceTime |number:1}}
+                        .u-add(ng-click="data.serviceTime = data.serviceTime + 0.5;") +
+                        span.u-span 小时
+                    .m-info-price
+                        .u-name 价格
+                        input.u-price-input(ng-model="data.price" ng-blur="formatNumber()")
+                        span.u-span 元
+                    .m-info-small
+                        .u-name 优惠价
+                        div(ng-click="data.onsale=false;" ng-class="{'u-off-t':!data.onsale , 'u-off':data.onsale}" ) off
+                        div(ng-click="data.onsale=true;" ng-class="{'u-on':data.onsale , 'u-on-f':!data.onsale}" ) on
+                        input.u-small-input(ng-model="data.pricetemp" ng-blur="formatNumber1()"  ng-disabled="!data.onsale")
+                        span.u-span 元
+                    .m-bottom
+                        .u-confirm(ng-click="save()") 保存
+                        .u-cancel(ng-click="reset()") 取消
+
+        ng-include(src="'/pages/common/footer/mobile/footer.html'")

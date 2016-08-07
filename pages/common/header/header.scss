@@ -1,0 +1,336 @@
+.pc-header {
+  .header-hd {
+    ::-webkit-input-placeholder {
+      color: #ced7de;
+    }
+    :-moz-placeholder {
+      color: #ced7de;
+    }
+    ::-moz-placeholder {
+      color: #ced7de;
+    }
+    :-ms-input-placeholder {
+      color: #ced7de;
+    }
+    $g-hd-height: 68px;
+    height: $g-hd-height;
+    width: 1080px;
+    margin: 0 auto;
+    .u-logo {
+      $u-logo-height: 45px;
+      width: 86px;
+      height: 25px;
+      margin: 21px 0px;
+      margin-left: 6px;
+      background-image: url("http://image.1yingli.cn/img/new/logo.png");
+      background-size: cover;
+    }
+    .u-search {
+      position: relative;
+      margin-left: 32px;
+      width: 320px;
+      .angucomplete-dropdown {
+        margin-top: -15px;
+        width: 285px;
+        border-radius: 8px;
+      }
+    }
+    .u-ipt {
+      width: 320px;
+      height: 40px;
+      margin: 14px 0;
+      box-sizing: border-box;
+      font-size: 16px;
+      color: #33495f;
+      padding-left: 70px;
+      line-height: normal;
+      border: 1px solid #66ccff;
+      border-radius: 4px;
+    }
+    .u-search-img {
+      width: 22px;
+      cursor: pointer;
+      position: absolute;
+      top: 23px;
+      right: 10px;
+    }
+    .u-lst {
+      font-size: 16px;
+      color: #33495f;
+      position: relative;
+      .u-lst-item {
+        display: inline-block;
+        cursor: pointer;
+        line-height: 68px;
+        position: relative;
+        margin-left: 2px;
+        .lo-face {
+          width: 25px;
+          border-radius: 50%;
+          position: relative;
+          top: 8px;
+          margin-right: 5px;
+        }
+        .bd-left {
+          border-left: 1px solid #ffffff;
+        }
+        .bd-none-theme {
+          margin: 0 30px;
+          cursor: pointer;
+          padding-bottom: 10px;
+        }
+        .bd-none {
+          margin: 0 10px;
+          cursor: pointer;
+          padding-bottom: 10px;
+        }
+        .block-border {
+          position: absolute;
+          top: 0px;
+          height: 4px;
+          width: 100%;
+          background: #66ccff;
+          left: 0px;
+        }
+        .u-lst-items {
+          box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+          transition: all .5s ease-out;
+          position: absolute;
+          left: 0px;
+          top: 68px;
+          color: #34495e;
+          cursor: pointer;
+          z-index: 2;
+          box-sizing: border-box;
+          border-bottom-right-radius: 6px;
+          .u-lst-item-one {
+            transition: all .2s ease-in-out;
+            width: 125px;
+            line-height: 47px;
+            text-align: center;
+            background: #FFFFFF;
+            color: #b8c4cf;
+            font-size: 14px;
+            a {
+              display: block;
+              overflow: hidden;
+            }
+            #blackImgUrl {
+              display: inline-block;
+            }
+            #whiteImgUrl {
+              display: none;
+            }
+            img {
+              width: 32px;
+              position: relative;
+              top: 8px;
+              vertical-align: top;
+            }
+            span {
+              display: inline-block;
+              margin-left: 10px;
+              margin-right: 5px;
+            }
+          }
+          .u-lst-item-one:last-of-type {
+            border: none;
+            border-bottom-left-radius: 4px;
+            border-bottom-right-radius: 4px;
+          }
+          .u-lst-item-one:hover {
+            background: #eff3f5;
+            a {
+              color: #66ccff;
+            }
+          }
+        }
+        .shopping-bt {
+          width: 23px;
+          line-height: 23px;
+          height: 22px;
+          vertical-align: text-top;
+          background: url("http://image.1yingli.cn/img/new/header/shopping-pc.png");
+          background-size: cover;
+          display: inline-block;
+          margin-right: 10px;
+          cursor: pointer;
+          position: absolute;
+          top: -15px;
+        }
+        .shopping-count {
+          position: absolute;
+          top: -20px;
+          left: 13px;
+          font-size: 10px;
+          text-align: center;
+          width: 14px;
+          height: 14px;
+          display: block;
+          line-height: 13px;
+          color: #fff;
+          background: #ff6149;
+          border-radius: 50%;
+        }
+        .message-bt {
+          width: 23px;
+          line-height: 23px;
+          height: 26px;
+          vertical-align: text-top;
+          background: url("http://image.1yingli.cn/img/new/header/message_1.png");
+          background-size: cover;
+          display: inline-block;
+          margin-right: 10px;
+          cursor: pointer;
+          position: absolute;
+          top: -21px;
+        }
+        .message-bt-none {
+          width: 22px;
+          line-height: 23px;
+          height: 25px;
+          vertical-align: text-top;
+          background: url("http://image.1yingli.cn/img/new/header/message_none.png");
+          background-size: cover;
+          display: inline-block;
+          margin-right: 10px;
+          cursor: pointer;
+          position: absolute;
+          top: -18px;
+        }
+        .shopping-count-more {
+          background: url("http://image.1yingli.cn/img/new/header/dot_white.png");
+          position: absolute;
+          top: -20px;
+          left: 13px;
+          width: 13px;
+          height: 13px;
+          background-size: cover;
+          background-color: #ff6149;
+          border-radius: 50%;
+        }
+      }
+      .u-lst-item:hover {
+        transition: all 0.2s ease-out;
+        box-shadow: 0px -1px 2px rgba(0, 0, 0, .1);
+      }
+      .u-lst-item.z-last {
+        border: none;
+        padding-right: 5px;
+      }
+      .z-no-hover:hover {
+        box-shadow: 0px -1px 0px rgba(0, 0, 0, .1);
+      }
+      .u-lst-item-right {
+        margin-right: 27px;
+      }
+      .u-lst-item-right1 {
+        margin-right: 35px;
+      }
+      .u-lst-item-right2 {
+        margin-right: 10px;
+      }
+      .u-lst-item-left {
+        margin-left: 25px;
+      }
+    }
+    .m-logout {
+      opacity: 0;
+    }
+    .m-logout-active {
+      opacity: 1;
+    }
+  }
+  //搜索
+  .header-hd .u-search .angucomplete-dropdown {
+    width: 306px;
+    border-radius: 0px;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border: 1px solid #66ccff;
+    font-size: 13px;
+    color: #33495f;
+  }
+  .m-drop {
+    width: 65px;
+    height: 20px;
+    cursor: pointer;
+    line-height: 19px;
+    position: absolute;
+    top: 25px;
+    padding-left: 11px;
+    box-sizing: border-box;
+    border-right: 1px solid #66ccff;
+  }
+  .m-empty {
+    height: 20px;
+    width: 65px;
+    position: absolute;
+    top: 40px;
+  }
+  .u-drop-name {
+    color: #66ccff;
+    font-size: 14px;
+  }
+  .u-drop-img {
+    width: 10px;
+    position: absolute;
+    top: 9px;
+    right: 9px;
+  }
+  .m-down {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 65px;
+    height: 70px;
+    background: #fff;
+    text-align: center;
+    z-index: 10;
+    border: 1px solid #66ccff;
+  }
+  .u-tog {
+    width: 0;
+    height: 0;
+    border-width: 0 4px 6px 4px;
+    border-style: solid;
+    border-color: transparent transparent #66ccff transparent;
+    position: absolute;
+    top: -6px;
+    right: 27px;
+    z-index: 0;
+  }
+  .u-tog-w {
+    width: 0;
+    height: 0;
+    border-width: 0 3px 6px 3px;
+    border-style: solid;
+    border-color: transparent transparent #fff transparent;
+    position: absolute;
+    top: -5px;
+    right: 28px;
+    z-index: 0;
+  }
+  .u-down-name {
+    width: 59px;
+    height: 35px;
+    line-height: 35px;
+    border-bottom: 1px solid #66ccff;
+    box-sizing: border-box;
+    color: #3c3c3c;
+    font-size: 14px;
+    margin-left: 3px;
+    position: relative;
+    cursor: pointer;
+    img {
+      width: 12px;
+      margin-left: 4px;
+    }
+  }
+  .u-down-name-active {
+    color: #66ccff;
+  }
+  .u-down-name:last-child {
+    border-bottom: 0;
+  }
+}

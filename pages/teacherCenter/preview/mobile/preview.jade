@@ -1,0 +1,20 @@
+.mobile-preview
+    ng-include(src="'/pages/common/header/mobile/sidebars.html'")
+    ng-include(src="'/pages/common/header/mobile/header.html'")
+    .app
+        .g-bk
+            .m-title
+                img.u-tt-img(src="http://image.1yingli.cn/img/new/mi.png")
+                .u-tt-name 文章预览
+            .m-content
+                .u-ct-title {{passageService.previewPassage.title}}
+                .m-name
+                    .u-time {{passageService.previewPassage.createTime | date: 'yyyy-MM-dd HH:mm': '+0800'}}
+                    .u-name {{sessionService.user.nickName}}
+                .u-essay.bootStrap(ng-bind-html="passageService.previewPassage.content | to_trusted")
+                .m-bottom
+                    .m-tags(ng-show="passageService.previewPassage.tag") 标签:
+                        .u-tag(ng-repeat="tag in passageService.previewPassage.tag.split(',')") {{tag}}
+
+    .goBack(ng-click='goBack()') 返回
+    ng-include(src="'/pages/common/footer/mobile/footer.html'")

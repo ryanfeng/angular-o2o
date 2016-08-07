@@ -1,0 +1,8 @@
+ng-include(src="'/pages/common/header/header.html'")
+.pc-feedbck
+    .g-mn
+        p.p-t-one 欢迎反馈问题，您的意见与建议就是我们的动力!
+        p.p-t-two 我们会认真查阅您的反馈的每一个问题，在这里您可以提出遇到的问题，也可以发表自己的建议个想法。
+        textarea.t-c-text(placeholder="问题与建议描述..." ng-model="contentBack")
+        label.t-t-sub(ng-click="submitBack();") 提交反馈
+ng-include(src="'/pages/common/footer/footer.html'")

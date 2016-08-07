@@ -1,0 +1,25 @@
+.mobile-passageList
+    ng-include(src="'/pages/common/header/mobile/sidebars.html'")
+    ng-include(src="'/pages/common/header/mobile/header.html'")
+    .app
+        .g-bk
+            ng-include(src="'/pages/teacherCenter/centerLeft/mobile/centerLeft.html'")
+            .m-title
+                img.u-tt-img(src="http://image.1yingli.cn/img/new/mi.png")
+                .u-tt-name.u-tt-name-left 我的文章
+                a(href="/passageList/0")
+                    .u-tt-name(ng-class="{'u-tt-select':state == 0}") 正在审核
+                a(href="/passageList/1")
+                    .u-tt-name(ng-class="{'u-tt-select':state == 1}") 未通过审核
+                a(href="/passageList/2")
+                    .u-tt-name(ng-class="{'u-tt-select':state == 2}") 已发布
+            .m-content(ng-repeat="passage in data.data" ng-click="passageService.listToPreview(passage.passageId)")
+                img.u-ct-img(ng-src="{{passage.imageUrl}}")
+                .m-ct-right
+                    .u-ct-essay {{passage.title}}
+                    .m-bottom
+                        .u-time {{passage.createTime | date:'yyyy-MM-dd' : '+0800'}}
+                        .u-state {{stateStr}}
+            .m-empty(ng-show="!data || !data.data || data.data.length < 1")
+        ng-include(src="'/pages/common/pager/mobile/pager.html'")
+        ng-include(src="'/pages/common/footer/mobile/footer.html'")

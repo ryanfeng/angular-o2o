@@ -1,0 +1,12 @@
+.mobile-pager
+    .g-page-number(ng-show="data && data.totalPage > 0")
+        .u-btnStart.u-btn-button(ng-class="{'u-btnStart-active':currentPage!=1}"
+        ng-click="currentPage!=1?changePage(1):undefined")
+        .u-btnLast.u-btn-button(ng-class="{'u-btnLast-active':currentPage!=1}"
+        ng-click="currentPage!=1?changePage(currentPage - 1):undefined")
+        .u-pager(ng-repeat="page in data.totalPageArray track by $index"
+        ng-click="changePage($index + 1)" ng-show="$index + 1 == currentPage") {{$index + 1}}
+        .u-btnNext.u-btn-button(ng-class="{'u-btnNext-active':currentPage != data.totalPage}"
+        ng-click="currentPage != data.totalPage?changePage(currentPage + 1):undefined")
+        .u-btnEnd.u-btn-button(ng-class="{'u-btnEnd-active':currentPage != data.totalPage}"
+        ng-click="currentPage != data.totalPage?changePage(data.totalPage):undefined")

@@ -1,0 +1,46 @@
+.mobile-login
+    div.g-body
+        div.g-content
+            div.g-content-top
+                a.m-close
+                    img.u-close(src="http://image.1yingli.cn/img/new/guan.png" ng-click="closeLogin()")
+                    h1.u-title 欢迎登录一英里
+                a.m-contact-weibo(href="https://api.weibo.com/oauth2/authorize?client_id=3399536820&response_type=code&redirect_uri={{httpService.loginRedirectUrl[0]}}")
+                    div.m-centent-top-weibo-box
+                        img(src="http://image.1yingli.cn/img/new/weibo.png")
+                        p 使用新浪微博登录
+                a.m-contact-weixin(href="https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx526dfd5c9193f98c&redirect_uri={{httpService.loginRedirectUrl[2]}}&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect")
+                    div.m-centent-top-weixin-box
+                        img(src="http://image.1yingli.cn/img/new/weixin.png")
+                        p 使用微信登录
+            div.g-content-bottom
+                form.m-login-form(method="get" novalidate name='loginForm')
+                    .m-select(ng-mouseleave="isShowCountry=false;" ng-show="!isSelectPhone")
+                        .u-select(ng-click="isShowCountry = !isShowCountry;")
+                            img.select-country(ng-src="{{country.flag}}")
+                            span#phoneCode {{country.code}}
+                            img.select-sub(src="http://image.1yingli.cn/img/new/select-arrow.png")
+                            label |
+                        ul.u-select-ul(ng-if="isShowCountry" )
+                            li.u-select-li(ng-click="selectCountry($index);" ng-repeat="country in countrys")
+                                img.select-country(ng-src="{{country.flag}}")
+                                label {{country.code}}
+                    p.s-l-m
+                        label.s-l-m-ph(ng-click="isSelectPhone=false" ng-class="{'s-l-m-ph-active':!isSelectPhone}")
+                            span.s-l-m-ph-img
+                            span 手机号
+                        label.s-l-m-em(ng-click="isSelectPhone=true" ng-class="{'s-l-m-em-active':isSelectPhone}")
+                            span.s-l-m-em-img
+                            span 邮箱
+                    input.u-login-username(name="username" ng-model="username" type="text" ng-class="{'short-input':!isSelectPhone}" placeholder="{{!isSelectPhone?'手机号':'邮箱'}}"  ng-change="isNameVa = true")
+                    .u-has-error(ng-show="!isNameVa") 请输入手机号或者邮箱!
+                    p.m-form-p1
+                        input.u-login-password(name="password" ng-model="password"  ng-attr-type="{{showPass?'text':'password'}}" placeholder="密码" ng-change="isPassVa = true")
+                        span.l-pass-img(ng-class="{'l-pass-img-avtive':showPass}" ng-click="showPass = !showPass")
+                        .u-has-error(ng-show="!isPassVa") 密码必须6~20字符,不能全是数字!
+                    button.u-login(ng-click="login(username, password)") 登录
+                div.m-forget
+                    a.u-forget(href="/forget") 忘了密码
+                h2.m-content-footer-h2 还没账号？去
+                    a.m-container-footer-h2-a(href="/register")
+                        span.u-register 注册

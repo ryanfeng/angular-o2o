@@ -1,0 +1,200 @@
+.pc-theme {
+  background: #eff3f5;
+  .pc-header {
+    background: #fff;
+  }
+  .g-bd {
+    width: 100%;
+    .g-mn {
+      $g-mn-width: 1080px;
+      width: $g-mn-width;
+      margin: 0 auto;
+      .u-head-img {
+        height: 335px;
+        margin-top: 15px;
+        box-sizing: border-box;
+        width: 100%;
+        position: relative;
+        .bg {
+          width: 100%;
+          height: 100%;
+          border-radius: 2px;
+        }
+        .text {
+          position: absolute;
+          left: 30%;
+          width: 40%;
+          top: 45%;
+        }
+        .text-long {
+          top: 42%;
+        }
+        .bg-shade {
+          position: absolute;
+          box-sizing: border-box;
+          bottom: 1px;
+          height: 40px;
+          width: 1080px;
+          text-align: center;
+          background: rgba(0, 0, 0, 0.5);
+          border-radius: 0 0 8px 8px;
+          vertical-align: middle;
+          display: table-cell;
+          moz-transition: all 0.5s ease-in;
+          -webkit-transition: all 0.5s ease-in;
+          -o-transition: all 0.5s ease-in;
+          transition: all 0.5s ease-in;
+          .shade {
+            width: 750px;
+            vertical-align: middle;
+            margin-top: 8px;
+          }
+        }
+      }
+      .m-content {
+        margin-top: 10px;
+        .m-service-block {
+          background: #FFFFFF;
+          border-radius: 2px;
+          padding: 0 0px 0 24px;
+        }
+        .u-teacher {
+          display: inline-block;
+          width: ($g-mn-width - 24px)/2;
+          cursor: default;
+          overflow: hidden;
+          padding: 24px 2px;
+          padding-right: 32px;
+          box-sizing: border-box;
+          border-bottom: 1px solid #eff3f5;
+          position: relative;
+          top: 2px;
+          .u-teacher-blcok {
+            cursor: pointer;
+            height: 95px;
+            position: relative;
+          }
+          .u-teacher-img {
+            width: 127px;
+            height: 95px;
+            float: left;
+            img {
+              width: 100%;
+              height: 100%;
+            }
+          }
+          .u-want {
+            position: absolute;
+            bottom: 33px;
+            right: 0px;
+            color: #33495f;
+            font-size: 12px;
+            border-radius: 10px;
+            label {
+              color: #66CCFF;
+              margin-right: 3px;
+            }
+          }
+          .u-tag {
+            height: 23px;
+            padding: 0 10px;
+            line-height: 23px;
+            border-radius: 4px;
+            margin-right: 5px;
+            float: left;
+            display: inline-block;
+            background: #e0e5e8;
+            color: #8699a9;
+            font-size: 12px;
+            text-align: center;
+          }
+          .u-teacher-tittle {
+            display: inline-block;
+            width: 275px;
+            height: 46px;
+            line-height: 23px;
+            font-size: 14px;
+            padding-left: 2px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            box-sizing: border-box;
+            position: relative;
+            color: #33495f;
+            left:10px;
+          }
+          .u-price {
+            height: 20px;
+            color: #66CCFF;
+            font-size: 13px;
+            padding-left: 13px;
+            position: absolute;
+            right: 0;
+            bottom: -4px;
+          }
+          .u-name {
+            width: 350px;
+            float: left;
+            padding-left: 13px;
+            color: #666;
+            font-size: 14px;
+          }
+          .u-score {
+            color: #33495f;
+            position: absolute;
+            font-size: 12px;
+            top: 2px;
+            right: 0px;
+            label {
+              font-size: 14px;
+              margin-right: 3px;
+            }
+            .u-score-img {
+              width: auto;
+              height: 16px;
+              position: relative;
+              top: 2px;
+              margin-right: 3px;
+            }
+            .u-label {
+              font-size: 14px;
+              margin-right: 3px;
+              color: #909090;
+            }
+          }
+          .u-simpleinfo {
+            width: 350px;
+            color: #33495f;
+            font-size: 14px;
+            float: left;
+            padding-left: 13px;
+            margin-top: 15px;
+          }
+        }
+        .u-teacher-even {
+          width: ($g-mn-width - 24px)/2 - 24px;
+          padding-right: 2px;
+        }
+        .u-more {
+          text-align: center;
+          padding-bottom: 60px;
+          padding-top: 30px;
+          p {
+            display: inline-block;
+            color: #56bbe8;
+            font-size: 14px;
+            border: solid 1px #56bbe8;
+            cursor: pointer;
+            border-radius: 4px;
+            width: 258px;
+            line-height: 44px;
+          }
+          p:hover {
+            background: #56bbe8;
+            color: white;
+          }
+        }
+      }
+
+    }
+  }
+}

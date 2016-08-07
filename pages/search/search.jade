@@ -1,0 +1,136 @@
+.pc-search
+    .hd
+        ng-include(src="'/pages/common/header/header.html'")
+    .g-content
+        .g-content-search
+            .m-search-type
+                label.u-bt-ser(ng-class="{'u-bt-ch':searchService.params.searchType==0}" ng-click="changeType(0)") 服务
+                label.u-bt-tea(ng-class="{'u-bt-ch':searchService.params.searchType==1}" ng-click="changeType(1)") 导师
+            .m-search-left
+                .u-search
+                    angucomplete-alt(id="ex5" placeholder="搜索：导师 / 学校 / 专业" pause="400" text-searching="搜索中……"
+                    selected-object="changeWord" remote-api-handler="searchAPI" text-no-results="暂无相关结果" input-changed="inputChanged"
+                    on-key-down="onKeyDown" remote-url-data-field="result" title-field="trim()" origin-string="true" minlength="1" default-text="{{searchService.params.word}}")
+            .m-search-right
+                .u-bt-search(ng-click="searchService.changeParams()") 搜索
+        .g-content-hd
+            ul.m-content-lists
+                li.m-content-li
+                    a.m-content-li-a(ng-class="{'m-content-li-a-active' : searchService.params.tips == 0}"
+                    ng-click="changeTips(0)") 全部
+                li.m-content-li(ng-repeat="tips  in searchService.tipWords")
+                    a.m-content-li-a(ng-click="changeTips($index+1)"
+                    ng-class="{'m-content-li-a-active' : searchService.params.tips == $index+1}")
+                        span(ng-if="$index != 0 || SearchService.params.searchType!=1") {{tips}}
+                        span(ng-if="$index == 0 && SearchService.params.searchType==1") 海外游学
+        .g-write(ng-show="searchService.params.searchType==1")
+            .g-content-hot
+                p.u-hot-p 筛选条件
+                ul.m-hot-ul
+                    li.m-hot-li(ng-repeat="(index1,select) in searchService.selectWords[searchService.params.tips].data")
+                        select.m-hot-down(ng-model="searchService.params.select[index1]" ng-change="changePage(1)")
+                            option.u-down-op(value=0) {{select.name}}
+                            option.u-down-op(ng-repeat="(index2,option) in select.data" value="{{index2 + 1}}") {{option}}
+            .g-content-select
+                p.u-hot-p 已选条件
+                p.u-select(ng-repeat="key in searchService.params.select track by $index" ng-if="key > 0"
+                ng-click="searchService.params.select[$index] = '0';changePage(1)"
+                ) {{searchService.selectWords[searchService.params.tips].data[$index].data[key - 1]}}
+                    img.u-select-img(src="http://image.1yingli.cn/img/selected_condition_close.png")
+        .g-content-sort
+            .u-sort(ng-class="{'u-sort-active': searchService.params.filter == 0}" ng-click="changeFilter('0')") 热门
+            //.u-sort(ng-class="{'u-sort-active1': searchService.params.filter == 0}" ng-click="changeFilter('0')") 销量
+            .u-sort(ng-class="{'u-sort-active2': searchService.params.filter == 1}" ng-click="changeFilter('1')") 人气
+            span(ng-show="searchService.params.searchType==0")
+                .u-sort(ng-click="changeFilter('3')" ng-show="searchService.params.filter!=3 && searchService.params.filter!=4") 价格从低到高
+                .u-sort.u-sort-active2(ng-click="changeFilter('4')" ng-show="searchService.params.filter==3") 价格从低到高
+                .u-sort.u-sort-active2(ng-click="changeFilter('3')" ng-show="searchService.params.filter==4") 价格从高到低
+            .u-show-type(ng-show="searchService.params.searchType==1")
+                span.u-show-font 浏览方式
+                label.m-show-type.glyphicon.glyphicon-th-large(ng-click="searchService.params.showType = 1;searchService.changeParams()" ng-class="{'m-show-active':searchService.params.showType == 1}")
+                label.m-show-type1.glyphicon.glyphicon-menu-hamburger(ng-click="searchService.params.showType = 0;searchService.changeParams()" ng-class="{'m-show-active1':searchService.params.showType == 0}")
+        .g-content-personal(ng-show='searchService.result.length >= 1' ng-if="searchService.params.searchType==0")
+            a(ng-repeat="item in searchService.result" ng-href="/service/{{item.sid}}" target="_blank")
+                .m-personal
+                    .m-personal-left
+                        .m-left-img
+                            img.u-left-img(ng-src="{{item.imageurls.split(',')[0] | changeImageToServiceStyle}}")
+                        .m-left-content
+                            .m-left-block
+                                .m-left-tag {{serviceService.kindTips[item.kind].text}}
+                                .m-left-title(ng-bind-html="item.servicetitle | to_trusted")
+                            .m-left-name(ng-bind-html="item.name | to_trusted")
+                            .m-left-show(ng-bind-html="item.simpleinfo | to_trusted")
+                            .m-left-intro(ng-bind-html="item.summary | to_trusted")
+                    .m-personal-right
+                        .m-right-time(ng-show="item.servicescore >= 5")
+                            img.u-score-img(src="http://image.1yingli.cn/img/new/score.png")
+                            |{{item.servicescore}}
+                            label 分
+                        .m-right-time(ng-show="item.servicescore < 5")
+                            img.u-score-img(src="http://image.1yingli.cn/img/new/noScore.png")
+                            label 暂无评分
+                        .m-right-price {{item.price | number:2}}元 /{{item.numeral | number:0}}{{item.quantifier}}
+                        .m-right-like
+                            .u-right-like(ng-show="!item.servicefinishno || item.servicefinishno<1 || islike()")
+                                label {{item.servicelikeno}}
+                                | 人想见
+                            .u-right-like(ng-show="item.servicefinishno && item.servicefinishno>=1 && !islike()")
+                                label {{item.servicelikeno}}
+                                | 人见过
+
+        .g-content-personal-list(ng-if="searchService.params.searchType==1" ng-show="searchService.params.showType == 1")
+            a(ng-repeat="teacher in searchService.result" ng-href="/teacher/{{teacher.id}}" target="_blank")
+                .g-personal-block(ng-class="{'g-personal-block-right': ($index+1)%4 == 0}")
+                    img.p-face(ng-src="{{teacher.iconurl}}")
+                    p.p-name(ng-bind-html="teacher.name | to_trusted")
+                    p.p-info(ng-bind-html="teacher.simpleinfo | to_trusted")
+                    //p.p-summary(ng-bind-html="teacher.topic | to_trusted")
+
+        .g-content-personal-box(ng-if="searchService.params.searchType==1" ng-show="searchService.params.showType == 0")
+            .g-personal-block(ng-repeat="teacher in searchService.result" )
+                a(ng-href="/teacher/{{teacher.id}}" target="_blank")
+                    img.p-face(ng-src="{{teacher.iconurl}}")
+                    .p-left
+                        p.p-name(ng-bind-html="teacher.name | to_trusted")
+                        p.p-info(ng-bind-html="teacher.simpleinfo | to_trusted")
+                        //p.p-summary(ng-bind-html="teacher.topic | to_trusted")
+                        label.p-score(ng-show="teacher.score >= 5")
+                            img.u-score-img(src="http://image.1yingli.cn/img/new/score.png")
+                            span {{teacher.score | number:2}}
+                            | 分
+                        label.p-score(ng-show="teacher.score < 5")
+                            img.u-score-img(src="http://image.1yingli.cn/img/new/noScore.png")
+                            |暂无评分
+                        label.p-number(ng-show="!teacher.finishno || teacher.finishno<1 || islike()")
+                            span {{teacher.likeno}}
+                            | 人想见
+                        label.p-number(ng-show="teacher.finishno && teacher.finishno>=1 && !islike()")
+                            span {{teacher.finishno}}
+                            | 人见过
+                .p-right
+                    a(ng-repeat="service in teacher.serviceProList"
+                        ng-href="/service/{{service.serviceProId}}"
+                        target="_blank" ng-if="$index < 3")
+                        p.p-service
+                            label.s-tag {{serviceService.kindTips[service.kind].text}}
+                            label.s-content {{service.title}}
+                            label.s-price {{service.price}}元/{{service.numeral}}{{service.quantifier}}
+                    p(ng-if="teacher.serviceProList==0").u-none-service 暂无服务
+                    a(ng-href="/teacher/{{teacher.id}}" target="_blank")
+                        label.s-more 查看更多
+
+        .g-none(ng-show='searchService.result.length < 1')
+            .m-title
+                .u-none-name 邮箱
+                input.u-none-input(placeholder="请填写可以联系到你的邮箱地址" ng-model="email")
+            textarea.m-content(placeholder="{{searchService.params.searchType==1?'写下并描述您心中的梦想导师，一英里会尽快为您联系':'写下并描述您需要的服务，一英里会尽快为您联系'}}" ng-model="demand")
+            .u-botton.f-animation(ng-click="feedBack()") 提交
+            .m-none-show(ng-show="demand.length < 5 ")
+                img.u-none(src="http://image.1yingli.cn/img/new/none-service.png" ng-show="searchService.params.searchType==0")
+                img.u-none(src="http://image.1yingli.cn/img/new/none-teacher.png" ng-show="searchService.params.searchType==1")
+                //img.u-none-img(src="http://image.1yingli.cn/img/new/ser-none.png")
+                //.u-fir {{searchService.params.searchType==1?'暂时没有符合该搜索条件的导师':'暂时没有符合该搜索条件的服务'}}
+                //.u-sec 请重新修改搜索条件后再搜索
+        ng-include(src="'/pages/common/pager/pager.html'")
+    ng-include(src="'/pages/common/footer/footer.html'")

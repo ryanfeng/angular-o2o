@@ -1,0 +1,81 @@
+.pc-footer {
+  .g-ft {
+    background-color: #eaeef1;
+    height: 200px;
+    width: 100%;
+    border-top: 1px solid #dfe7eb;
+    .g-box {
+      width: 1080px;
+      margin: auto;
+      position: relative;
+      .m-wx {
+        padding: 35px 0 0 0px;
+        width: 150px;
+        .u-qrcode {
+          width: 114px;
+        }
+        .u-tittle {
+          font-size: 12px;
+          line-height: 20px;
+          color: #7a8488;
+          padding-left: 21px;
+          margin-top: -5px;
+        }
+      }
+      .m-contact {
+        position: absolute;
+        top: 48px;
+        right: 0;
+        color: #7a8488;
+        text-align: right;
+        .u-aboutus {
+          $u-aboutus-height: 22px;
+          font-size: 14px;
+          height: $u-aboutus-height;
+        }
+        .u-phone {
+          $u-phone-height: 32px;
+          height: $u-phone-height;
+          font-size: 24px;
+
+        }
+        .u-worktime {
+          $u-worktime-height: 20px;
+          height: $u-worktime-height;
+          font-size: 12px;
+        }
+        .u-email {
+          $u-email-height: 20px;
+          height: $u-email-height;
+          font-size: 12px;
+        }
+        .u-conpany {
+          color: #b7c3cb;
+          font-size: 12px;
+          display: block;
+          margin-top: 2px;
+        }
+      }
+    }
+
+    .u-line {
+      height: 1px;
+      background: #ccc;
+      margin-top: 30px;
+      width: 100%;
+    }
+
+  }
+  .u-aboutus a {
+    float: right;
+  }
+  .u-hover {
+    float: left;
+    -webkit-transition: all .35s ease-in-out;
+    -o-transition: all .35s ease-in-out;
+    transition: all .35s ease-in-out;
+  }
+  .u-hover:hover {
+    color: #66ccff;
+  }
+}

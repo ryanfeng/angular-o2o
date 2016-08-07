@@ -1,0 +1,21 @@
+.mobile-comment-center
+    ng-include(src="'/pages/common/header/mobile/sidebars.html'")
+    ng-include(src="'/pages/common/header/mobile/header.html'")
+    .app
+        .g-center
+            .g-center-topic(ng-controller="PersonalController")
+                img(src="http://image.1yingli.cn/img/new/mo-comment.png")
+                label 我的评价
+            .g-center-block
+                label.m-tomy-comment(ng-click="changeKind(2)" ng-class="{'select-comment' : kind == 2}") 给您的评价
+                label.m-mywr-comment(ng-click="changeKind(1)" ng-class="{'select-comment' : kind == 1}") 您写的评价
+            .g-center-remind
+                .m-center-remind(ng-repeat="comment in data.data")
+                    img.p-img(ng-src="{{(comment.url)?comment.url:'http://image.1yingli.cn/img/img.png'}}")
+                    label.p-name {{comment.name}}
+                    label.p-data {{comment.createTime}}
+                    img.u-star(src="http://image.1yingli.cn/img/star-y.png" ng-repeat="star in getArray(comment.score) track by $index" ng-class="{'u-star-first':$first}")
+                    label.p-content {{comment.content}}
+                .m-empty(ng-show="!data || !data.data || data.data.length < 1")
+        ng-include(src="'/pages/common/pager/mobile/pager.html'")
+    ng-include(src="'/pages/common/footer/mobile/footer.html'")

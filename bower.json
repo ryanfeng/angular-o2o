@@ -1,0 +1,36 @@
+{
+  "name": "new-web",
+  "authors": [
+    "QX-DEV"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "bower_components",
+    "node_modules",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-route": "~1.4.7",
+    "angular": "~1.4.7",
+    "jquery": "~2.1.4",
+    "jquery-json": "~2.5.1",
+    "angular-cookies": "~1.4.7",
+    "fastclick": "~1.0.6",
+    "ng-file-upload": "~10.0.2",
+    "textAngular": "~1.4.6",
+    "angular-modal-service": "~0.6.9",
+    "ng-tags-input": "~3.0.0",
+    "angular-bootstrap": "~0.14.3",
+    "angular-ui-bootstrap-datetimepicker": "~0.14.0",
+    "angulartics": "~0.20.2",
+    "ngstorage": "~0.3.10",
+    "iCheck": "icheck#~1.0.2",
+    "angular-touch": "1.4.8"
+  }
+}

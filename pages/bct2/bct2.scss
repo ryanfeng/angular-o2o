@@ -1,0 +1,517 @@
+.pc-bct2 {
+  span {
+    font-size: 16px;
+  }
+
+  .hd .header-hd .u-lst {
+    color: #34495e;
+  }
+  .g-main {
+    background: #eff3f5;
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  .g-content {
+    width: 980px;
+    min-height: 800px;
+    margin: 0px auto;
+    box-shadow: 0 0 5px #d7dcde;
+    border-radius: 5px;
+    background: #FFFFFF;
+    color: #33495f;
+    ::-webkit-input-placeholder {
+      color: #9aabb8;
+    }
+    :-moz-placeholder {
+      color: #9aabb8;
+    }
+    ::-moz-placeholder {
+      color: #9aabb8;
+    }
+    :-ms-input-placeholder {
+      color: #9aabb8;
+    }
+  }
+  .g-ct-title {
+    height: 270px;
+    background: url("http://image.1yingli.cn/img/new/bct-step-bg.png");
+    background-size: cover;
+  }
+  .m-tl {
+    margin: 0 auto;
+    text-align: center;
+  }
+  .u-tl-title {
+    display: inline-block;
+    margin-top: 80px;
+    font-size: 30px;
+    color: #fff;
+  }
+  .u-tl-p {
+    margin-top: 20px;
+    font-size: 16px;
+    line-height: 24px;
+    color: #fff;
+    padding: 0px 170px;
+    text-align: left;
+  }
+  .g-ct-show {
+    width: 980px;
+    height: 260px;
+  }
+  .m-show-left {
+    width: 487px;
+    height: 238px;
+    margin-right: 6px;
+    float: left;
+  }
+  .m-show-right {
+    width: 487px;
+    height: 238px;
+    float: left;
+  }
+  .u-lf-imgL {
+    width: 120px;
+    height: 110px;
+    float: left;
+    margin-top: 40px;
+    margin-left: 60px;
+    background: url("http://image.1yingli.cn/img/new/about-us-icon1.png");
+    background-size: cover;
+  }
+  .u-lf-imgR {
+    width: 120px;
+    height: 100px;
+    float: left;
+    margin-top: 40px;
+    margin-left: 60px;
+    background: url("http://image.1yingli.cn/img/new/about-us-icon2.png");
+    background-size: cover;
+  }
+  .m-lf-ti {
+    width: 200px;
+    height: 100px;
+    float: left;
+    margin-left: 50px;
+    margin-top: 60px;
+  }
+  .u-ti-name {
+    font-size: 25px;
+    text-align: right;
+    margin-bottom: 5px;
+  }
+  .u-ti-en {
+    font-size: 18px;
+    text-align: right;
+  }
+  .u-lf-ct {
+    width: 400px;
+    height: 60px;
+    line-height: 25px;
+    float: left;
+    font-size: 15px;
+    margin-left: 50px;
+    margin-top: 12px;
+  }
+  .g-ct-school {
+    padding-bottom: 50px;
+    width: 980px;
+  }
+  .g-school-tl {
+    height: 20px;
+    background: url("http://image.1yingli.cn/img/new/about-us-title-bg.png");
+    background-size: cover;
+    padding: 10px;
+    padding-left: 60px;
+    font-size: 20px;
+    color: #fff;
+    margin-left: 5px;
+  }
+  .g-school-f {
+    width: 500px;
+    margin-top: 50px;
+    margin-left: 50px;
+    border: 1px solid #d7dcde;
+    border-radius: 4px;
+  }
+  .m-f-t {
+    height: 45px;
+    background-color: #dfe5e9;
+  }
+  .u-t-t {
+    width: 300px;
+    height: 22px;
+    padding: 14px 40px;
+    font-size: 18px;
+    float: left;
+  }
+  .u-t-x {
+    background: url("http://image.1yingli.cn/img/new/about-us-icon4.png") no-repeat;
+    background-size: 18px 20px;
+    width: 25px;
+    height: 30px;
+    float: right;
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-left: 20px;
+    cursor: pointer;
+  }
+  .u-t-d {
+    background: url("http://image.1yingli.cn/img/new/about-us-icon3.png") no-repeat;
+    background-size: 22px 22px;
+    width: 20px;
+    height: 30px;
+    float: right;
+    margin-top: 10px;
+    cursor: pointer;
+  }
+  .m-f-c {
+    width: 435px;
+    font-size: 16px;
+    margin-left: 30px;
+    border-bottom: 1px #CCCCCC dashed;
+    margin-bottom: 10px;
+    padding-bottom: 20px;
+  }
+  .m-f-c-none {
+    border-bottom: none;
+  }
+  .u-f-c-school {
+    height: 20px;
+    padding: 10px;
+    margin-top: 10px;
+    padding-bottom: 2px;
+  }
+  .u-f-c-academy {
+    height: 20px;
+    padding: 10px;
+    padding-bottom: 2px;
+  }
+  .u-f-c-major {
+    height: 20px;
+    padding: 10px;
+    padding-bottom: 2px;
+  }
+  .u-f-c-time {
+    height: 20px;
+    padding: 10px;
+    padding-bottom: 2px;
+  }
+  .m-f-c-show {
+    overflow: hidden;
+    margin-left: 10px;
+    margin-top: 10px;
+  }
+  .u-c-show-t {
+    width: 80px;
+    float: left;
+    margin-top: 3px;
+  }
+  .u-c-show-c {
+    text-align: justify;
+    width: 320px;
+    float: left;
+    line-height: 25px;
+    font-size: 14px;
+  }
+  .m-f-b {
+    height: 39px;
+    background-color: #dfe5e9;
+    text-align: center;
+    color: #9aabb8;
+  }
+  .u-b-c {
+    width: 102px;
+    height: 25px;
+    display: inline-block;
+    padding-left: 30px;
+    background: url("http://image.1yingli.cn/img/new/bct-add.png") no-repeat 0 50%;
+    font-size: 16px;
+    line-height: 9px;
+    padding-top: 15px;
+    background-size: 25px 25px;
+  }
+  .g-school-s {
+    width: 500px;
+    height: 630px;
+    margin-top: 20px;
+    margin-left: 50px;
+    border: 1px solid #d7dcde;
+  }
+  .m-s-t {
+    width: 500px;
+    height: 30px;
+    font-size: 18px;
+    text-align: center;
+    margin-top: 30px;
+  }
+  .m-s-c {
+    width: 470px;
+    height: 490px;
+    margin-left: 20px;
+    margin-top: 20px;
+  }
+  input, textarea {
+    text-indent: 5px;
+    font-size: 16px;
+    line-height: 29px;
+  }
+  .u-name {
+    width: 400px;
+    height: 26px;
+    font-size: 16px;
+    margin-top: 10px;
+  }
+  .u-name-t {
+    width: 400px;
+    height: 30px;
+    font-size: 16px;
+    margin-top: 19px;
+  }
+  .u-input {
+    width: 432px;
+    line-height: 29px;
+    font-size: 14px;
+    border: 1px solid #d7dcde;
+    border-radius: 4px;
+    color: #9aabb8;
+  }
+  .u-text {
+    width: 450px;
+    border-radius: 4px;
+    height: 142px;
+    border: 1px solid #d7dcde;
+    color: #9aabb8;
+    font-size: 14px;
+  }
+  .m-s-b {
+    width: 500px;
+    height: 40px;
+    text-align: center;
+  }
+  .u-s-confirm {
+    width: 100px;
+    height: 25px;
+    line-height: 25px;
+    font-size: 16px;
+    float: left;
+    margin-left: 150px;
+    background: #66ccff;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  .u-s-confirm:hover {
+    background: #82d5ff;
+  }
+  .u-s-cancel {
+    width: 100px;
+    height: 25px;
+    line-height: 25px;
+    font-size: 16px;
+    float: left;
+    margin-left: 30px;
+    background: #d6dfe4;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  .u-s-cancel:hover {
+    background: #66ccff;
+  }
+  .g-school-b {
+    width: 508px;
+    height: 39px;
+    background-color: #eee;
+    text-align: center;
+    margin-top: 10px;
+  }
+  .m-content-view {
+    width: 880px;
+    height: 100px;
+    margin: 0 auto;
+    margin-top: 50px;
+    color: #999999;
+    font-size: 14px;
+    img {
+      width: 807px;
+      margin-bottom: 10px;
+    }
+    .l-zl {
+      float: left;
+    }
+    .l-jl {
+      position: relative;
+      left: -420px;
+      top: 16px;
+    }
+    .l-wc {
+      float: right;
+      margin-right: 70px;
+    }
+  }
+
+  .g-ct-work {
+    width: 980px;
+    padding-bottom: 80px;
+  }
+  .g-work-tl {
+    height: 20px;
+    background: url("http://image.1yingli.cn/img/new/about-us-title-bg.png");
+    background-size: cover;
+    padding: 10px;
+    padding-left: 60px;
+    font-size: 20px;
+    color: #fff;
+    margin-left: 5px;
+  }
+  .g-work-f {
+    width: 500px;
+    margin-top: 50px;
+    margin-left: 50px;
+    border: 1px solid #d7dcde;
+    border-radius: 4px;
+  }
+  .g-work-s {
+    width: 500px;
+    height: 570px;
+    margin-left: 50px;
+    margin-top: 20px;
+    border: 1px solid #d7dcde;
+    border-radius: 4px;
+  }
+  .m-w-t {
+    width: 500px;
+    height: 30px;
+    font-size: 20px;
+    text-align: center;
+    margin-top: 30px;
+  }
+  .errMessage {
+    margin-left: 5px;
+    color: #faa845;
+  }
+  .m-w-c {
+    width: 470px;
+    height: 430px;
+    margin-left: 20px;
+    margin-top: 20px;
+  }
+  .m-w-b {
+    width: 500px;
+    height: 40px;
+    text-align: center;
+  }
+  .u-w-confirm {
+    width: 80px;
+    height: 20px;
+    font-size: 16px;
+    border: 1px solid #34aadc;
+    float: left;
+    margin-left: 150px;
+    background: #34aadc;
+    color: #fff;
+  }
+  .u-w-cancel {
+    width: 80px;
+    height: 20px;
+    font-size: 16px;
+    border: 1px solid #999;
+    float: left;
+    margin-left: 30px;
+    background: #999;
+    color: #fff;
+  }
+  .g-work-b {
+    width: 508px;
+    height: 39px;
+    background-color: #eee;
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .u-view {
+    width: 18px;
+    height: 18px;
+    background: #66ccff;
+    border-radius: 50%;
+    padding: 14px;
+    font-size: 18px;
+    text-align: center;
+    color: #fff;
+    float: left;
+  }
+  .u-view-n {
+    width: 18px;
+    height: 18px;
+    background: #CECECE;
+    border-radius: 50%;
+    padding: 14px;
+    font-size: 18px;
+    text-align: center;
+    color: #fff;
+    float: left;
+  }
+  .u-view-xian {
+    width: 100px;
+    float: left;
+    height: 20px;
+    border-bottom: 4px solid #56bbe8;
+  }
+  .u-view-xian-n {
+    width: 100px;
+    float: left;
+    height: 20px;
+    border-bottom: 4px solid #CECECE;
+  }
+  .m-content-bt {
+    width: 259px;
+    height: 20px;
+    font-size: 19px;
+    margin: 0 auto;
+    margin-top: 10px;
+    border-radius: 4px;
+    text-align: center;
+    border: 1px solid #66ccff;
+    padding: 7px;
+    color: #66ccff;
+    cursor: pointer;
+  }
+  .m-content-bt:hover {
+    background-color: #66ccff;
+    color: #fff;
+  }
+  .m-timeBox {
+    width: 450px;
+  }
+  .m-timeBox select {
+    font-size: 14px;
+    line-height: 22px;
+    border-radius: 4px;
+    border: 1px solid #d7dcde;
+    color: #9aabb8;
+  }
+  .u-st-year {
+    width: 80px;
+    margin-top: 5px;
+    margin-right: 5px;
+  }
+  .u-st-month {
+    width: 50px;
+    margin-top: 5px;
+    margin-right: 5px;
+    margin-left: 5px;
+  }
+  .u-end-year {
+    width: 80px;
+    margin-top: 5px;
+    margin-right: 5px;
+    margin-left: 5px;
+  }
+  .u-end-month {
+    width: 50px;
+    margin-top: 5px;
+    margin-right: 5px;
+    margin-left: 5px;
+  }
+}

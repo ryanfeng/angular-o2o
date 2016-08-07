@@ -1,0 +1,173 @@
+.pc-pager {
+  .g-page-number {
+    width: 900px;
+    height: 30px;
+    margin: 20px auto;
+    margin-bottom: 60px;
+    text-align: center;
+  }
+
+  .u-btnStart {
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 5px;
+    min-width: 30px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+    color: #787d82;
+    background-color: #e7ebef;
+    text-align: center;
+    border-bottom: 1px solid transparent;
+    text-decoration: none;
+    background-image: url(http://image.1yingli.cn/img/firstPage.png);
+    background-size: cover;
+    cursor: pointer;
+    border-radius: 4px;
+    -webkit-transition: all .35s ease-in-out;
+    -o-transition: all .35s ease-in-out;
+    transition: all .35s ease-in-out;
+  }
+  .u-btnStart:hover{
+    background-color: #bdc3c7;
+    color: #fff;
+  }
+
+  .u-btnLast {
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 5px;
+    min-width: 30px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+    color: #787d82;
+    background-color: #e7ebef;
+    text-align: center;
+    border-bottom: 1px solid transparent;
+    text-decoration: none;
+    background-image: url(http://image.1yingli.cn/img/new/left.png);
+    background-size: 6px 12px;
+    background-position: 50% 58%;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    border-radius: 4px;
+    -webkit-transition: all .35s ease-in-out;
+    -o-transition: all .35s ease-in-out;
+    transition: all .35s ease-in-out;
+  }
+  .u-btnLast:hover{
+    background-image: url(http://image.1yingli.cn/img/new/left_white.png);
+    background-color: #bdc3c7;
+    color: #fff;
+  }
+
+  .u-pager {
+    display: inline;
+  }
+  .u-page {
+    cursor: pointer;
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 5px;
+    min-width: 30px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 12px;
+    color: #787d82;
+    background-color: #e7ebef;
+    text-align: center;
+    border-bottom: 1px solid transparent;
+    text-decoration: none;
+    border-radius: 4px;
+    -webkit-transition: all .35s ease-in-out;
+    -o-transition: all .35s ease-in-out;
+    transition: all .35s ease-in-out;
+  }
+  .u-page:hover{
+    background-color: #bdc3c7;
+    color: #fff;
+  }
+
+  .u-active {
+    background: #56bbe8;
+    color: #ffffff;
+    border-color: transparent;
+  }
+
+  .u-ellipsis {
+    height: 20px;
+    line-height: 20px;
+    min-width: 10px;
+    color: #787d82;
+    overflow: hidden;
+    margin-bottom: 4px;
+    position: relative;
+    top: -10px;
+    display: inline;
+    padding: 0 5px;
+    text-align: center;
+    font-size: 14px;
+    vertical-align: bottom;
+  }
+
+  .u-btnNext {
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 5px;
+    min-width: 30px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+    color: #787d82;
+    background-color: #e7ebef;
+    text-align: center;
+    border-bottom: 1px solid transparent;
+    text-decoration: none;
+    background-image: url('http://image.1yingli.cn/img/new/right.png');
+    background-size: 6px 12px;
+    background-position: 50% 58%;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    border-radius: 4px;
+    -webkit-transition: all .35s ease-in-out;
+    -o-transition: all .35s ease-in-out;
+    transition: all .35s ease-in-out;
+  }
+  .u-btnNext:hover{
+    background-image: url('http://image.1yingli.cn/img/new/right_white.png');
+    background-color: #bdc3c7;
+    color: #fff;
+  }
+
+  .u-btnEnd {
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 5px;
+    min-width: 30px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+    color: #787d82;
+    background-color: #e7ebef;
+    text-align: center;
+    border-bottom: 1px solid transparent;
+    text-decoration: none;
+    background-image: url(http://image.1yingli.cn/img/finalPage.png);
+    background-size: cover;
+    cursor: pointer;
+    border-radius: 4px;
+    -webkit-transition: all .35s ease-in-out;
+    -o-transition: all .35s ease-in-out;
+    transition: all .35s ease-in-out;
+  }
+  .u-btnEnd:hover{
+    background-color: #bdc3c7;
+    color: #fff;
+  }
+}

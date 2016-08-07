@@ -1,0 +1,341 @@
+.mobile-register {
+  .g-body {
+    min-height: 860px;
+    background: url("http://image.1yingli.cn/img/login_new_bg.jpg") no-repeat -330px 0px;
+    background-size: 1483px 860px;
+    background-origin: content-box;
+    ::-webkit-input-placeholder {
+      color: #eaeef1;
+    }
+    :-moz-placeholder {
+      color: #eaeef1;
+    }
+    ::-moz-placeholder {
+      color: #eaeef1;
+    }
+    :-ms-input-placeholder {
+      color: #eaeef1;
+    }
+  }
+  .g-content {
+    width: 304px;
+    min-height: 400px;
+    margin: 0 auto;
+    background: rgba(160, 181, 190, 0.3);
+    border: 1px #eaeef1 solid;
+    border-radius: 4px;
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    margin-left: -152px;
+    float: left;
+    color: #c6c6c6;
+  }
+  .u-register-close {
+    position: absolute;
+    width: 15px;
+    right: 0px;
+    padding: 10px;
+  }
+  .g-register-form {
+    width: 300px;
+    margin: 20px 6px;
+  }
+  .m-form-title {
+    font-size: 18px;
+    text-align: center;
+    color: #ffffff;
+  }
+  .m-form-p1 {
+    margin-top: 20px;
+  }
+  .u-user {
+    width: 270px;
+    line-height: 33px;
+    margin: 6px auto;
+    margin-left: 7px;
+    background: rgba(160, 181, 190, 0.0);
+    border: 1px #eaeef1 solid;
+    border-radius: 4px;
+    padding-left: 7px;
+    font-size: 14px;
+    color: #eaeef1;
+  }
+  .u-validate1 {
+    width: 155px;
+    line-height: 33px;
+    margin: 6px auto;
+    background: rgba(160, 181, 190, 0.0);
+    border: 1px #eaeef1 solid;
+    border-radius: 4px;
+    padding-left: 7px;
+    font-size: 14px;
+    float: left;
+    margin-left: 7px;
+    color: #eaeef1;
+  }
+  .u-validate-img {
+    width: 100px;
+    height: 32px;
+    margin-bottom: -10px;
+    position: absolute;
+    top: 7px;
+    left: 184px;
+  }
+  .m-form-p3 {
+    position: relative;
+    overflow: hidden;
+  }
+  .u-validate2 {
+    width: 121px;
+    line-height: 33px;
+    margin: 6px auto;
+    background: rgba(160, 181, 190, 0.0);
+    border: 1px #eaeef1 solid;
+    border-radius: 4px;
+    padding-left: 7px;
+    font-size: 14px;
+    float: left;
+    margin-left: 7px;
+    color: #c6c6c6;
+  }
+  .u-validate-button {
+    width: 141px;
+    height: 35px;
+    line-height: 23px;
+    margin-left: 8px;
+    margin-top: 6px;
+    background: #66ccff;
+    border-radius: 4px;
+    border: 0 solid;
+    color: white;
+    font-size: 16px;
+  }
+  .m-from-p7 {
+    width: 280px;
+    height: 30px;
+    line-height: 30px;
+    float: left;
+    text-align: center;
+    font-size: 14px;
+    margin-top: 20px;
+    color: #d3d3d3;
+  }
+  .protocol-img{
+    width: 15px;
+    position: relative;
+    top: 2px;
+    margin-right: 8px;
+    cursor: pointer;
+  }
+  .protocol{
+    color: #66ccff;
+  }
+  .m-form-button {
+    width: 279px;
+    height: 30px;
+    line-height: 26px;
+    margin: 0 auto;
+    margin-left: 7px;
+    margin-bottom: 15px;
+    background: #66ccff;
+    border-radius: 4px;
+    border: 0 solid;
+    color: white;
+    font-size: 16px;
+  }
+  .m-form-footer-h2 {
+    line-height: 16px;
+    text-align: center;
+    font-size: 14px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    color: #d3d3d3;
+  }
+  .m-form-footer-a {
+    line-height: 16px;
+    text-align: center;
+    font-size: 14px;
+    color: #56bbe8;
+    text-decoration: none;
+  }
+
+  .u-has-error {
+    color: #faa845;
+    padding-left: 10px;
+  }
+  .u-error-next {
+    margin-top: 7px;
+  }
+  //手机号码
+  .m-form-p2 {
+    position: relative;
+    z-index: 999;
+  }
+  .m-form-p4 {
+    position: relative;
+    height: 47px;
+  }
+  .m-form-p5 {
+    position: relative;
+    height: 47px;
+  }
+  .s-l-m {
+    margin: 0px auto 0px;
+    color: #FFFFFF;
+    line-height: 16px;
+    overflow: hidden;
+    padding-left: 9px;
+  }
+  .s-l-m label {
+    display: inline-block;
+    float: left;
+    padding-right: 10px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  .s-l-m-ph {
+    border-right: 1px solid #eaeef1;
+  }
+  .s-l-m-ph .s-l-m-ph-img {
+    width: 12px;
+    display: inline-block;
+    position: relative;
+    top: 2px;
+    margin-right: 8px;
+    height: 17px;
+    background: url("http://image.1yingli.cn/img/new/lo-phone.png");
+    background-size: cover;
+  }
+  .s-l-m-ph span {
+    position: relative;
+    top: -2px;
+  }
+  .s-l-m-ph-active {
+    .s-l-m-ph-img {
+      background-image: url("http://image.1yingli.cn/img/new/lo-blue-phone.png")
+    }
+    span {
+      color: #66ccff;
+    }
+  }
+
+  .s-l-m-em span {
+    position: relative;
+    top: 2px;
+  }
+  .s-l-m-em .s-l-m-em-img {
+    width: 16px;
+    margin-left: 10px;
+    margin-right: 8px;
+    position: relative;
+    top: 3px;
+    display: inline-block;
+    height: 12px;
+    background: url("http://image.1yingli.cn/img/new/lo-email.png");
+    background-size: cover;
+  }
+  .s-l-m-em-active {
+    .s-l-m-em-img {
+      background-image: url("http://image.1yingli.cn/img/new/lo-blue-email.png")
+    }
+    span {
+      color: #66ccff;
+    }
+  }
+  .l-pass-img {
+    width: 26px;
+    height: 12px;
+    position: relative;
+    top: -28px;
+    left: 248px;
+    display: inline-block;
+    background: url("http://image.1yingli.cn/img/new/pass-no.png");
+    background-size: cover;
+  }
+  .l-pass-img-avtive {
+    background: url("http://image.1yingli.cn/img/new/pass-yes.png");
+    background-size: cover;
+    height: 15px;
+    top: -30px;
+  }
+  //----------------------
+  //选择国旗
+  .short-input {
+    text-indent: 88px;
+  }
+  .m-select {
+    position: absolute;
+    height: 34px;
+    top: 7px;
+    left: 10px;
+  }
+  .u-select {
+    width: 85px;
+    height: 36px;
+    border-right: 0;
+    cursor: pointer;
+    color: #eaeef1;
+    font-size: 14px;
+    position: relative;
+    .select-country {
+      width: 23px;
+      height: 23px;
+      margin-top: 5px;
+      margin-left: 3px;
+    }
+    label {
+      position: absolute;
+      top: 9px;
+      right: 0px;
+      cursor: pointer;
+    }
+    #phoneCode {
+      position: absolute;
+      top: 9px;
+      left: 28px;
+      width: 35px;
+      text-align: center;
+      display: block;
+      cursor: pointer;
+    }
+    .select-sub {
+      width: 10px;
+      position: absolute;
+      top: 14px;
+      right: 5px;
+      margin-left: 5px;
+      margin-right: 5px;
+    }
+  }
+  .u-select-ul {
+    cursor: pointer;
+    background: rgba(145, 145, 145, 0.7);
+    overflow: hidden;
+    width: 78px;
+    color: #eaeef1;
+    font-size: 14px;
+    border-radius: 8px;
+    padding: 5px 0px 10px 0px;
+  }
+  .u-select-li {
+    height: 23px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    .select-country {
+      width: 22px;
+      height: 22px;
+      padding-left: 5px;
+      padding-right: 5px;
+    }
+    label {
+      cursor: pointer;
+      position: relative;
+      top: -7px;
+    }
+  }
+  .u-select-li:hover {
+    color: #647486;
+    background: rgba(209, 218, 225, 0.7);
+  }
+}

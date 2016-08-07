@@ -1,0 +1,205 @@
+.mobile-teacher
+    ng-include(src="'/pages/common/header/mobile/sidebars.html'")
+    ng-include(src="'/pages/common/header/mobile/header.html'")
+    .app
+        .s-bg
+            img.s-bgi(ng-src="{{(teacher.bgUrl)?teacher.bgUrl:person_bg}}" align="middle"  )
+            .m-hd
+                .u-face
+                    img(ng-src='{{teacher.iconUrl}}')
+                p.u-name(ng-bind="teacher.name")
+                p.u-simpleInfo(ng-bind="teacher.simpleinfo")
+                ul.u-service-theme
+                    li.u-ul-st-li(ng-repeat="resource in resources" ng-class="{'ul-li-left-long':$last}")
+                        img(ng-src="{{resource.flag?resource.srcPC:resource.srcPCNo}}")
+                .m-like
+                    .u-like-number(ng-show="teacher.praiseRatio >= 0.3") 好评率{{teacher.praiseRatio*100 | number:1}}%
+                    .u-like-number(ng-show="teacher.praiseRatio < 0.3") 好评率 暂无
+                    span |
+                    .u-like-number(ng-show="teacher.answerRatio >= 0.3") 响应率{{teacher.answerRatio*100 | number:1}}%
+                    .u-like-number(ng-show="teacher.answerRatio < 0.3") 响应率 暂无
+                    span |
+                    .u-like-number(ng-show="teacher.answerTime != 0") 响应时间{{teacher.answerTime / 3600| number:1}}小时
+                    .u-like-number(ng-show="teacher.answerTime == 0") 响应时间 暂无
+            .m-block-shelter
+        .g-handle
+            label.m-u-like(ng-click="likeOrDisTeacher();" ng-class="{'p-like-active':!isLikeTeacher}")
+            .m-good
+                .u-h-score 想见
+                .u-h-name {{teacher.likeNo}}
+            .m-respond
+                .u-h-score 见过
+                .u-h-name {{teacher.finishNo}}
+        .g-bd
+            .m-division
+            .m-order(ng-show="teacher.topic.length == 0")
+                .u-order-tt
+                    span 微聊
+                    |以便您更了解和信任导师
+                .u-order-tt
+                    .u-order-score(ng-show="teacher.score >= 5")
+                        | {{teacher.score | number:2}}
+                        span 分
+                    .u-order-score(ng-show="teacher.score < 5")
+                        span 暂无评分
+                    .u-order-price ¥{{teacher.price}}/10分钟
+                .u-order-subY(ng-click="(teacher.timeperweek==0)?'不可预约':userOrder()")
+                    span(ng-bind="teacher.timeperweek==0?'不可预约':'立即预约'")
+            .m-order(ng-show="teacher.topic.length != 0")
+                .u-order-tt
+                    span 微聊
+                    |以便您更了解和信任导师
+                .u-order-tt
+                    .u-order-score(ng-show="teacher.score >= 5")
+                        | {{teacher.score | number:2}}
+                        span 分
+                    .u-order-score(ng-show="teacher.score < 5")
+                        span 暂无评分
+                    .u-order-price ¥{{teacher.price}}/10分钟
+                .u-order-topic
+                    label 导师有话：
+                    | {{teacher.topic}}
+                .u-order-subN(ng-click="(teacher.timeperweek==0)?'不可预约':userOrder()")
+                    span(ng-bind="teacher.timeperweek==0?'不可预约':'立即预约'")
+            .m-division
+            .m-hd-about(ng-class="{'m-bd-topic-all' : isShowTopic}")
+                span.u-blue-block
+                span.u-topic 关于TA
+                label.u-yinli
+                    span {{teacher.mile}}
+                    | 英里
+                img.u-yls(ng-src="{{!mailIsNo?'http://image.1yingli.cn/img/new/yls.png':'http://image.1yingli.cn/img/new/yls_1.png'}}" ng-click="mailIsNo = !mailIsNo")
+                .u-mail-explain(ng-show="mailIsNo")
+                    label.m-triangle
+                    label.m-block-ccontent
+                        | 根据导师在平台上所完成的订单数量、咨询时长等参数、计算出的导师个人“累积英里数”，英里数值可兑换同等里程的机票。
+            .m-bd-about
+                p.u-content.bootStrap(ng-bind-html="teacher.introduce | to_trusted" ng-class="{'u-content-all' : isShowTA}")
+                .m-division-block(ng-if="!isShowTA" ng-show='!showArrow')
+                .m-division-block-btn(ng-click="isShowTA=!isShowTA;" ng-show='!showArrow') {{!isShowTA ?'点击展开':'收起'}}
+                label.u-share-title 分享
+                a.m-wbshare#wbshare(target="_blank")
+                    img.u-share-img(src="http://image.1yingli.cn/img/new/weibo-pc1.png")
+            .m-reward(ng-show="teacher.onReward != 'false'")
+                .ds-bt(ng-click="isRaward = !isRaward") 赏
+                label.ds-bc 已有{{teacher.rewardNumber}}人打赏
+                .m-block(ng-show="isRaward")
+                    span 金额：
+                    input(name='money' ng-model="money" type="text" ng-change="isValidate = false" ng-class="{'errorMessage': isValidate}")
+                    .u-button(ng-click="submitForm();") 确定
+                    span.u-yuan 元
+            .m-division
+            div(ng-controller="TeacherServiceController")
+                .m-hd-server
+                    span.u-blue-block
+                    span.u-server 服务
+                    label.u-service-number(ng-show='data.data.length == 0') 暂无服务
+                .m-server(ng-controller="TeacherServiceController")
+                    .m-server-box(ng-repeat="service in data.data")
+                        a(ng-href="/service/{{service.serviceProId}}")
+                            img.u-box-img(src="{{service.imageUrls.split(',')[0]}}")
+                            .m-box-right
+                                .m-right-tt
+                                    label.u-tt-show {{serviceService.kindTips[service.kind].text}}
+                                    | {{service.title}}
+                                .u-right-content {{service.summary}}
+                                .m-score(ng-show="service.score >= 5")
+                                    | {{service.score}}
+                                    span 分
+                                .m-score(ng-show="service.score < 5")
+                                    span 暂无评分
+                                .m-right-price ¥{{service.onsale=='true'?service.priceTemp:service.price}}/{{service.numeral}}{{service.quantifier}}
+                                .u-server-want 成交
+                                    span {{service.finishNo}}
+                                    | 笔
+                    ng-include(src="'/pages/common/pager/mobile/pager.html'")
+            .m-division
+            .m-hd-server
+                span.u-blue-block
+                span.u-server 个人履历
+            .m-hd-record
+                .u-list(ng-repeat='studyEx in teacher.studyExperience')
+                    p.u-list-record(ng-bind-html="'<label>' + studyEx.schoolName + '</label>'  + '&nbsp;&nbsp;' + studyEx.major  + '&nbsp;&nbsp;' + studyEx.degree | to_trusted")
+                    p.u-list-time {{studyEx.startTime | dateFormatTime}} - {{studyEx.endTime | dateFormatTime}}
+                .u-list(ng-repeat='workEx in teacher.workExperience')
+                    p.u-list-record(ng-bind-html="'<label>' + workEx.companyName + '</label>' + '   &nbsp;&nbsp;' + workEx.position | to_trusted")
+                    p.u-list-time {{workEx.startTime | dateFormatTime}} - {{workEx.endTime | dateFormatTime}}
+            .m-hd-authenty
+                ul.ul-authenty
+                    li.li-fl-authenty(ng-repeat="authentic in authentics")
+                        img(ng-src="{{authentic.url}}")
+                        p(ng-bind="!authentic.isAuthentic?'未'+authentic.name:authentic.name")
+            .m-division
+            .m-hd-comment
+                span.u-blue-block
+                span.u-topic 评论
+                span.u-comment-number(ng-show='teacher.commentNo != 0') 收到{{teacher.commentNo}}条评论
+                span.u-comment-number(ng-show='teacher.commentNo == 0') 暂无评论
+            .m-bd-comment(ng-controller="TeacherCommitController")
+                .u-list(ng-repeat='comment in comments')
+                    .u-one-hd
+                        img.u-face(ng-src="{{comment.iconUrl?comment.iconUrl:person_img}}")
+                        .m-left
+                            .u-left-name(ng-bind="comment.nickName")
+                            .u-left-lab(ng-bind="comment.createTime | dateFormat")
+                        img.u-start(ng-src="http://image.1yingli.cn/img/star-y.png", ng-repeat="sc in comment.score track by $index" ng-class="{'u-start-first': $first}")
+                    .u-server-title {{comment.serviceTitle}}
+                    .u-one-bd(ng-bind="comment.content")
+                ng-include(src="'/pages/common/pager/mobile/pager.html'")
+            .m-division
+            .article(ng-controller="TeacherArticleController")
+                .m-hd-article
+                    span.u-blue-block
+                    span.u-topic 文章
+                    span.u-art-number(ng-show="articles.length == 0") 暂无文章
+                .m-bd-article(ng-repeat="article in articles" ng-click="lookPassage(article.passageId)")
+                    .article-topic {{article.title}}
+                    .article-content(ng-bind-html="article.summary | to_trusted")
+                    img.article.img(ng-src="{{article.imageUrl}}")
+                ng-include(src="'/pages/common/pager/mobile/pager.html'")
+            .m-division
+            .m-hd-related
+                span.u-blue-block
+                span.u-topic 相关导师
+            .m-bd-related(ng-controller="AboutTeacherController")
+                .u-list(ng-repeat='teacher in teachers' ng-click="lookTeacher(teacher.teacherId)")
+                    a(ng-href='/teacher/{{teacher.teacherId}}')
+                        img.u-face(ng-src='{{teacher.url}}')
+                        label.u-name(ng-bind="teacher.name")
+                        //p.u-topic(ng-bind="'话题：'+teacher.topic")
+                        p.u-simpleinfo(ng-bind="teacher.simpleInfo")
+                        label.u-likeno(ng-bind="teacher.likenumber + '人想见'")
+                        //img.u-cafe(src="http://image.1yingli.cn/img/new/mo-likelist.png")
+        ng-include(src="'/pages/common/footer/mobile/footer.html'")
+    .g-mask(ng-show="showPayStyle || showWxPay" ng-click="hide()")
+    .g-payStyle(ng-show="showPayStyle")
+        .m-title 确认付款，请选择您支付的方式
+        .m-form(ng-init="payMethod=1")
+            .m-choose(ng-click="payMethod = '1'")
+                input.u-input(type="radio" ng-model="payMethod" value='1')
+                img.u-pay-img(src="http://image.1yingli.cn/img/pay_01.png")
+            .m-choose(ng-click="payMethod = '3'")
+                input.u-input(type="radio" ng-model="payMethod" value='3')
+                img.u-pay-img(src="http://image.1yingli.cn/img/pay_03.jpg")
+        .m-confirm
+            form.u-form(name='myForm' id="myForm" action='{{payUrl[3] | trustUrl}}', method='post', accept-charset="utf-8")
+                input(name="money" type='hidden' ng-value="money")
+                input(size='30', name='uid', value='{{sessionService.user.uid}}', type='hidden')
+                input(size='30', name='teacherName', type='hidden', value='{{nameEncode(teacher.name)}}')
+                input(size='30', name='callback', type='hidden', value="{{urlCallback}}")
+                input(size='30', name='teacherId', type='hidden', value='{{teacher.teacherId}}')
+                input.u-button(type='submit' value="确定" ng-show="payMethod!=3")
+            .u-button(ng-click="wxPay()" ng-show="payMethod==3") 确定
+            .u-button(ng-click="hide()") 取消
+    .g-wxPay(ng-show="showWxPay")
+        .m-title 请长按图片,识别图中二维码支付
+            #wxcode.u-qrcode
+            .u-button(ng-click="refresh()") 完成支付
+    .m-introduce-button(ng-click="showIntroduce=true")
+        img.u-button(src="http://image.1yingli.cn/img/new/introduce-man2.png")
+        //img.u-mark(src="http://image.1yingli.cn/img/new/introduce-question.png" ng-class="{'u-mark-active': showIntroduce!=true}")
+        img.u-cloud(src="http://image.1yingli.cn/img/new/introduce-cloud.png")
+        img.u-slogan(src="http://image.1yingli.cn/img/new/introduce-slogan.gif")
+    .mask2(ng-show="showIntroduce")
+        img.u-close(src="http://image.1yingli.cn/img/new/close_green.png" ng-click="showIntroduce=false")
+        img.u-introduce(src="http://image.1yingli.cn/img/new/introduce.png")

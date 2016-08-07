@@ -1,0 +1,100 @@
+.mobile-myStudent
+    ng-include(src="'/pages/common/header/mobile/sidebars.html'")
+    ng-include(src="'/pages/common/header/mobile/header.html'")
+    .app
+        .g-bk
+            ng-include(src="'/pages/teacherCenter/centerLeft/mobile/centerLeft.html'")
+            .m-content(ng-repeat="myStudent in data.data")
+                .m-content-box
+                    .m-box-top
+                        .u-top-number 流水号：{{myStudent.batchNo}}
+                        .u-top-time {{myStudent.createTime | date:'yyyy/MM/dd'}}
+                    .m-box-ct
+                        img.u-ct-img(ng-src="{{(myStudent.userUrl)?myStudent.userUrl:'http://image.1yingli.cn/img/img.png'}}")
+                        label.u-ct-name {{myStudent.userName}}
+                    .m-ct-info(ng-repeat="order in myStudent.orders")
+                        p.u-ct-order 订单号：{{order.orderId}}
+                        img.u-cs-img(ng-src="{{order.iconUrl | changeImageToServiceStyle}}")
+                        label.u-ct-state {{orderListService.state[order.state.split(',')[0]].teacher}}
+                        label.m-box-price ¥{{order.onsale?order.price:order.originPrice}}/{{order.numeral}}{{order.quantifier}}
+                        label.m-box-number × {{order.count}}
+                        label.u-ct-topic {{order.title}}
+                        label.u-ct-tag {{order.serviceProId?'服':'聊'}}
+                        .m-box-bottom(ng-switch="order.state.split(',')[0]")
+                            .u-details(ng-click="showMobileDetail($parent.$index, $index)") 查看详情
+                            .u-confirm(ng-switch-when="0300" ng-click="changeDetailToShowState(order);scrollTo($event)") 接受订单
+                            .u-confirm(ng-switch-when="0400" ng-click="changeDetailToShowState(order);scrollTo($event)") 确认时间
+                            .u-confirm(ng-switch-when="0500" ng-click="changeDetailToShowState(order);scrollTo($event)") 查看进度
+                            .u-confirm(ng-switch-when="1000" ng-click="changeDetailToShowState(order);scrollTo($event)") 查看进度
+                            .u-confirm(ng-switch-when="1010" ng-click="changeDetailToShowState(order);scrollTo($event)") 评价学员
+                            .g-state(ng-show="order.showOperation")
+                                .m-title {{orderListService.state[order.state.split(',')[0]].t_operating}}
+                                .m-states
+                                    .u-state
+                                        .u-triangle(ng-class="{'active1':order.state.split(',')[0] == '0100' || order.state.split(',')[0] == '0300' || order.state.split(',')[0] == '0400' || order.state.split(',')[0] == '0500' || order.state.split(',')[0] == '1000' || order.state.split(',')[0] == '1010'}")
+                                            .u-triangle-top
+                                            .u-triangle-bottom
+                                            .u-number 1
+                                        .u-title 学员申请
+                                    .u-state
+                                        .u-triangle(ng-class="{'active2':order.state.split(',')[0] == '0300' || order.state.split(',')[0] == '0400' || order.state.split(',')[0] == '0500' || order.state.split(',')[0] == '1000' || order.state.split(',')[0] == '1010'}")
+                                            .u-triangle-top
+                                            .u-triangle-bottom
+                                            .u-number 2
+                                        .u-title 导师确认
+                                    .u-state
+                                        .u-triangle(ng-class="{'active3':order.state.split(',')[0] == '0400' || order.state.split(',')[0] == '0500' || order.state.split(',')[0] == '1000' || order.state.split(',')[0] == '1010'}")
+                                            .u-triangle-top
+                                            .u-triangle-bottom
+                                            .u-number 3
+                                        .u-title 协商时间
+                                    .u-state
+                                        .u-triangle(ng-class="{'active4':order.state.split(',')[0] == '0500' || order.state.split(',')[0] == '1000' || order.state.split(',')[0] == '1010'}")
+                                            .u-triangle-top
+                                            .u-triangle-bottom
+                                            .u-number 4
+                                        .u-title 服务进行
+                                    .u-state
+                                        .u-triangle(ng-class="{'active5':order.state.split(',')[0] == '1000' || order.state.split(',')[0] == '1010'}")
+                                            .u-triangle-top
+                                            .u-triangle-bottom
+                                            .u-number 5
+                                        .u-title 双方评价
+                                .m-bottom(ng-switch="order.state.split(',')[0]")
+                                    .u-button.d-2-1(ng-switch-when="0300" ng-click="acceptOrder()" ng-show="!showRefuse") 接受订单
+                                    .u-button.d-2-1(ng-switch-when="0300" ng-click="changeShowRefuse(true)" ng-show="!showRefuse") 拒绝订单
+                                    div(ng-switch-when="0300" ng-show="showRefuse")
+                                        .u-button.d-1-1( ng-click="refuseOrder(refuseReason)") 拒绝订单
+                                        .u-input
+                                            input(placeholder="拒绝理由（学员可见）" ng-model="refuseReason")
+                                    div(ng-switch-when="0400")
+                                        .u-button.d-1-1(ng-click="confirmTime(date)") 确认时间
+                                        .u-input
+                                            .bootStrap
+                                                datetimepicker(ng-model="date" date-format="yyyy-MM-dd" show-meridian="false" mousewheel="false" show-spinners="false")
+                                    .u-button.d-1-1(ng-switch-when="0500" ng-click="hide()") 确定
+                                    .u-button.d-1-1(ng-switch-when="1000" ng-click="hide()") 确定
+                                    .u-button.d-1-1(ng-switch-when="1010" ng-click="hide();order.showComment = true") 评价学员
+                            .g-comment(ng-show="order.showComment")
+                                .u-title 评价学员
+                                .m-text-area
+                                    textarea.u-textarea(ng-model="comment")
+                                .m-star
+                                    img.u-star(ng-show="starNum>=1" src="http://image.1yingli.cn/img/star-y.png" ng-click="starNum = 0")
+                                    img.u-star(ng-show="starNum>=2" src="http://image.1yingli.cn/img/star-y.png" ng-click="starNum = 1")
+                                    img.u-star(ng-show="starNum>=3" src="http://image.1yingli.cn/img/star-y.png" ng-click="starNum = 2")
+                                    img.u-star(ng-show="starNum>=4" src="http://image.1yingli.cn/img/star-y.png" ng-click="starNum = 3")
+                                    img.u-star(ng-show="starNum>=5" src="http://image.1yingli.cn/img/star-y.png" ng-click="starNum = 4")
+                                    img.u-star(ng-show="starNum<1" src="http://image.1yingli.cn/img/star-g.png" ng-click="starNum = 1")
+                                    img.u-star(ng-show="starNum<2" src="http://image.1yingli.cn/img/star-g.png" ng-click="starNum = 2")
+                                    img.u-star(ng-show="starNum<3" src="http://image.1yingli.cn/img/star-g.png" ng-click="starNum = 3")
+                                    img.u-star(ng-show="starNum<4" src="http://image.1yingli.cn/img/star-g.png" ng-click="starNum = 4")
+                                    img.u-star(ng-show="starNum<5" src="http://image.1yingli.cn/img/star-g.png" ng-click="starNum = 5")
+                                .m-confirm(ng-click="makeComment(comment,starNum)") 提交评价
+                    .m-box-total
+                        span 合计：
+                        |¥{{myStudent.originMoney}}
+            .m-empty(ng-show="!data || !data.data || data.data.length < 1")
+        ng-include(src="'/pages/common/pager/mobile/pager.html'")
+        .g-mask(ng-show='showMask()' ng-click="hideMask()")
+        ng-include(src="'/pages/common/footer/mobile/footer.html'")

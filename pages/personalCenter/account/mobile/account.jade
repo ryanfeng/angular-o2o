@@ -1,0 +1,52 @@
+.mobile-account
+    ng-include(src="'/pages/common/header/mobile/sidebars.html'")
+    ng-include(src="'/pages/common/header/mobile/header.html'")
+    .app
+        .g-bk
+            .m-title(ng-controller="PersonalController")
+                img.u-tt-img(src="http://image.1yingli.cn/img/new/m-password.png")
+                .u-tt-name 修改账户
+            .m-content
+                .m-tip 手机验证
+                .m-ct-name
+                    .p-input
+                        input.u-input.u-input-phone(placeholder="请输入手机号码" ng-model="phone")
+                        .m-select(ng-mouseleave="isShowCountry=false;")
+                            .u-select(ng-click="isShowCountry = !isShowCountry;")
+                                img.select-country(ng-src="{{country.flag}}")
+                                span#phoneCode {{country.code}}
+                                img.select-sub(src="http://image.1yingli.cn/img/new/select-arrow1.png")
+                                label
+                            ul.u-select-ul(ng-show="isShowCountry" )
+                                li.u-select-li(ng-click="selectCountry($index);" ng-repeat="country in countrys")
+                                    img.select-country(ng-src="{{country.flag}}")
+                                    label {{country.code}}
+                .m-ct-name
+                    input.u-input.min-input(placeholder="请输入手机验证码" ng-model="pCheckNo")
+                    label.u-ct-button(ng-click="getPhoneValidateCode();") {{codeString}}
+                .u-ct-sub
+                    .u-ct-confirm(ng-click="phoneSub()") 提交
+            .m-content
+                .m-tip 邮箱验证
+                .m-ct-name
+                    input.u-input(placeholder="请输入邮箱号码" ng-model="email")
+                .m-ct-name
+                    input.u-input.min-input(placeholder="请输入邮箱验证码" ng-model="eCheckNo")
+                    label.u-ct-button(ng-click="getEmailValidateCode()") {{codeStringEmail}}
+                .u-ct-sub
+                    .u-ct-confirm(ng-click="emailSub()") 提交
+            .m-content.m-content-last
+                .m-tip 密码修改(不支持第三方登录密码修改)
+                .m-ct-name
+                    input.u-input(placeholder="请输入当前密码" ng-model="oldPass" type="password" ng-change="isVaOldPass = true")
+                .errMessage(ng-show="!isVaOldPass") 旧密码不能为空
+                .m-ct-name
+                    input.u-input(placeholder="请输入新密码" ng-model="newPass" type="password" ng-change="isVaPass = true")
+                .errMessage(ng-show="!isVaPass") 密码不能全数字且6~20个字符
+                .m-ct-name
+                    input.u-input(placeholder="请输入新密码" ng-model="reNewPass" type="password" ng-change="isVaRePass = true")
+                .errMessage(ng-show="!isVaRePass") 密码不能全数字且6~20个字符
+                .u-ct-sub
+                    .u-ct-confirm(ng-click="modifyPass()") 提交
+
+        ng-include(src="'/pages/common/footer/mobile/footer.html'")

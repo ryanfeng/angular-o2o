@@ -1,0 +1,200 @@
+.pc-alert {
+  @media screen and (min-width:761px){
+    $u-box-width: 400px;
+    $u-box-height: 230px;
+    $u-box-sub: 38px;
+    .u-alert {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(0, 0, 0, .5);
+      $border-radius: 8px;
+      .u-error {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: $u-box-width;
+        height: $u-box-height;
+        margin-left: - ($u-box-width / 2);
+        margin-top: -($u-box-height /2);
+        background: #fff;
+        border-radius: $border-radius;
+        box-sizing: border-box;
+        .g-hd {
+          background: #d6dfe4;
+          height: 45px;
+          line-height: 45px;
+          text-align: center;
+          color: white;
+          font-size: 20px;
+          border-top-left-radius: $border-radius;
+          border-top-right-radius: $border-radius;
+        }
+        .g-ct {
+          position: absolute;
+          width: 100%;
+          text-align: center;
+          font-size: 20px;
+          color: #33495f;
+          top: 40%;
+          box-sizing: border-box;
+          padding: 0 5px;
+        }
+        .g-confirm1 {
+          position: absolute;
+          bottom: 0;
+          width: 100%;
+          text-align: center;
+          height: 66px;
+          padding-top: 12px;
+          border-top: 1px solid #eff3f5;
+          box-sizing: border-box;
+          .u-confirm {
+            font-size: 20px;
+            display: block;
+            width: 180px;
+            height: 38px;
+            line-height: 38px;
+            margin: auto;
+            border-radius: 4px;
+            color: #56bbe8;
+            border: 1px solid #56bbe8;
+            cursor: pointer;
+          }
+        }
+        .g-confirm2 {
+          position: absolute;
+          bottom: 0;
+          width: 100%;
+          text-align: center;
+          height: 66px;
+          padding-top: 12px;
+          border-top: 1px solid #eff3f5;
+          box-sizing: border-box;
+          .u-confirm, .u-cancel {
+            display: inline-block;
+            padding: 0px 45px;
+            border-radius: 4px;
+            color: white;
+            cursor: pointer;
+            font-size: 20px;
+            height: 38px;
+            line-height: 38px;
+            box-sizing: border-box;
+          }
+          .u-confirm {
+            background: #56bbe8;
+          }
+          .u-cancel {
+            background: #fff;
+            margin-left: 20px;
+            color: #56bbe8;
+            border: 1px solid #56bbe8;
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width:760px){
+    $u-box-width: 300px;
+    $u-box-height: 200px;
+    $u-box-sub : 36px;
+    .u-alert {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(0, 0, 0, .5);
+      $border-radius: 8px;
+      .u-error {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: $u-box-width;
+        height: $u-box-height;
+        margin-left: - ($u-box-width / 2);
+        margin-top: -($u-box-height /2);
+        background: #fff;
+        border-radius: $border-radius;
+        .g-hd {
+          background: #56bbe8;
+          height: 40px;
+          line-height: 40px;
+          text-align: center;
+          color: white;
+          font-size: 16px;
+          border-top-left-radius: $border-radius;
+          border-top-right-radius: $border-radius;
+        }
+        .g-ct {
+          position: absolute;
+          width: 100%;
+          text-align: center;
+          font-size: 20px;
+          color: #33495f;
+          top: 40%;
+          box-sizing: border-box;
+          padding: 0 5px;
+        }
+        .g-confirm1 {
+          position: absolute;
+          bottom: 0;
+          width: 100%;
+          text-align: center;
+          height: 66px;
+          padding-top: 12px;
+          border-top: 1px solid #eff3f5;
+          box-sizing: border-box;
+          .u-confirm {
+            font-size: 18px;
+            display: block;
+            width: 180px;
+            height: 38px;
+            line-height: 38px;
+            margin: auto;
+            border-radius: 4px;
+            color: #56bbe8;
+            border: 1px solid #56bbe8;
+            cursor: pointer;
+            box-sizing: border-box;
+          }
+        }
+        .g-confirm2 {
+          position: absolute;
+          bottom: 0;
+          width: 100%;
+          text-align: center;
+          height: 54px;
+          padding-top: 12px;
+          border-top: 1px solid #eff3f5;
+          .u-confirm, .u-cancel {
+            display: inline-block;
+            vertical-align: top;
+            padding: 0px 40px;
+            margin: 0 3px;
+            border-radius: 4px;
+            color: white;
+            cursor: pointer;
+            font-size: 18px;
+            height: 37px;
+            line-height: 37px;
+            box-sizing: border-box;
+          }
+          .u-confirm {
+            background: #56bbe8;
+          }
+          .u-cancel {
+            color: #56bbe8;
+            border: 1px solid #56bbe8;
+          }
+        }
+      }
+    }
+  }
+}

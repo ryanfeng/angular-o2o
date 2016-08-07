@@ -1,0 +1,175 @@
+.pc-myServer {
+  background-color: #eff3f6;
+  .hd .pc-header {
+    background-color: #fff;
+  }
+  .g-title {
+    width: 980px;
+    height: 20px;
+    padding: 10px;
+    margin: 0 auto;
+    margin-top: 40px;
+    font-size: 16px;
+  }
+  .m-title-root {
+    height: 20px;
+    float: left;
+    color: #9aabb8;
+  }
+  .m-title-now {
+    width: 100px;
+    height: 20px;
+    margin-top: 1px;
+    float: left;
+    color: #66ccff;
+  }
+  .g-content {
+    width: 980px;
+    min-height: 700px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 60px;
+  }
+  .g-content-right {
+    width: 805px;
+    height: auto;
+    min-height: 700px;
+    float: right;
+    background-color: #fff;
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1);
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+    margin: 2px 2px 2px 0;
+  }
+  .m-right-title {
+    width: 778px;
+    height: 56px;
+    line-height: 56px;
+    font-size: 18px;
+    color: #33495f;
+    margin-left: 16px;
+    padding-left: 6px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #eff3f5;
+    position: relative;
+  }
+  .u-new {
+    width: 70px;
+    height: 27px;
+    line-height: 27px;
+    background-color: #66ccff;
+    color: #fff;
+    font-size: 12px;
+    text-align: center;
+    border-radius: 4px;
+    position: absolute;
+    top: 18px;
+    right: 10px;
+    cursor: pointer;
+  }
+  .m-box {
+    width: 778px;
+    height: 145px;
+    margin: 0 auto;
+    border-bottom: 1px solid #eff3f5;
+    box-sizing: border-box;
+  }
+  .m-box-img {
+    width: 133px;
+    height: 99px;
+    margin: 23px 7px;
+    margin-right: 13px;
+    display: inline-block;
+    vertical-align: top;
+  }
+  .u-img {
+    width: 133px;
+    height: 99px;
+  }
+  .m-box-message {
+    width: 500px;
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 25px;
+  }
+  .m-mess-tt {
+    margin-top: 5px;
+  }
+  .u-tt-show {
+    width: 60px;
+    height: 23px;
+    line-height: 23px;
+    display: inline-block;
+    background-color: #e0e5e8;
+    text-align: center;
+    border-radius: 4px;
+    font-size: 12px;
+    color: #8699a9;
+  }
+  .u-tt-name {
+    margin-left: 4px;
+    display: inline-block;
+    font-size: 14px;
+    color: #33495f;
+  }
+  .u-tt-state {
+    display: inline-block;
+    margin-left: 10px;
+    color: #66ccff;
+  }
+  .m-mess-price {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #33495f;
+  }
+  .m-mess-content {
+    height: 35px;
+    margin-top: 4px;
+    color: #b4bbc0;
+    line-height: 18px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+  .m-mess-botton {
+    width: 115px;
+    display: inline-block;
+  }
+  .u-botton-look {
+    width: 70px;
+    height: 27px;
+    line-height: 27px;
+    background-color: #66ccff;
+    color: #fff;
+    font-size: 12px;
+    text-align: center;
+    border-radius: 4px;
+    float: right;
+    margin-top: 37px;
+    cursor: pointer;
+    box-sizing: border-box;
+  }
+  .u-botton-del {
+    width: 70px;
+    height: 27px;
+    line-height: 25px;
+    border: 1px solid #66ccff;
+    color: #66ccff;
+    font-size: 12px;
+    text-align: center;
+    border-radius: 4px;
+    float: right;
+    margin-top: 8px;
+    box-sizing: border-box;
+    cursor: pointer;
+  }
+  .u-none-img {
+    width: 300px;
+    height: auto;
+    margin-left: 261px;
+    margin-top: 144px;
+  }
+}

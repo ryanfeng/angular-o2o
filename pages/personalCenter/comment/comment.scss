@@ -1,0 +1,184 @@
+.pc-comment {
+  background-color: #eff3f6;
+  .hd .pc-header {
+    background-color: #fff;
+  }
+  .g-ct {
+    min-height: 450px;
+  }
+  .g-center {
+    width: 900px;
+    margin: 0 auto;
+    margin-top: 40px;
+    background-color: #fff;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1);
+    position: relative;
+    margin-bottom: 20px;
+  }
+  .u-title-img {
+    width: 900px;
+    height: 28px;
+    position: absolute;
+    top: -27px;
+    left: 0px;
+    background-image: url("http://image.1yingli.cn/img/new/title_img.png");
+    background-repeat: repeat-x;
+    background-size: 20px 27px;
+    box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.1);
+  }
+  .u-shadow {
+    width: 900px;
+    height: 6px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background-color: #fff;
+  }
+  .m-center-header {
+    width: 900px;
+    height: 30px;
+    margin-top: 15px;
+    padding-top: 10px;
+  }
+  .m-header-content {
+    width: 156px;
+    height: 21px;
+    font-size: 16px;
+    border-right: 1px solid #b8c4cf;
+    float: right;
+    text-align: center;
+    color: #33495f;
+    cursor: pointer;
+  }
+  .m-header-content:first-of-type {
+    border: none;
+  }
+  .m-header-left {
+    float: right;
+  }
+
+  .m-header-active {
+    color: #32669c;
+  }
+  .m-center-message {
+    width: 900px;
+    min-height: 171px;
+    margin: 0 auto;
+    position: relative;
+    padding-top: 37px;
+  }
+  .m-center-message:hover {
+    background-color: #f6f9fa;
+  }
+  .m-center-message:last-of-type {
+    border: none;
+  }
+  .m-center-message:first-of-type {
+    padding-top: 0px;
+  }
+  .m-message-img {
+    width: 69px;
+    height: 69px;
+    border-radius: 50%;
+    float: left;
+    margin-top: 11px;
+    margin-left: 67px;
+  }
+  .m-message-name {
+    width: auto;
+    font-size: 18px;
+    float: left;
+    margin-left: 44px;
+    margin-top: 15px;
+    color: #33495f;
+  }
+  .m-message-star {
+    width: 77px;
+    float: left;
+    margin-top: 19px;
+    position: absolute;
+    top: 67px;
+    left: 64px;
+  }
+  .u-star {
+    width: 12px;
+    height: 12px;
+    background-image: url(http://image.1yingli.cn/img/star-y.png);
+    background-size: cover;
+    float: left;
+    margin: 0 1.5px;
+  }
+  .m-message-date {
+    width: 145px;
+    font-size: 12px;
+    float: left;
+    margin-top: 22px;
+    margin-left: 23px;
+    color: #666;
+  }
+  .m-message-time {
+    width: 50px;
+    float: left;
+    margin-top: 22px;
+  }
+  .m-message-info {
+    width: 640px;
+    min-height: 50px;
+    margin-left: 44px;
+    line-height: 25px;
+    font-size: 16px;
+    color: #333;
+    margin-top: 8px;
+    display: inline-block;
+  }
+  .u-message-info.centent-hide {
+    height: 50px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 50px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+  .u-message-info {
+    min-height: 50px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 50px;
+  }
+  .u-bt {
+    width: 66px;
+    height: 24px;
+    line-height: 24px;
+    border: 1px solid #66ccff;
+    color: #66ccff;
+    text-align: center;
+    position: absolute;
+    right: 80px;
+    bottom: 32px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    -webkit-transition: all .35s ease-in-out;
+    -o-transition: all .35s ease-in-out;
+    transition: all .35s ease-in-out;
+  }
+  .u-bt:hover {
+    color: #fff;
+    background-color: #66ccff;
+  }
+  .m-img {
+    position: relative;
+  }
+  .g-empty {
+    width: 500px;
+    margin: 0 auto;
+    img {
+      width: 500px;
+      margin: 30px auto 0;
+      opacity: 0.75;
+    }
+  }
+}

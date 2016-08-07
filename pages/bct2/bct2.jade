@@ -1,0 +1,116 @@
+.pc-bct2
+    .hd
+       ng-include(src="'/pages/common/header/header.html'")
+    .g-main
+        .g-content
+           .g-ct-title
+              .m-tl
+                 h1.u-tl-title 个人简历
+                 p.u-tl-p
+                    |丰富的个人简介，将有助于「一英里」通过您的申请。个人简介太过简单，通常会被拒绝。<br><br>1 、请添加学校信息，可添加多次。<br>2 、请添加工作信息，可添加多次。添加之后进入下一步。
+           .g-ct-show
+              .m-show-left
+                 .u-lf-imgL
+                 .m-lf-ti
+                    .u-ti-name 学校经历
+                    .u-ti-en SCHOOL EXPERIENCE
+                 .u-lf-ct 添加学校经历，如：学校名称，所在院系专业名称，起止时间，经过验证之后，可以增加彼此的信任度。
+              .m-show-right
+                 .u-lf-imgR
+                 .m-lf-ti
+                    .u-ti-name 工作经历
+                    .u-ti-en WORK EXPERIENCE
+                 .u-lf-ct 添加工作经历，如：公司名称，所在部门职位名称，起止时间，经过验证之后，可以增加彼此的信任度。
+           .g-ct-school
+              .g-school-tl 教育经历
+              .g-school-f
+                 .m-f-t(ng-show="schools.length != 0;")
+                    .u-t-t 已添加教育经历
+                 .m-f-c(ng-repeat="oldSchool in schools track by $index" ng-class="{'m-f-c-none':$last}")
+                    .u-t-d(ng-click="deleteSchool($index)")
+                    .u-t-x(ng-click="editSchool($index)")
+                    .u-f-c-school 学校：{{oldSchool.name}}
+                    .u-f-c-academy 院系：{{oldSchool.education}}
+                    .u-f-c-major   专业：{{oldSchool.major}}
+                    .u-f-c-time 时间：{{oldSchool.time}}
+                    .m-f-c-show
+                       .u-c-show-t 在校经历：
+                       .u-c-show-c {{oldSchool.exprience}}
+                 .m-f-b
+                    a
+                       span.u-b-c(ng-click="addSchool();") 新增教育背景
+              .g-school-s(ng-show="isAddSchool")
+                 .m-s-t 填写教育经历
+                 .m-s-c
+                    .u-name 学校名称
+                    input.u-input(placeholder="请填写您的学校" ng-model="school.name" ng-change="isSchNameShow=false;")
+                    label.errMessage(ng-if="isSchNameShow") 必填
+                    .u-name 学历
+                    input.u-input(placeholder="请填写您的学历" ng-model="school.education" ng-change="isSchEduShow=false;")
+                    label.errMessage(ng-if="isSchEduShow") 必填
+                    .u-name 专业
+                    input.u-input(placeholder="请填写您的专业" ng-model="school.major" ng-change="isSchMajorShow=false;")
+                    label.errMessage(ng-if="isSchMajorShow") 必填
+                    .u-name 起止时间
+                    .m-timeBox
+                       select.u-st-year(ng-model="school.yearSt" ng-options="year for year in yearSt")
+                       span 年
+                       select.u-st-month(ng-model="school.monthSt" ng-options="month for month in months")
+                       span 月&nbsp;&nbsp;至&nbsp;
+                       select.u-end-year(ng-model="school.yearEd" ng-options="year for year in yearEd")
+                       span 年
+                       select.u-end-month(ng-model="school.monthEd" ng-options="month for month in months")
+                       span 月
+                    .u-name-t 在校经历
+                    textarea.u-text(placeholder="请填写您的在校经历" ng-model="school.exprience")
+                 .m-s-b
+                    .u-s-confirm(ng-click="saveSchool();") 确认
+                    .u-s-cancel(ng-click="closeAddSchool();") 取消
+           .g-ct-work
+              .g-work-tl 工作经历
+              .g-work-f
+                 .m-f-t(ng-show="companys.length != 0;")
+                    .u-t-t 已添加工作经历
+                 .m-f-c(ng-repeat="company in companys track by $index" ng-class="{'m-f-c-none':$last}")
+                    .u-t-d(ng-click="deleteCompany($index)")
+                    .u-t-x(ng-click="editCompany($index)")
+                    .u-f-c-school 公司：{{company.name}}
+                    .u-f-c-academy 职位：{{company.position}}
+                    .u-f-c-time 时间：{{company.time}}
+                    .m-f-c-show
+                       .u-c-show-t 在职经历：
+                       .u-c-show-c {{company.exprience}}
+                 .m-f-b
+                    a
+                       span.u-b-c(ng-click="addCompany();") 新增工作背景
+              .g-work-s(ng-show="isAddCompany")
+                 .m-w-t 填写工作经历
+                 .m-w-c
+                    .u-name 公司名称
+                    input.u-input(placeholder="请填写您工作的公司" ng-model="company.name" ng-change="isWordNameShow=false")
+                    label.errMessage(ng-if="isWordNameShow") 必填
+                    .u-name 所在职位
+                    input.u-input(placeholder="请填写您所在的职位" ng-model="company.position" ng-change="isWorkPosiShow=false")
+                    label.errMessage(ng-if="isWorkPosiShow") 必填
+                    .u-name 起止时间
+                    .m-timeBox
+                       select.u-st-year(ng-model="company.yearSt" ng-options="year for year in yearSt")
+                       span 年
+                       select.u-st-month(ng-model="company.monthSt" ng-options="month for month in months")
+                       span 月&nbsp;&nbsp;至&nbsp;
+                       select.u-end-year(ng-model="company.yearEd" ng-options="year for year in yearEd")
+                       span 年
+                       select.u-end-month(ng-model="company.monthEd" ng-options="month for month in months")
+                       span 月
+                    .u-name-t 工作经历
+                    textarea.u-text(placeholder="请填写您工作经历" ng-model="company.exprience")
+                 .m-w-b
+                    .u-s-confirm(ng-click="saveCompany();") 确认
+                    .u-s-cancel(ng-click="closeAddCompany();") 取消
+               .m-content-view
+                   img(src="http://image.1yingli.cn/img/new/bct-step2.png")
+                   label.l-zl 你的个人资料
+                   label.l-jl 个人简历
+                   label.l-wc 完成
+               .m-content-bt(ng-click="submitData();") 完成
+    ng-include(src="'/pages/common/footer/footer.html'")

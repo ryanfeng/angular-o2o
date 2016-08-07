@@ -1,0 +1,122 @@
+.pc-message-center {
+  background-color: #eff3f6;
+  .hd .pc-header{
+    background-color: #fff;
+  }
+  .g-ct {
+    min-height: 450px;
+  }
+  .g-center {
+    width: 900px;
+    margin: 0 auto;
+    margin-top: 40px;
+    background-color: #fff;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1);
+    position: relative;
+  }
+  .u-title-img{
+    width: 900px;
+    height: 28px;
+    position: absolute;
+    top: -27px;
+    left: 0px;
+    background-image: url("http://image.1yingli.cn/img/new/title_img.png");
+    background-repeat: repeat-x;
+    background-size: 20px 27px;
+    box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.1);
+  }
+  .u-shadow{
+    width: 900px;
+    height: 6px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background-color: #fff;
+  }
+
+  .g-center-remind {
+    width: 842px;
+    margin: 0 auto;
+    margin-top: 10px;
+  }
+
+  .m-center-remind {
+    min-height: 92px;
+    position: relative;
+    border-bottom: 1px solid #eff3f5;
+    cursor: pointer;
+  }
+  .m-center-remind:last-of-type {
+    border: none;
+  }
+
+  .m-center-remind-mess {
+    width: 760px;
+    //float: left;
+  }
+
+  .u-ct-date {
+    font-size: 14px;
+    color: #666;
+    height: 30px;
+    float: left;
+    margin-right: 20px;
+    margin-top: 20px;
+  }
+
+  .u-ct-time {
+    font-size: 14px;
+    color: #666;
+    width: 100px;
+    height: 30px;
+    float: left;
+    margin-top: 20px;
+  }
+
+  .u-ct-mess {
+    width: 760px;
+    font-size: 16px;
+    color: #333;
+    margin-top: 20px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    padding-bottom: 18px;
+    line-height: 25px;
+  }
+
+  .u-ct-mess a {
+    color: #66ccff;
+  }
+
+  .u-ct-mess-hide {
+    white-space: nowrap;
+  }
+
+  .m-center-remind-img {
+    width: 32px;
+    height: 23px;
+    position: absolute;
+    margin-top: 25px;
+    right: 10px;
+    top: 0;
+    -moz-user-select: none;
+    background: url("http://image.1yingli.cn/img/new/arrow-up.png") no-repeat;
+    background-size: 30px 13px;
+  }
+
+  .m-center-remind-img-hide {
+    background: url("http://image.1yingli.cn/img/new/arrow-down.png") no-repeat;
+    background-size: 30px 13px;
+  }
+  .g-empty {
+    width: 500px;
+    margin: 0 auto;
+    img{
+      width: 500px;
+      margin: 30px auto 0;
+      opacity: 0.75;
+    }
+  }
+}

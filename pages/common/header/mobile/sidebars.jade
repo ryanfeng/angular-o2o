@@ -1,0 +1,71 @@
+.sidebar.sidebar-left
+    ul.m-left-ul(close-left)
+        li.m-left-li
+            a.m-lf-li-a(href='/')
+                img.u-img(src="http://image.1yingli.cn/img/new/search/sy_w.png")
+                .u-lf-name 首页
+        li.m-left-li
+            a.m-lf-li-a(href='/theme/1')
+                img.u-img(src="http://image.1yingli.cn/img/new/service/zx2.png")
+                .u-lf-name 约谈咨询
+                img.u-back-img(src="http://image.1yingli.cn/img/new/homeL.png")
+        li.m-left-li
+            a.m-lf-li-a(href='/theme/2')
+                img.u-img(src="http://image.1yingli.cn/img/new/service/ty2.png")
+                .u-lf-name 特色体验
+                img.u-back-img(src="http://image.1yingli.cn/img/new/homeL.png")
+        li.m-left-li
+            a.m-lf-li-a(href='/theme/3')
+                img.u-img(src="http://image.1yingli.cn/img/new/service/pg2.png")
+                .u-lf-name 文书批改
+                img.u-back-img(src="http://image.1yingli.cn/img/new/homeL.png")
+        li.m-left-li
+            a.m-lf-li-a(href='/theme/4')
+                img.u-img-xy(src="http://image.1yingli.cn/img/new/service/jy2.png")
+                .u-lf-name 技艺教授
+                img.u-back-img(src="http://image.1yingli.cn/img/new/homeL.png")
+        li.m-left-li
+            a.m-lf-li-a(href='/theme/5')
+                img.u-img(src="http://image.1yingli.cn/img/new/service/dz2.png")
+                .u-lf-name 定制服务
+                img.u-back-img(src="http://image.1yingli.cn/img/new/homeL.png")
+
+.sidebar.sidebar-right(ng-controller="HeaderController")
+    ul.m-right-ul(close-right)
+        li.m-right-li
+            a.m-rg-li-a(href='/shopping')
+                .u-rg-name 购物车
+                    label.red-dot(ng-show="shoppingNum > 0 && shoppingNum < 10") {{shoppingNum}}
+                    label.red-dot.red-dot-more(ng-show="shoppingNum > 9")
+        li.m-right-li
+            a.m-rg-li-a(href='/myTutor')
+                .u-rg-name 我的导师
+        li.m-right-li
+            a.m-rg-li-a(href='/likeList')
+                .u-rg-name 心愿名单
+        li.m-right-li
+            a.m-rg-li-a(href='/comment')
+                .u-rg-name 我的评价
+        li.m-right-li
+            a.m-rg-li-a(href='/messageCenter')
+                .u-rg-name 消息中心
+                    label.red-dot(ng-show="messageNum > 0 && messageNum < 10") {{messageNum}}
+                    label.red-dot-more(ng-show="messageNum > 9")
+        li.m-right-li
+            a.m-rg-li-a(href='/modifyInformation')
+                .u-rg-name 编辑个人资料
+        li.m-right-li
+            a.m-rg-li-a(href='/account')
+                .u-rg-name 修改帐号密码
+        li.m-right-li(ng-show="!sessionService.user.teacherId")
+            a.m-rg-li-a(href='/bct1')
+                .u-rg-name 成为导师
+        li.m-right-li(ng-show="sessionService.user && sessionService.user.teacherId")
+            a.m-rg-li-a(href='/myStudent')
+                .u-rg-name 导师中心
+        li.m-right-li-quit
+            a.m-lf-li-a(ng-click="sessionService.logout()")
+                img.u-img-auto(src="http://image.1yingli.cn/img/new/out.png")
+                .u-lf-name 退出
+.u-bg-left(close-left)
+.u-bg-right(close-right)

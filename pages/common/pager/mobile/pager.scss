@@ -1,0 +1,69 @@
+.mobile-pager {
+  .g-page-number {
+    width: 100%;
+    height: 30px;
+    margin: 10px auto 0;
+    text-align: center;
+  }
+
+  .u-btn-button {
+    overflow: hidden;
+    display: inline-block;
+    margin: 0 5px;
+    width: 20px;
+    height: 22px;
+    font-size: 14px;
+    color: #787d82;
+    text-align: center;
+    border: none;
+    vertical-align: middle;
+  }
+
+  .u-btnStart {
+    background: url(http://image.1yingli.cn/img/firstPage.png) 50% 50%;
+    background-size: cover;
+  }
+
+  .u-btnStart-active {
+    background-image: url("http://image.1yingli.cn/img/new/firstPage_1.png");
+  }
+
+  .u-btnLast {
+    background: url(http://image.1yingli.cn/img/lastPage.png) 50% 50%;
+    background-size: cover;
+  }
+
+  .u-btnLast-active {
+    background-image: url("http://image.1yingli.cn/img/new/lastPage_1.png");
+  }
+
+  .u-btnNext {
+    background: url(http://image.1yingli.cn/img/nextPage.png) 50% 50%;
+    background-size: cover;
+  }
+
+  .u-btnNext-active {
+    background-image: url("http://image.1yingli.cn/img/new/nextPage_1.png");
+  }
+
+  .u-btnEnd {
+    background: url(http://image.1yingli.cn/img/finalPage.png) 50% 50%;
+    background-size: cover;
+  }
+
+  .u-btnEnd-active {
+    background-image: url("http://image.1yingli.cn/img/new/finalPage_1.png");
+  }
+
+  .u-pager {
+    display: inline-block;
+    height: 21px;
+    width: 20px;
+    vertical-align: middle;
+    margin: 0 10px;
+    background: #56bbe8;
+    color: #ffffff;
+    line-height: 20px;
+    font-size: 14px;
+  }
+}

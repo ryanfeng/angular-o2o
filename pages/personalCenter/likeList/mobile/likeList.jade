@@ -1,0 +1,62 @@
+.mobile-likeList-center
+    ng-include(src="'/pages/common/header/mobile/sidebars.html'")
+    ng-include(src="'/pages/common/header/mobile/header.html'")
+    .app
+        .hd
+        .g-center
+            .g-center-topic(ng-controller="PersonalController")
+                img(src="http://image.1yingli.cn/img/new/mo-likelist.png")
+                label 心愿名单
+            .g-center-block
+                label.m-tomy-comment(ng-class="{'m-header-active' : kind == 2}" ng-click="changeKind(2)") 心愿服务
+                label.m-tomy-comment(ng-class="{'m-header-active' : kind == 1}" ng-click="changeKind(1)") 心愿导师
+            .m-server-box(ng-repeat="like in data.data" ng-show="kind == 2")
+                img.u-close(src="http://image.1yingli.cn/img/new/delete.png" ng-click="del(like.serviceProId)")
+                a(href="service/{{like.serviceProId}}")
+                    img.u-box-img(ng-src="{{like.imageUrls.split(',')[0]}}")
+                    .m-box-right
+                        .m-right-tt {{like.title}}
+                            .u-tt-show {{service.kindTips[like.kind].text}}
+                        .u-right-name {{like.teacherName}}
+                        .m-right-post {{like.teacherSimpleInfo}}
+                        .m-right-price ￥{{like.price}}/{{like.numeral}}{{like.quantifier}}
+            .m-ct-box(ng-repeat="like in likeListService.likeList.data" ng-show="kind == 1")
+                a.u-ct-a(ng-href="/teacher/{{like.teacherId}}")
+                    .m-ct-ct
+                        img.u-ct-img(ng-src="{{(like.iconUrl)?like.iconUrl:'http://image.1yingli.cn/img/img.png'}}")
+                        .u-ct-name {{like.name}}
+                        .u-ct-p {{like.simpleinfo}}
+                        .u-ct-title {{like.topic}}
+                        .u-ct-score(ng-show="like.score >= 5")
+                            | {{like.score | number:2}}
+                            span 分
+                        .u-ct-score(ng-show="like.score < 5")
+                            span 暂无评分
+                        .m-ct-want(ng-show='like.finishno > 0')
+                            .u-want
+                                span {{like.finishno}}
+                                | 人见过
+                        .m-ct-want(ng-show='like.finishno <= 0')
+                            .u-want
+                                span {{like.likeno}}
+                                | 人想见
+                img.u-close(src="http://image.1yingli.cn/img/new/delete.png" ng-click="disLikeTeacher(like.teacherId)")
+                .m-ct-cs
+                    label.u-l-title TA的服务
+                    a.u-l-tag(ng-repeat="item in like.servicePros" ng-href="/service/{{item.serviceProId}}") {{service.kindTips[item.kind].text}}
+                .m-empty(ng-show="!likeListService.likeList || !likeListService.likeList.data || likeListService.likeList.data.length < 1")
+            .m-none(ng-show="kind == 1 && likeListService.likeList.data.length == 0")
+                img.u-none(src="http://image.1yingli.cn/img/new/empty-service.png")
+            //.g-center-remind
+            //    .m-center-remind(ng-repeat="like in likeListService.likeList.data")
+            //        img.p-img(ng-src="{{(like.iconUrl)?like.iconUrl:'http://image.1yingli.cn/img/img.png'}}")
+            //        .p-name {{like.name}}
+            //        .p-title {{like.title}}
+            //        .p-info {{like.simpleinfo}}
+            //        .m-center-submit
+            //            a.g-detail(ng-href="/teacher/{{like.teacherId}}") 查看详情
+            //            a.g-detail.g-detail-blue() 预约
+            //            .g-detail(ng-click="disLikeTeacher(like.teacherId)") 删除
+            //    .m-empty(ng-show="!likeListService.likeList || !likeListService.likeList.data || likeListService.likeList.data.length < 1")
+        ng-include(src="'/pages/common/pager/mobile/pager.html'")
+        ng-include(src="'/pages/common/footer/mobile/footer.html'")

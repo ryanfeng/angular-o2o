@@ -1,0 +1,41 @@
+.mobile-user-order
+    .app
+        .m-header
+            p.topicF 预约前
+            p.topicM 请填写您的个人信息
+            p.topicL 确保导师能与您联系
+            img.closeF(src="http://image.1yingli.cn/img/new/mobile-close.png" ng-click="closeOrder()")
+        .m-form
+            ul.m-from-ul
+                li.m-ul-li.m-ul-li-top
+                    img.m-ul-li-img(src="http://image.1yingli.cn/img/new/name.png")
+                    input.m-ul-li-input(placeholder="您的姓名" ng-model="user.name")
+                li.m-ul-li
+                    img.m-ul-li-img(src="http://image.1yingli.cn/img/new/phone.png")
+                    input.m-ul-li-input.short-input(placeholder="您的手机号" ng-model="user.newPhone")
+                    .m-select(ng-mouseleave="isShowCountry=false;")
+                        .u-select(ng-click="isShowCountry = !isShowCountry;")
+                            img.select-country(ng-src="{{country.flag}}")
+                            span#phoneCode {{country.code}}
+                            img.select-sub(src="http://image.1yingli.cn/img/new/select-arrow1.png")
+                            label |
+                        ul.u-select-ul(ng-show="isShowCountry" )
+                            li.u-select-li(ng-click="selectCountry($index);" ng-repeat="country in countrys")
+                                img.select-country(ng-src="{{country.flag}}")
+                                label {{country.code}}
+                li.m-ul-li
+                    img.m-ul-li-img(src="http://image.1yingli.cn/img/new/email.png")
+                    input.m-ul-li-input(placeholder="您的邮箱" ng-model="user.email")
+                li.m-ul-li
+                    img.m-ul-li-img(src="http://image.1yingli.cn/img/new/wechat.png")
+                    input.m-ul-li-input(placeholder="您的微信" ng-model="user.contact")
+                li.m-ul-li
+                    img.m-ul-li-img.u-coupon(src="http://image.1yingli.cn/img/new/coupon.png")
+                    input.m-ul-li-input(placeholder="10位或16位优惠序号" ng-model="user.voucher")
+            p.m-form-sub
+              button.form-sub(ng-click="closeOrder();") 取消
+              button.form-sub.form-sub-blue(ng-click="submitAll();") 确定
+
+
+
+

@@ -1,0 +1,68 @@
+.mobile-myMoney
+    ng-include(src="'/pages/common/header/mobile/sidebars.html'")
+    ng-include(src="'/pages/common/header/mobile/header.html'")
+    .app
+        .g-bk
+            ng-include(src="'/pages/teacherCenter/centerLeft/mobile/centerLeft.html'")
+            .m-mile
+                    .m-mile-left
+                        .u-number {{mile}}
+                        .u-mile 我的英里数
+                    .m-mile-right
+                        .u-line.grad
+                            .u-line-nu-st(style="opacity:{{mile?1:0}}") 0
+                            .u-line-nu-end {{total}}
+                        .m-line-nu(style="-webkit-transform: translateX({{planeLeft}}px);transform: translateX({{planeLeft}}px);-o-transform: translateX({{planeLeft}}px);-moz-transform: translateX({{planeLeft}}px);-ms-transform: translateX({{planeLeft}}px);" ng-class="{'nb-now-fly':mile}") {{mile}}
+                            .u-round
+                            img.u-plane(src="http://image.1yingli.cn/img/plane.png" style="-webkit-transform: translateY({{-percent / 7}}px);transform: translateY({{-percent / 7}}px);-o-transform: translateY({{-percent / 7}}px);-moz-transform: translateY({{-percent / 7}}px);-ms-transform: translateY({{-percent / 7}}px);")
+            .m-donation
+                .m-donation-now
+                    .m-do-box
+                        img.u-donation-img(src="http://image.1yingli.cn/img/new/allReward.png")
+                        span.u-sign ￥
+                        | {{rewardNo.allReward}}
+                        span 元
+                    .u-d-name 打赏总收入
+                .m-take-now
+                    .m-do-box
+                        img.u-donation-img(src="http://image.1yingli.cn/img/new/gotReward.png")
+                        span.u-sign ￥
+                        | {{rewardNo.gotReward}}
+                        span 元
+                    .u-d-name 已提现打赏
+                .m-people-now
+                    .m-do-box
+                        img.u-donation-img(src="http://image.1yingli.cn/img/new/rewardNo.png")
+                        | &nbsp;{{rewardNo.rewardNo}}
+                        span 元
+                    .u-d-name 打赏人数
+            .m-money
+                .m-moneyZ-title
+                    img.u-money-img(src="http://image.1yingli.cn/img/new/alipay_logo.png")
+                    .m-money-show
+                        img.u-show-img(ng-click="isShowPliForm = !isShowPliForm; isMobilePliEdit=false; " ng-src="{{isShowPliForm?'http://image.1yingli.cn/img/hide.png':'http://image.1yingli.cn/img/show.png'}}")
+                        .u-show-name(ng-click="isShowPliForm = !isShowPliForm; isMobilePliEdit=false; ") {{isShowPliEdit?'已绑定':'未绑定'}}
+                    .m-money-content(ng-show="isShowPliForm")
+                        input.u-input(placeholder="支付账号" ng-model="alipayNo" ng-disabled="!isMobilePliEdit")
+                        .u-pay-write(ng-click="isMobilePliEdit = !isMobilePliEdit;") 编辑
+                        img.u-pay-img(src="http://image.1yingli.cn/img/new/icon-pen-blue.png" align="middle" ng-click="isMobilePliEdit = !isMobilePliEdit;")
+                    .m-bottom(ng-show="isMobilePliEdit")
+                        .u-confirm(ng-click="editAlipayAcount()") 保存
+                        .u-cancel(ng-click="isMobilePliEdit=false;") 取消
+                .m-moneyP-title
+                    img.u-money-img(src="http://image.1yingli.cn/img/new/paypal_logo.png")
+                    .m-money-show
+                        img.u-show-img(ng-click="isShowApyForm = !isShowApyForm; isMobileApyEdit=false;" ng-src="{{isShowApyForm?'http://image.1yingli.cn/img/hide.png':'http://image.1yingli.cn/img/show.png'}}")
+                        .u-show-name(ng-click="isShowApyForm = !isShowApyForm; isMobileApyEdit=false;") {{isShowApyEdit?'已绑定':'未绑定'}}
+                    .m-money-content(ng-show="isShowApyForm")
+                        input.u-input(placeholder="支付账号" ng-model="payPayNo" ng-disabled="!isMobileApyEdit")
+                        .u-pay-write(ng-click="isMobileApyEdit = !isMobileApyEdit;") 编辑
+                        img.u-pay-img(src="http://image.1yingli.cn/img/new/icon-pen-blue.png" align="middle" ng-click="isMobileApyEdit = !isMobileApyEdit;")
+                    .m-bottom(ng-show="isMobileApyEdit")
+                        .u-confirm(ng-click="editPayPalAcount()") 保存
+                        .u-cancel(ng-click="isMobileApyEdit=false;") 取消
+
+
+
+
+        ng-include(src="'/pages/common/footer/mobile/footer.html'")

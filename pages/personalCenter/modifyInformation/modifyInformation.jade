@@ -1,0 +1,48 @@
+.pc-modifyInformation
+    .hd
+        ng-include(src="'/pages/common/header/header.html'")
+    .g-header
+        ng-include(src="'/pages/personalCenter/personalHeader/personalHeader.html'")
+    .g-center
+        .m-body-left
+            img.m-img-img(ng-src="{{sessionService.user.iconUrl?sessionService.user.iconUrl:'http://image.1yingli.cn/img/new/man.png'}}" type="file"
+            ngf-select="modifyPersonPortrait($file, $invalidFiles)"
+            accept="image/*" ngf-max-size="10MB"
+            ng-mouseenter="imgValue = 'in'"
+            ng-mouseleave="imgValue = 'out'")
+            .m-img-show(ng-class="{'m-img-show-active':imgValue == 'in'}" ng-mouseenter="imgValue = 'in'"
+            ng-mouseleave="imgValue = 'out'"
+            type="file"
+            ngf-select="modifyPersonPortrait($file, $invalidFiles)"
+            accept="image/*" ngf-max-size="5MB")
+                img.u-show-img(src="http://image.1yingli.cn/img/new/camera.png")
+                .u-show-word 点击修改您的头像
+            .m-img-bt 点击修改头像
+        .m-body-m
+            .u-m-top
+            .u-m-bottom
+        .m-body-right
+            .m-uName.block-margin-top
+                .u-uName-name 昵称
+                input.u-uName-input(ng-model="person.nickName" ng-change="nickNameVa=true")
+                p.errMessage(ng-if="!nickNameVa") 昵称必须填写!
+            .m-name.block-margin-top
+                .u-name-name 姓名
+                input.u-name-input(ng-model="person.name" ng-change="nameVa=true")
+                p.errMessage(ng-if="!nameVa") 姓名必须填写!
+            .m-address.block-margin-top
+                .u-address-name 常居地
+                input.u-address-input(ng-model="person.address" ng-change="addressVa=true")
+                p.errMessage(ng-if="!addressVa") 常驻地址必须填写!
+            .m-phone.block-margin-top
+                .u-phone-name 电话
+                input.u-phone-input(ng-model="person.phone" ng-change="phoneVa=true" disabled="disabled")
+            .m-email.block-margin-top
+                .u-email-name 邮箱
+                input.u-email-input(ng-model="person.email" ng-change="emailVa=true" disabled="disabled")
+            .m-introduction.block-margin-top
+                .u-introduction-name 个人简介
+                textarea.u-introduction-input(ng-model="person.resume" ng-change="resumeVa=true")
+                p.errMessage(ng-if="!resumeVa") 个人简历必须填写!
+    .u-bt(ng-click="changePersonInfo()") 提交
+    ng-include(src="'/pages/common/footer/footer.html'")

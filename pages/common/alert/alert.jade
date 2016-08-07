@@ -1,0 +1,10 @@
+.pc-alert
+    .u-alert(ng-controller="AlertController" ng-show="service.show")
+        .u-error
+            .g-hd 来自一英里的信息
+            .g-ct {{service.msg}}
+            .g-confirm1(ng-if="service.type == 1")
+                .u-confirm(ng-click="service.confirm()") 确定
+            .g-confirm2(ng-if="service.type == 2")
+                .u-confirm(ng-click="service.confirm()") 确定
+                .u-cancel(ng-click="cancel()") 取消

@@ -1,0 +1,113 @@
+.pc-orderInfo(ng-controller="GetOrderInfoController")
+    <!--------------------预约导师个人联系方式填写-------------------->
+    .m-layer-info(ng-show="createOrderService.isInfoShow")
+    .m-layer-info-lywrap.lywrap(ng-show="createOrderService.isInfoShow")
+        .u-info-title 预约详情
+        img.u-order-close(src='http://image.1yingli.cn/img/new/order-close.png' ng-click="createOrderService.closeAll();")
+        label.u-bt-close(ng-click="createOrderService.closeAll();") 取消预约
+        p.u-tt 预约前，请填写自己的个人信息，以确保导师与你联系
+        p.u-tm 你预留的联系方式是导师唯一联系你的方式，确认无误后再提交
+        p.u-tf.u-tf-top
+            label.u-order-label 姓名:
+            input.u-order-input(placeholder="您的姓名" ng-model="createOrderService.user.name"
+                                ng-change="createOrderService.validate.nameVa=false;")
+            label.errMessage.u-errMessage(ng-show="createOrderService.validate.nameVa") 必须填写
+        .u-tf
+            label.u-order-label 电话:
+            input.u-order-input.u-order-phone(placeholder="您的手机号" ng-model="createOrderService.user.phoneNew"
+                                ng-change="createOrderService.validate.phoneVa=false;")
+            .m-select(ng-mouseleave="isShowCountry=false;")
+                .u-select(ng-click="isShowCountry = !isShowCountry;")
+                    img.select-country(ng-src="{{country.flag}}")
+                    span#phoneCode {{country.code}}
+                    img.select-sub(src="http://image.1yingli.cn/img/new/select-arrow1.png")
+                    label |
+                ul.u-select-ul(ng-show="isShowCountry" )
+                    li.u-select-li(ng-click="selectCountry($index);" ng-repeat="country in countrys")
+                        img.select-country(ng-src="{{country.flag}}")
+                        label {{country.code}}
+        p.u-tf.u-errMessage(ng-show="createOrderService.validate.phoneVa")
+            label.errMessage 必须填写且格式为:15659831720或2176076566
+        p.u-tf
+            label.u-order-label 邮箱:
+            input.u-order-input(placeholder="您的邮箱" ng-model="createOrderService.user.email"
+                                ng-change="createOrderService.validate.emailVa=false;")
+        p.u-tf.u-errMessage(ng-show="createOrderService.validate.emailVa")
+            label.errMessage 必须填写且格式必须正确
+        p.u-tf
+            label.u-order-label 微信:
+            input.u-order-input(placeholder="您的微信" ng-model="createOrderService.user.contact"
+                                ng-change="createOrderService.validate.contactVa=false;")
+        p.u-tf.u-errMessage(ng-show="createOrderService.validate.contactVa")
+            label.errMessage 必须填写
+        p.u-tf
+            label.u-order-label 优惠码:
+            input.u-order-input(placeholder="10位或16位优惠序号" ng-model="createOrderService.user.voucher")
+        p.u-tb
+            button.u-tb-right(ng-click="createOrderService.closeInfoOrder();") 上一步
+            button(ng-click="createOrderService.doOrder();") 提交预约
+
+    <!--------------------预约导师个人疑问填写-------------------->
+    .m-layer-order(ng-show="createOrderService.isOrderShow")
+    .m-layer-order-lywrap(ng-show="createOrderService.isOrderShow")
+        .u-info-title 预约详情
+        .u-info-hd
+            img.u-info-face(ng-src='{{teacher.iconUrl}}')
+            label.u-info-topic {{service.title ? service.title : teacher.topic}}
+            label.u-info-price ¥ {{service.title ? (service.onsale=='true'?service.priceTemp:service.price) + '/' + service.numeral + service.quantifier: teacher.price+' / 10分钟'}}
+            label.u-info-name(ng-bind="teacher.name")
+            label.u-info-time(ng-bind="teacher.simpleinfo")
+            label.u-info-numer × {{createOrderService.service.count}}
+            img.u-order-close(src='http://image.1yingli.cn/img/new/order-close.png' ng-click="createOrderService.closeIntroOrder();")
+            label.u-bt-close(ng-click="createOrderService.closeIntroOrder();") 取消预约
+        .u-info-process
+            .u-info-pc
+                .u-pc-block.u-long-block
+                    .u-dashed.u-long-dash
+                    .u-diamond.u-long-diamond
+                    .u-number.u-long-number 1
+                .u-pc-block
+                    .u-dashed
+                    .u-diamond
+                    .u-number.u-number-right 2
+                .u-pc-block
+                    .u-dashed
+                    .u-diamond
+                    .u-number.u-number-right 3
+                .u-pc-block
+                    .u-dashed
+                    .u-diamond
+                    .u-number 4
+                .u-pc-block
+                    .u-dashed
+                    .u-diamond
+                    .u-number.u-number-right 5
+                .u-pc-block
+                    .u-dashed.u-long-dash
+                    .u-diamond.u-hide
+            ul.u-info-p-ul
+                li.u-info-li.u-info-li-left 学员申请
+                li.u-info-li 导师确认
+                li.u-info-li 协商时间
+                li.u-info-li 服务时间
+                li.u-info-li 双方评价
+        .u-info-question
+            label 告诉我们你要请教的问题? (500字之内)
+            label.errMessage(ng-show="createOrderService.validate.questionVa") 必填
+        textarea.u-info-answer(ng-model="createOrderService.service.question"
+            ng-change="createOrderService.validate.questionVa=false;"
+            placeholder="例如：关于海外游学、关于求职、关于创业...")
+        .u-info-question
+            label 介绍自己当前的情况? (500字之内)
+            label.errMessage(ng-show="createOrderService.validate.introduceVa") 必填
+        textarea.u-info-answer(ng-model="createOrderService.service.resume"
+            ng-change="createOrderService.validate.introduceVa=false;"
+            placeholder="简单介绍一下自己的情况，例如：所在院校，专业..." )
+        .u-info-question
+            label 告诉我们你什么时候方便?
+            label.errMessage(ng-show="createOrderService.validate.selectTimeVa") 必填
+        textarea.u-info-answer.u-info-answer-short(ng-model="createOrderService.service.selectTime"
+            ng-change="createOrderService.validate.selectTimeVa=false;"
+            placeholder="你近期方便咨询的时间，例如：9月18号10：00（请以北京时间为准,可填多个）")
+        .u-info-submit
+            button.u-tb-right(ng-click="createOrderService.showInfoOrder();" ) {{createOrderService.orderIsNext?'下一步':'加入购物车'}}

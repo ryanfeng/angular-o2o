@@ -1,0 +1,131 @@
+.pc-passageList {
+  background-color: #eff3f6;
+  .hd .pc-header {
+    background-color: #fff;
+  }
+  .g-title {
+    width: 980px;
+    height: 20px;
+    padding: 10px;
+    margin: 0 auto;
+    margin-top: 40px;
+    font-size: 16px;
+  }
+  .m-title-root {
+    height: 20px;
+    float: left;
+    color: #9aabb8;
+  }
+  .m-title-now {
+    height: 20px;
+    float: left;
+    margin-top: 1px;
+    color: #66ccff;
+  }
+  .g-content {
+    width: 980px;
+    min-height: 700px;
+    margin: 0 auto 56px;
+    position: relative;
+  }
+  .g-content-right {
+    width: 805px;
+    height: auto;
+    min-height: 700px;
+    float: right;
+    background-color: #fff;
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1);
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+    margin: 2px 2px 2px 0;
+  }
+  .m-ri-title1 {
+    height: 30px;
+    padding: 16px;
+    padding-bottom: 7px;
+  }
+  .u-ri-title1-img {
+    width: 20px;
+    height: 20px;
+    float: left;
+    margin-right: 7px;
+  }
+  .u-title1-name {
+    font-size: 18px;
+    color: #66ccff;
+  }
+  .m-ri-title2 {
+    width: 745px;
+    height: 20px;
+    padding: 8px 30px;
+    font-size: 18px;
+    color: #fff;
+    background-color: #66ccff;
+  }
+  .m-ri-content {
+    min-height: 550px;
+    color: #333;
+  }
+  .m-passage-list {
+    position: relative;
+    .m-ri-content-box {
+      cursor: pointer;
+      height: 42px;
+      padding: 16px;
+      border-bottom: 1px solid #eee;
+    }
+    .m-button {
+      position: absolute;
+      right: 10px;
+      top: 28px;
+      padding: 5px 15px;
+      background: #66CCFF;
+      color: white;
+      border-radius: 4px;
+      z-index: 2;
+      cursor: pointer;
+    }
+    .m-box-img {
+      width: 48px;
+      height: 48px;
+      float: left;
+    }
+    .m-box-title {
+      width: 550px;
+      font-size: 16px;
+      float: left;
+      padding-top: 15px;
+      padding-left: 21px;
+      color: #33495f;
+    }
+    .m-box-time {
+      width: 100px;
+      font-size: 14px;
+      padding-top: 17px;
+      float: left;
+      margin-left: 0px;
+      color: #33495f;
+    }
+  }
+  .m-ri-bottom {
+    width: 805px;
+    text-align: center;
+    margin-top: 100px;
+    img {
+      width: 300px;
+      height: auto;
+      margin-left: 54px;
+      margin-top: 70px;
+    }
+  }
+  //页码
+  .m-page-number {
+    width: 805px;
+    height: 30px;
+    margin: 20px auto;
+    text-align: center;
+    .g-page-number {
+      width: 100%;
+    }
+  }
+}

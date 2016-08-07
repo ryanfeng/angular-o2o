@@ -1,0 +1,23 @@
+.pc-message-center
+    .hd
+        ng-include(src="'/pages/common/header/header.html'")
+    .g-header
+        ng-include(src="'/pages/personalCenter/personalHeader/personalHeader.html'")
+    .g-ct
+        .g-center(ng-show='data.data.length >= 1')
+            .u-title-img
+            .u-shadow
+            .g-center-remind
+                .m-center-remind(ng-repeat="notice in data.data"
+                ng-click="notice.hide = notice.hide == undefined?false:!notice.hide")
+                    .m-center-remind-mess
+                        .u-ct-date {{notice.time | date:'yyyy年MM月dd日' : '+0800'}}
+                        .u-ct-time {{notice.time | date:'HH:mm:ss' : '+0800'}}
+                        .u-ct-mess(ng-bind-html="notice.title | to_trusted" ng-class="{'u-ct-mess-hide': notice.hide != false}")
+                    .m-center-remind-img(ng-class="{'m-center-remind-img-hide': notice.hide != false}")
+        .g-empty(ng-show='data.data.length < 1')
+            img(src='http://image.1yingli.cn/img/new/empty-service.png')
+    ng-include(src="'/pages/common/pager/pager.html'")
+    ng-include(src="'/pages/common/footer/footer.html'")
+
+

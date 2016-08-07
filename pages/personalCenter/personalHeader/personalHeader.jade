@@ -1,0 +1,32 @@
+.pc-personal-herder
+    .g-personal-header(ng-controller="PersonalController")
+        .m-personal-top
+            .m-top
+                .u-personal-top-title(ng-click="logoutLogin()") 注销
+                a.m-personal-top-teacher(href="/myStudent" ng-if="sessionService.user.teacherId != undefined")
+                    .u-personal-top-tid 导师中心
+        .m-personal-header
+            .m-personal-header_image
+                img.u-hd-img(ng-src="{{sessionService.user.iconUrl?sessionService.user.iconUrl:'http://image.1yingli.cn/img/new/default-avator.png'}}")
+            .u-personal-header-name {{sessionService.user.nickName}}
+            .m-personal-header-message
+                .m-personal-header-title
+                    a.u-personal-header-title(href="/modifyInformation") 编辑个人资料
+                    a.u-personal-header-title(href="/account") 帐号和密码
+            .m-personal-header-column
+                ul.m-personal-header-ul
+                    a(href="/myTutor" ng-click=('myTutor'))
+                        li.m-personal-header-li
+                            .m-title-box(ng-class="{'u-title-box':type == 'myTutor'}") 我的订单
+                    a(href="/likeList" ng-click=('likeList'))
+                        li.m-personal-header-li
+                            .m-title-box(ng-class="{'u-title-box':type == 'likeList'}") 我的心愿
+                    a(href="/comment" ng-click=('comment'))
+                        li.m-personal-header-li
+                            .m-title-box(ng-class="{'u-title-box':type == 'comment'}") 我的评价
+                    a(href="/messageCenter" ng-click=('messageCenter'))
+                        li.m-personal-header-li
+                            .m-title-box(ng-class="{'u-title-box':type == 'messageCenter'}") 消息中心
+
+
+

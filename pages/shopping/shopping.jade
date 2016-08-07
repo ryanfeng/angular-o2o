@@ -1,0 +1,151 @@
+.pc-shopping
+    .hd
+        ng-include(src="'/pages/common/header/header.html'")
+    .g-content
+        .g-main
+            .m-topic
+                label 购物车
+            .m-title(ng-show="shopping.length >0")
+                ul
+                    li.l-lm 栏目
+                    li.l-sp 商品信息
+                    li.l-dj 单价
+                    li.l-sl 数量
+                    li.l-zj 总价
+                    li.l-cz 操作
+            .m-order-blcok(ng-repeat="oneShopping in shopping")
+                .u-top
+                    .block-radio
+                        label.input-raido(ng-click="selectAll(oneShopping.teacherId);" ng-class="{'checked':oneShopping.isCheck}")
+                    img(ng-src="{{oneShopping.iconUrl}}")
+                    label.b-name {{oneShopping.name}}
+                    label.b-simpleinfo {{oneShopping.simpleinfo}}
+                ul(ng-repeat="service in oneShopping.services")
+                    li.l-lm
+                        label.input-checkout(ng-class="{'checked':service.isCheck}" ng-click="saveService(service.serviceProId, oneShopping.teacherId);")
+                    li.l-sp
+                        a(ng-href="/service/{{service.serviceProId}}")
+                            img(ng-src="{{service.data.imageUrls.split(',')[0] | changeImageToServiceStyle}}")
+                        p.f-s-name {{service.data.title}}
+                        p.f-s-sum {{service.data.summary}}
+                        label.f-s-tag 服
+                    li.l-dj
+                        p ¥{{service.data.price}}/{{service.data.numeral+service.data.quantifier}}
+                    li.l-sl
+                        img.f-t(src="http://image.1yingli.cn/img/new/dele-number.jpg" ng-click="(1 < service.count)?service.count=service.count-1:'';allTotal();")
+                        input.f-m(ng-model="service.count" ng-change="allTotal();" ng-blur="formatInteger(service, service.data.count)")
+                        img.f-b(src="http://image.1yingli.cn/img/new/add-numer.jpg" ng-click="(service.data.count > service.count)?service.count = service.count+1:'';allTotal();")
+                    li.l-zj
+                        p {{service.data.price * service.count}} 元
+                    li.l-cz
+                        p(ng-click="deleteService(service.serviceProId)") 删除
+                        p(ng-click="showOrderDetail(service.serviceProId);") 查看详情
+            .m-order-account(ng-show="shopping.length >0")
+                label.u-js 结算
+                label.u-bt(ng-click="balanceAll();") 立即结算
+                label.u-zj
+                    |总价:
+                    span ¥{{allMoney}}
+                label.u-sl
+                    |已选服务
+                    span {{chooseServiceNum}}
+                    |件
+            img.u-none-img(src="http://image.1yingli.cn/img/new/empty.png" ng-show="shopping == undefined || shopping.length <=0")
+    <!--------------------预约导师个人联系方式填写-------------------->
+    .m-layer-info(ng-show="isInfoShow")
+    .m-layer-info-lywrap.lywrap(ng-show="isInfoShow")
+        p.u-tt 预约前，请填写自己的个人信息，以确保导师与你联系
+        p.u-tm 你预留的联系方式是导师唯一联系你的方式，确认无误后再提交
+        p.u-tf.u-tf-top
+            label.u-order-label 姓名:
+            input.u-order-input(placeholder="您的姓名" ng-model="user.name" ng-change="userVa.nameVa=true;")
+            label.errMessage.u-errMessage(ng-if="!userVa.nameVa") 必须填写
+        .u-tf
+            label.u-order-label 电话:
+            input.u-order-input.u-order-phone(placeholder="您的手机号" ng-model="user.phoneNew" ng-change="userVa.phoneVa=true;")
+            .m-select(ng-mouseleave="isShowCountry=false;")
+                .u-select(ng-click="isShowCountry = !isShowCountry;")
+                    img.select-country(ng-src="{{country.flag}}")
+                    span#phoneCode {{country.code}}
+                    img.select-sub(src="http://image.1yingli.cn/img/new/select-arrow1.png")
+                    label |
+                ul.u-select-ul(ng-show="isShowCountry" )
+                    li.u-select-li(ng-click="selectCountry($index);" ng-repeat="country in countrys")
+                        img.select-country(ng-src="{{country.flag}}")
+                        label {{country.code}}
+        p.u-tf.u-errMessage(ng-if="!userVa.phoneVa")
+            label.errMessage 必须填写且格式为:15659831720或2176076566
+        p.u-tf
+            label.u-order-label 邮箱:
+            input.u-order-input(placeholder="您的邮箱" ng-model="user.email" ng-change="userVa.emailVa=true;")
+        p.u-tf.u-errMessage(ng-if="!userVa.emailVa")
+            label.errMessage 必须填写且格式必须正确
+        p.u-tf
+            label.u-order-label 微信:
+            input.u-order-input(placeholder="您的微信" ng-model="user.contact" ng-change="userVa.contactVa=true;")
+        p.u-tf.u-errMessage(ng-if="!userVa.contactVa")
+            label.errMessage 必须填写
+        p.u-tf
+            label.u-order-label 优惠码:
+            input.u-order-input(placeholder="10位或16位优惠序号" ng-model="user.voucher")
+        p.u-tb
+            button.u-tb-right(ng-click="doOrder();") 提交
+            button(ng-click="isInfoShow = false") 取消
+    <!--------------------预约导师个人疑问填写-------------------->
+    .m-layer-order(ng-show="isOrderShow")
+    .m-layer-order-lywrap(ng-show="isOrderShow")
+        .u-info-hd
+            img(ng-src='{{teacher.iconUrl}}')
+            label.u-info-topic(ng-bind="serviceNow.data.title")
+            label.u-info-price(ng-bind="'¥'+ serviceNow.data.price+'元 / '+serviceNow.data.numeral+serviceNow.data.quantifier ")
+            label.u-info-name(ng-bind="teacher.name")
+            label.u-info-time(ng-bind="teacher.simpleinfo")
+            label.u-info-numer × {{serviceNow.count}}
+            img.u-order-close(src='http://image.1yingli.cn/img/new/order-close.png' ng-click="isOrderShow = false;")
+        .u-info-process
+            .u-info-pc
+                .u-pc-block.u-long-block
+                    .u-dashed.u-long-dash
+                    .u-diamond.u-long-diamond
+                    .u-number.u-long-number 1
+                .u-pc-block
+                    .u-dashed
+                    .u-diamond
+                    .u-number.u-number-right 2
+                .u-pc-block
+                    .u-dashed
+                    .u-diamond
+                    .u-number.u-number-right 3
+                .u-pc-block
+                    .u-dashed
+                    .u-diamond
+                    .u-number 4
+                .u-pc-block
+                    .u-dashed
+                    .u-diamond
+                    .u-number.u-number-right 5
+                .u-pc-block
+                    .u-dashed.u-long-dash
+                    .u-diamond.u-hide
+            ul.u-info-p-ul
+                li.u-info-li.u-info-li-left 学员申请
+                li.u-info-li 导师确认
+                li.u-info-li 协商时间
+                li.u-info-li 服务时间
+                li.u-info-li 双方评价
+        .u-info-question
+            label 告诉我们你要请教的问题? (500字之内)
+            label.errMessage(ng-if="!questionVa") 必填
+        textarea.u-info-answer(ng-model="serviceNow.question"  ng-change="questionVa=true;" placeholder="例如：关于海外游学、关于求职、关于创业...")
+        .u-info-question
+            label 介绍自己当前的情况? (500字之内)
+            label.errMessage(ng-if="!introduceVa") 必填
+        textarea.u-info-answer(ng-model="serviceNow.resume" ng-change="introduceVa=true;" placeholder="简单介绍一下自己的情况，例如：所在院校，专业..." )
+        .u-info-question
+            label 告诉我们你什么时候方便?
+            label.errMessage(ng-if="!selectTimeVa") 必填
+        textarea.u-info-answer.u-info-answer-short(ng-model="serviceNow.selectTime" ng-change="selectTimeVa=true;" placeholder="你近期方便咨询的时间，例如：9月18号10：00（请以北京时间为准,可填多个）")
+        .u-info-submit
+            button.u-tb-right(ng-click="changeDetail();" ) 保存
+            button(type="submit" ng-click="isOrderShow = false;") 取消
+    ng-include(src="'/pages/common/footer/footer.html'")

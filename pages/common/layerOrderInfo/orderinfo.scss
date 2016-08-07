@@ -1,0 +1,446 @@
+.pc-orderInfo{
+  .m-layer-info {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 2;
+    .z-show {
+      display: block;
+      z-index: 2;
+    }
+  }
+  .m-layer-info-lywrap {
+    z-index: 3;
+    width: 553px;
+    background: #FFF;
+    min-height: 318px;
+    position: absolute;
+    top: 400px;
+    left: 50%;
+    margin-left: -276.5px;
+    border-radius: 4px;
+  }
+  .lywrap .u-tt {
+    float: left;
+    margin: 25px 0 10px 0;
+    text-align: center;
+    font-size: 18px;
+    width: 100%;
+  }
+  .lywrap .u-tm {
+    float: left;
+    width: 100%;
+    font-size: 12px;
+    color: #faa845;
+    text-align: center;
+    height: 20px;
+  }
+  .lywrap .u-tf {
+    line-height: 23px;
+    float: left;
+    width: 100%;
+    text-align: center;
+    margin: 12px 0 0 0;
+    position: relative;
+  }
+  .lywrap .u-errMessage {
+    text-indent: 165px;
+    text-align: left;
+    margin: 5px 0 0 0;
+    font-size: 12px;
+    line-height: 15px;
+    color: #faa845;
+    width: 100%;
+    display: inline-block;
+  }
+  .lywrap .u-order-input {
+    width: 295px;
+    height: 25px;
+    line-height: 25px;
+    text-indent: 5px;
+    border: 1px solid #bdc3c7;
+    font-size: 14px;
+    border-radius: 4px;
+    color: #647486;
+  }
+  .lywrap .u-order-label {
+    margin-right: 10px;
+    font-size: 15px;
+    width: 60px;
+    display: inline-block;
+    text-align: right;
+  }
+  .lywrap .u-tf-top {
+    margin-top: 10px;
+  }
+  .lywrap .u-tb {
+    line-height: 23px;
+    width: 100%;
+    text-align: center;
+    font-size: 13px;
+    padding: 25px 0 25px 0;
+  }
+  .lywrap .u-tb button {
+    color: #66ccff;
+    border: 1px solid #66ccff;
+    background: #FFFFFF;
+    width: 110px;
+    cursor: pointer;
+    height: 26px;
+    font-size: 15px;
+    border-radius: 4px;
+    margin-top: 29px;
+  }
+  .lywrap .u-tb button:hover {
+    color: #FFFFFF;
+    background: #66ccff;
+  }
+  .lywrap .u-tb-right {
+    margin-right: 34px;
+  }
+
+  .u-info-title{
+    font-size: 18px;
+    text-align: center;
+    margin-top: 10px;
+    color: #66ccff;
+  }
+  .u-bt-close{
+    position: absolute;
+    top: 9px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 13px;
+    padding: 5px 0 5px 5px;
+  }
+  .u-order-close {
+    position: absolute;
+    top: 11px;
+    right: 65px;
+    width: 10px;
+    margin-right: 0px;
+    padding: 5px;
+    cursor: pointer;
+  }
+
+  //订单信息
+  .m-layer-order {
+    z-index: 3;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+  }
+  .m-layer-order-lywrap {
+    ::-webkit-input-placeholder {
+      color: #b7c4ce;
+    }
+    :-moz-placeholder {
+      color: #b7c4ce;
+    }
+    ::-moz-placeholder {
+      color: #b7c4ce;
+    }
+    :-ms-input-placeholder {
+      color: #b7c4ce;
+    }
+    width: 553px;
+    height: 655px;
+    background: #FFF;
+    position: absolute;
+    top: 400px;
+    left: 50%;
+    margin-left: -276.5px;
+    border-radius: 4px;
+    z-index: 3;
+    .u-info-hd {
+      overflow: hidden;
+      float: left;
+      width: 521px;
+      height: 101px;
+      margin: 16px 21px 0;
+      .u-info-face {
+        width: 101px;
+        float: left;
+        margin-right: 20px;
+        border-radius: 50%;
+      }
+      .u-info-topic {
+        float: left;
+        margin-top: 10px;
+        font-size: 18px;
+        width: 360px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .u-info-price {
+        float: right;
+        font-size: 15px;
+        margin-top: 13px;
+        margin-right: 10px;
+      }
+      .u-info-name {
+        font-size: 16px;
+        float: left;
+        width: 250px;
+        margin-top: 12px;
+      }
+      .u-info-time {
+        float: left;
+        font-size: 14px;
+        margin: 6px 0 0 0px;
+      }
+      .u-info-numer{
+        float: right;
+        font-size: 15px;
+        margin-top: 15px;
+        margin-right: 10px;
+        color: #bdc3c7;
+      }
+    }
+    .u-info-process {
+      text-align: center;
+      width: 571px;
+      margin: 25px 21px 10px;
+      float: left;
+      .u-info-pc {
+        color: #FFFFFF;
+        width: 100%;
+        font-size: 11px;
+        .u-pc-block {
+          position: relative;
+          width: 83px;
+          height: 30px;
+          float: left;
+          .u-dashed {
+            position: absolute;
+            top: 15px;
+            border-top: solid 1px #bdc3c7;
+            width: 70px;
+          }
+          .u-diamond {
+            position: absolute;
+            top: 9px;
+            left: 70px;
+            color: #FFFFFF;
+            border-color: #b7c4ce;
+            border-style: solid;
+            border-width: 7px;
+            width: 0;
+            height: 0;
+            -moz-transform: rotate(45deg);
+            -webkit-transform: rotate(45deg);
+            -o-transform: rotate(45deg);
+            transform: rotate(45deg);
+          }
+          .u-number {
+            font-size: 11px;
+            position: absolute;
+            top: 9px;
+            left: 73px;
+            color: #FFFFFF;
+          }
+          .u-number-right {
+            left: 74px;
+          }
+          .u-hide {
+            display: none;
+          }
+          .u-long-dash {
+            width: 80px;
+          }
+          .u-long-diamond {
+            left: 80px;
+            border-color: #56bbe8;
+          }
+          .u-long-number {
+            left: 84px;
+          }
+        }
+        .u-long-block {
+          width: 96px;
+          margin-left: 0px;
+        }
+      }
+      .u-info-li {
+        float: left;
+        width: 86px;
+        text-align: right;
+        margin-top: 6px;
+        font-size: 14px;
+      }
+      .u-info-li-left {
+        margin-left: 27px;
+      }
+    }
+    .u-info-question {
+      font-size: 14px;
+      float: left;
+      width: 571px;
+      margin: 15px 21px 5px;
+      span {
+        font-size: 10px;
+        color: #faa845;
+      }
+      label {
+        overflow: hidden;
+        float: left;
+      }
+      .errMessage {
+        color: #faa845;
+        float: left;
+        margin-left: 8px;
+        font-size: 12px;
+        position: relative;
+        top: 2px;
+      }
+    }
+    .u-info-answer {
+      text-align: justify;
+      float: left;
+      font-size: 12px;
+      width: 491px;
+      height: 79px;
+      margin: 3px 21px 0;
+      padding: 9px;
+      padding-top: 2px;
+      padding-bottom: 2px;
+      line-height: 20px;
+      border-radius: 4px;
+      border-color: #bdc3c7;
+    }
+    .u-info-answer-short {
+      height: 56px;
+    }
+    .u-info-discount {
+      float: left;
+      font-size: 12px;
+      width: 329px;
+      line-height: 25px;
+      margin: 3px 21px 0;
+      text-indent: 9px;
+      border-radius: 4px;
+      border: 1px solid #bdc3c7;
+    }
+    .u-info-submit {
+      float: left;
+      width: 100%;
+      text-align: center;
+      font-size: 15px;
+      margin: 25px 0 0 0;
+      button {
+        border-radius: 4px;
+        color: #66ccff;
+        border: 1px solid #66ccff;
+        background: #FFFFFF;
+        width: 110px;
+        cursor: pointer;
+        height: 29px;
+      }
+      button:hover {
+        background: #66ccff;
+        color: #FFFFFF;
+      }
+      .u-tb-right {
+      }
+    }
+  }
+
+  .short-input {
+    text-indent: 87px;
+  }
+  .lywrap .u-order-phone {
+    text-indent: 89px;
+  }
+  .m-select {
+    position: absolute;
+    height: 34px;
+    top: -1px;
+    left: 167px;
+    z-index: 9999;
+  }
+  .u-select {
+    width: 85px;
+    height: 36px;
+    border-right: 0;
+    cursor: pointer;
+    font-size: 14px;
+    position: relative;
+    color: #647486;
+    text-align: left;
+    .select-country {
+      width: 18px;
+      margin-top: 5px;
+      margin-left: 1px;
+      box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+    }
+    label {
+      position: absolute;
+      top: 2px;
+      right: 5px;
+      cursor: pointer;
+      color: #bdc3c7;
+    }
+    #phoneCode {
+      position: absolute;
+      top: 3px;
+      left: 22px;
+      width: 35px;
+      text-align: center;
+      display: block;
+      cursor: pointer;
+    }
+    .select-sub {
+      width: 10px;
+      position: absolute;
+      top: 12px;
+      right: 10px;
+      margin-left: 5px;
+      margin-right: 5px;
+    }
+  }
+  .u-select-ul {
+    cursor: pointer;
+    background: #FFFFFF;
+    overflow: hidden;
+    width: 78px;
+    color: #333;
+    font-size: 14px;
+    border-radius: 4px;
+    padding: 5px 0px 10px 0px;
+    -webkit-box-shadow: 0 0 10px #bdc3c7;
+    -moz-box-shadow: 0 0 10px #bdc3c7;
+    box-shadow: 0 0 10px #bdc3c7;
+    position: relative;
+    left: -3px;
+    top: -7px;
+  }
+  .u-select-li {
+    width: 100%;
+    height: 23px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: left;
+    .select-country {
+      width: 22px;
+      height: 22px;
+      margin-left: 5px;
+      margin-right: 5px;
+      box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+    }
+    label {
+      cursor: pointer;
+      position: relative;
+      top: -7px;
+    }
+  }
+  .u-select-li:hover {
+    color: #647486;
+    background: rgba(209, 218, 225, 0.7);
+  }
+}

@@ -1,0 +1,329 @@
+.pc-like-list {
+  background-color: #eff3f6;
+  .hd .pc-header {
+    background-color: #fff;
+  }
+  .g-ct {
+    min-height: 450px;
+  }
+  .g-center {
+    width: 900px;
+    margin: 0 auto;
+    margin-top: 40px;
+    background-color: #fff;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1);
+    position: relative;
+  }
+  .u-title-img {
+    width: 900px;
+    height: 28px;
+    position: absolute;
+    top: -27px;
+    left: 0px;
+    background-image: url("http://image.1yingli.cn/img/new/title_img.png");
+    background-repeat: repeat-x;
+    background-size: 20px 27px;
+    box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.1);
+  }
+  .u-shadow {
+    width: 900px;
+    height: 6px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background-color: #fff;
+  }
+  .g-empty {
+    width: 500px;
+    margin: 0 auto;
+    img {
+      width: 500px;
+      margin: 30px auto 0;
+      opacity: 0.75;
+    }
+  }
+  .m-center-header {
+    width: 900px;
+    height: 30px;
+    margin-top: 15px;
+    padding-top: 10px;
+  }
+  .m-header-content {
+    width: 156px;
+    height: 21px;
+    font-size: 16px;
+    border-right: 1px solid #b8c4cf;
+    float: right;
+    text-align: center;
+    color: #33495f;
+    cursor: pointer;
+  }
+  .m-header-content:first-of-type {
+    border: none;
+  }
+  .m-header-left {
+    float: right;
+  }
+  .m-bgcolor {
+    width: 900px;
+    height: 129px;
+  }
+  //.m-bgcolor:hover{
+  //  background-color: ;
+  //}
+  .m-case {
+    width: 872px;
+    height: 129px;
+    border-bottom: 1px solid #eff3f5;
+    display: inline-block;
+    margin-left: 14px;
+    position: relative;
+  }
+  .m-case-img {
+    width: 77px;
+    height: 77px;
+    margin: 26px 13px;
+    margin-left: 20px;
+    float: left;
+  }
+  .u-img {
+    width: 77px;
+    height: 77px;
+    border-radius: 50%;
+  }
+  .m-case-message {
+    width: 230px;
+    float: left;
+  }
+  .m-message-name {
+    width: 230px;
+    height: 14px;
+    font-size: 14px;
+    margin-top: 36px;
+    color: #33495f;
+  }
+  .m-message-introduce {
+    width: 230px;
+    height: 12px;
+    font-size: 12px;
+    margin-top: 9px;
+    color: #666;
+  }
+  .m-message-title {
+    width: 230px;
+    height: 14px;
+    font-size: 14px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    margin-top: 10px;
+    color: #3c3c3c;
+  }
+  .m-case-score {
+    width: 90px;
+    height: 97px;
+    margin-top: 16px;
+    float: left;
+    text-align: center;
+    color: #33495f;
+    border-right: 1px dashed #d6dfe4;
+  }
+  .u-score {
+    width: 70px;
+    height: 30px;
+    text-align: right;
+    font-size: 16px;
+    float: right;
+    margin-top: 20px;
+    margin-right: 13px;
+    color: #33495f;
+    .u-score-span {
+      font-size: 12px;
+    }
+  }
+  .u-see {
+    width: 70px;
+    height: 30px;
+    text-align: right;
+    float: right;
+    margin-top: 17px;
+    margin-right: 14px;
+    font-size: 12px;
+    color: #33495f;
+    .u-see-span {
+      color: #66ccff;
+    }
+  }
+  .m-case-server {
+    width: 400px;
+    height: 80px;
+    margin-top: 26px;
+    margin-left: 14px;
+    overflow: hidden;
+    padding-left: 5px;
+  }
+  .m-server {
+    float: left;
+    margin-top: 8px;
+  }
+  .u-server {
+    width: 230px;
+    height: 14px;
+    font-size: 14px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    color: #33495f;
+    float: left;
+  }
+  .u-server-word {
+    width: 16px;
+    height: 16px;
+    float: left;
+    border: 1px solid #66ccff;
+    box-sizing: border-box;
+    border-radius: 2px;
+    color: #66ccff;
+    padding-left: 1px;
+    margin-left: 11px;
+    font-size: 12px;
+  }
+  .u-price {
+    width: 90px;
+    float: left;
+    margin-left: 41px;
+    text-align: right;
+    color: #666;
+    font-size: 12px;
+  }
+  .u-skip {
+    color: #32669c;
+    font-size: 12px;
+    position: absolute;
+    bottom: 8px;
+    right: 38px;
+  }
+  .u-del {
+    width: 13px;
+    height: 13px;
+    margin-top: 5px;
+    cursor: pointer;
+    position: absolute;
+    top: 5px;
+    right: 9px;
+  }
+  .m-box {
+    width: 432px;
+    display: inline-block;
+    vertical-align: top;
+    box-sizing: border-box;
+    margin-top: 18px;
+    padding-left: 18px;
+    position: relative;
+    border-bottom: 1px solid #d6dfe4;
+  }
+  .m-box:nth-of-type(odd) {
+    width: 432px;
+    margin-left: 18px;
+  }
+  .m-box-img {
+    width: 115px;
+    height: 85px;
+    margin-left: 16px;
+    margin-right: 10px;
+    margin-bottom: 18px;
+    display: inline-block;
+    vertical-align: top;
+  }
+  .u-box-img {
+    width: 115px;
+    height: 85px;
+  }
+  .m-box-right {
+    width: 273px;
+    display: inline-block;
+    box-sizing: border-box;
+  }
+  .m-box:nth-of-type(odd) .m-box-right {
+    width: 273px;
+    display: inline-block;
+    box-sizing: border-box;
+    border-right: 1px dashed #d6dfe4;
+  }
+  .m-right-tt {
+    width: 270px;
+  }
+  .u-tt-show {
+    width: 60px;
+    height: 23px;
+    line-height: 23px;
+    display: inline-block;
+    background-color: #e0e5e8;
+    text-align: center;
+    border-radius: 4px;
+    font-size: 12px;
+    color: #8699a9;
+  }
+  .u-tt-title {
+    width: 200px;
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 5px;
+    height: 20px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    font-size: 14px;
+    color: #33495f;
+    padding-top: 4px;
+  }
+  .m-right-price {
+    margin-top: 8px;
+    font-size: 14px;
+    color: #66ccff;
+  }
+  .u-right-name {
+    margin-top: 7px;
+    color: #666;
+  }
+  .m-right-post {
+    margin-top: 7px;
+    color: #33495f;
+  }
+  .u-postA {
+    display: inline-block;
+  }
+  .u-postB {
+    display: inline-block;
+    margin-left: 5px;
+  }
+  .u-right-del {
+    width: 13px;
+    height: 13px;
+    margin-top: 5px;
+    cursor: pointer;
+    position: absolute;
+    top: -17px;
+    right: 10px;
+  }
+  .u-hr {
+    border: 0;
+    height: 1px;
+    background-color: #fff;
+    width: 867px;
+    position: absolute;
+    bottom: 0px;
+    left: 18px;
+  }
+  .m-header-active {
+    color: #32669c;
+  }
+  .u-score-img{
+    width: auto;
+    height: 16px;
+    position: relative;
+    top: 2px;
+  }
+}

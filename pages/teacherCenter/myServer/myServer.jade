@@ -1,0 +1,33 @@
+.pc-myServer
+    .hd
+        ng-include(src="'/pages/common/header/header.html'")
+    .g-title
+        .m-title-root
+            a(href="/") 一英里
+            | &nbsp;>&nbsp;
+            a(href="/myTutor") 个人中心
+            | &nbsp;>&nbsp;
+            a(href="/myStudent") 导师中心
+            | &nbsp;>&nbsp;
+        .m-title-now 我的服务
+    .g-content
+        ng-include(src="'/pages/teacherCenter/centerLeft/centerLeft.html'")
+        .g-content-right
+            .m-right-title 我发布的服务
+                a.u-new(href="/addServer") 添加服务
+            .m-box(ng-repeat="server in data.data" ng-show="data.data.length >0")
+                .m-box-img
+                    img.u-img(ng-src="{{server.imageUrls.split(',')[0] | changeImageToServiceStyle}}")
+                .m-box-message
+                    .m-mess-tt
+                        .u-tt-show {{serviceService.kindTips[server.kind].text}}
+                        .u-tt-name {{server.title}}
+                        .u-tt-state {{serviceService.proState[server.serviceProState]}}
+                    .m-mess-price ￥{{server.price}} / {{server.numeral}}{{server.quantifier}}
+                    .m-mess-content(ng-bind-html="server.content | to_trusted")
+                .m-mess-botton
+                    .u-botton-look(ng-click="goServer(server.serviceProId)") 查看
+                    .u-botton-del(ng-click="remove(server.serviceProId)") 删除
+            img.u-none-img(src="http://image.1yingli.cn/img/new/empty-service.png" ng-show="data.data == undefined || data.data.length <=0")
+            ng-include(src="'/pages/common/pager/pager.html'")
+    ng-include(src="'/pages/common/footer/footer.html'")

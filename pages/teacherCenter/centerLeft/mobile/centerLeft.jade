@@ -1,0 +1,10 @@
+.mobile-center-left(ng-controller="TeacherCenterController")
+    .m-box
+        .m-tTitle
+            a.u-tTitle-name(ng-click="loadMobilePage('myStudent')" ng-class="{'u-tTitle-nameNow':type == 'myStudent'}") 查看学员
+            a.u-tTitle-name(ng-click="loadMobilePage('myServer')" ng-class="{'u-tTitle-nameNow':type == 'myServer' ||type ==  'addServer'}") 查看服务
+            a.u-tTitle-name(ng-click="loadMobilePage('myMoney')"  ng-class="{'u-tTitle-nameNow':type == 'myMoney'}") 我的钱包
+            a.u-tTitle-name(ng-click="loadMobilePage('tutorPage')"  ng-class="{'u-tTitle-nameNow':type == 'tutorPage'}") 导师主页
+            a.u-tTitle-name(ng-click="loadMobilePage('tutorComment')" ng-class="{'u-tTitle-nameNow':type == 'tutorComment'}")  学员评价
+            a.u-tTitle-name(ng-click="loadMobilePage('passageList/2')" ng-class="{'u-tTitle-nameNow':type == 'passageList/'}") 我的文章
+    .m-cover

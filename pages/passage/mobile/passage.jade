@@ -1,0 +1,88 @@
+.mobile-passage
+    ng-include(src="'/pages/common/header/mobile/sidebars.html'")
+    ng-include(src="'/pages/common/header/mobile/header.html'")
+    .app
+        .g
+            .g-ct
+                .g-ct-hd
+                    .u-title {{passage.title}}
+                    label.u-date-time {{passage.createTime | date: 'yyyy-MM-dd HH:mm': '+0800'}}
+                    label.u-author 作者&nbsp;:&nbsp;
+                        a(ng-href="/teacher/{{passage.teacherId}}")
+                            span.u-name {{passage.editorName}}
+                .m-passage
+                    .bootStrap(ng-bind-html="passage.content | to_trusted")
+                .u-raward-b
+                    span(ng-show="passage.onReward != 'false'")
+                        span.u-donation(ng-click="isRaward = !isRaward" ng-class="{'u-donation-active': isRaward}") 赏
+                        span.u-donation-text 已有{{passage.rewardNumber}}人打赏
+                    div.u-h
+                        label
+                            .m-block(ng-show="isRaward")
+                                span 金额：
+                                input(name='money' ng-model="money" type="text" ng-change="isValidate = false" ng-class="{'errorMessage': isValidate}")
+                                .u-button(ng-click="submitForm();") 确定
+                                span.u-yuan 元
+            .m-photo
+                a(ng-href="/teacher/{{passage.teacherId}}")
+                    img.u-photo(ng-src="{{passage.teacherIcon}}")
+                    .u-name {{passage.teacherName}}
+                    .simpleInfo {{passage.simpleinfo}}
+                .u-number
+                    span.u-number-blue
+                    label.u-vote(ng-click="likePassage()")
+                        img(src="http://image.1yingli.cn/img/heart.png")
+                        | 赞 {{passage.likeno}}
+                .shareUs
+                    label 分享到
+                    a#wbshare
+                        img(src='http://image.1yingli.cn/img/new/xinlang2.png')
+            .m-label
+                div(ng-show="passage.tag")
+                    label.u-topic 标签 :
+                    label.u-labek-block(ng-repeat="tag in passage.tag.split(',')") {{tag}}
+                label.u-label-block-r
+                    | 阅读量：
+                    span {{passage.lookno}}
+            .m-about-pass
+                p.l-t-name 相关文章
+                a.l-t-content(ng-repeat="passage in passages"
+                ng-href="/passage/{{passage.passageId}}"
+                ng-click="nextAboutPassage(passage.passageId)")
+                    img.p-img(ng-src="{{passage.imageUrl}}")
+                    .p-title {{passage.title}}
+                    label.p-time {{passage.createTime | date: 'yyyy-MM-dd HH:mm': '+0800'}}
+        ng-include(src="'/pages/common/footer/mobile/footer.html'")
+    .g-mask(ng-show="showPayStyle || showWxPay" ng-click="hide()")
+    .g-payStyle(ng-show="showPayStyle")
+        .m-title 确认付款，请选择您支付的方式
+        .m-form(ng-init="payMethod=1")
+            .m-choose(ng-click="payMethod = '1'")
+                input.u-input(type="radio" ng-model="payMethod" value='1')
+                img.u-pay-img(src="http://image.1yingli.cn/img/pay_01.png")
+            .m-choose(ng-click="payMethod = '3'")
+                input.u-input(type="radio" ng-model="payMethod" value='3')
+                img.u-pay-img(src="http://image.1yingli.cn/img/pay_03.jpg")
+        .m-confirm
+            form.u-form(name='myForm' id="myForm" action='{{payUrl[3] | trustUrl}}', method='post', accept-charset="utf-8")
+                input(name="money" type='hidden' ng-value="money")
+                input(size='30', name='uid', value='{{sessionService.user.uid}}', type='hidden')
+                input(size='30', name='teacherName', type='hidden', value='{{nameEncode(passage.teacherName)}}')
+                input(size='30', name='callback', type='hidden', value="{{urlCallback}}")
+                input(size='30', name='teacherId', type='hidden', value='{{passage.teacherId}}')
+                input(size='30', name='passageId', type='hidden', value='{{passage.passageId}}')
+                input.u-button(type='submit' value="确定" ng-show="payMethod!=3")
+            .u-button(ng-click="wxPay()" ng-show="payMethod==3") 确定
+            .u-button(ng-click="hide()") 取消
+    .g-wxPay(ng-show="showWxPay")
+        .m-title 请长按图片,识别图中二维码支付
+            #wxcode.u-qrcode
+            .u-button(ng-click="refresh()") 完成支付
+    .m-introduce-button(ng-click="showIntroduce=true")
+        img.u-button(src="http://image.1yingli.cn/img/new/introduce-man2.png")
+        //img.u-mark(src="http://image.1yingli.cn/img/new/introduce-question.png" ng-class="{'u-mark-active': showIntroduce!=true}")
+        img.u-cloud(src="http://image.1yingli.cn/img/new/introduce-cloud.png")
+        img.u-slogan(src="http://image.1yingli.cn/img/new/introduce-slogan.gif")
+    .mask2(ng-show="showIntroduce")
+        img.u-close(src="http://image.1yingli.cn/img/new/close_green.png" ng-click="showIntroduce=false")
+        img.u-introduce(src="http://image.1yingli.cn/img/new/introduce.png")

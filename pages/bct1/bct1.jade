@@ -1,0 +1,53 @@
+.pc-bct1
+    .hd
+       ng-include(src="'/pages/common/header/header.html'")
+    .g-main
+        .g-content
+           .m-content-topic
+                label 如果您在某个领域有多年经验和独到见解，欢迎申请成为「一英里」的导师。
+           .m-content-word
+              p.u-word-wd1 如果您在某个领域有多年经验和独到见解，欢迎申请成为「一英里」的导师。
+              p.u-word-wd2 「一英里」专注于一对一咨询，致力于打造最便捷畅通的大学生线上交流平台，打破信息不对称的壁垒，轻松连接高校名企精英与万千追梦学子。
+              p.u-word-wd3 「一英里」鼎故革新，打破常规，实现导师与学子一对一无碍交流。从犹豫徘徊到笃定前行，从忐忑不安到锐意抉择，每一步求学之路，每一次职场险阻，「一英里」将与万千导师，伴你左右。
+              p.u-word-wd4 你为梦想，我们为你。
+           .m-content-input
+              .m-input
+                 .u-input-word 姓名
+                 input.u-input(placeholder="请填写您的姓名" ng-model="name" ng-change="isNameShow=false")
+                 p.errMessage(ng-if="isNameShow") 姓名必须填写
+              .m-input
+                 .u-input-word 手机
+                 .m-in-tel
+                    .m-select(ng-mouseleave="isShowCountry=false;")
+                       .u-select(ng-click="isShowCountry = !isShowCountry;")
+                          img.select-country(ng-src="{{country.flag}}")
+                          label#phoneCode {{country.code}}
+                          img.select-sub(src="http://image.1yingli.cn/img/new/select-arrow1.png")
+                          span
+                       ul.u-select-ul(ng-if="isShowCountry" )
+                          li.u-select-li(ng-click="selectCountry($index);" ng-repeat="country in countrys")
+                             img.select-country(ng-src="{{country.flag}}")
+                             label {{country.code}}
+                    input.u-input-s(placeholder="请填写能联系到您的手机号" ng-model="phone" ng-change="isPhoneShow=false")
+                 p.errMessage(ng-if="isPhoneShow") 手机号必须填写且格式正确
+              .m-input
+                 .u-input-word 微信
+                 input.u-input(placeholder="请填写能联系到您的微信" ng-model="weixin" ng-change="isWeixiShow=false")
+                 p.errMessage(ng-if="isWeixiShow" ) 微信必须填写
+              .m-input
+                 .u-input-word 邮箱
+                 input.u-input(placeholder="请填写能联系到您的邮箱" ng-model="email" ng-change="isEmailShow=false")
+                 p.errMessage(ng-if="isEmailShow") 邮箱必须填写且格式正确
+              .m-input
+                 .u-input-word 地址
+                 input.u-input(placeholder="请填写提供常驻地址" ng-model="address" ng-change="isAddressShow=false")
+                 p.errMessage(ng-if="isAddressShow") 常驻地址必须填写
+           .m-content-show 提交完成后，工作人员会与您联系以进一步完善资料，并进行审核。审核通过后，您就可以成为导师，接受学员的预约了。
+           .m-content-view
+               img(src="http://image.1yingli.cn/img/new/bct-step1.png")
+               label.l-zl 你的个人资料
+               label.l-jl 个人简历
+               label.l-wc 完成
+           .m-content-bt(ng-click="nextStep()") 下一步
+    ng-include(src="'/pages/common/footer/footer.html'")
+

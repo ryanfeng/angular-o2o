@@ -1,0 +1,72 @@
+.pc-previewServer
+    .hd
+        ng-include(src="'/pages/common/header/header.html'")
+    .g-title
+        .m-title-root
+            a(href="/") 一英里
+            | &nbsp;>&nbsp;
+            a(href="/myTutor") 个人中心
+            | &nbsp;>&nbsp;
+            a(href="/myStudent") 导师中心
+            | &nbsp;>&nbsp;
+        .m-title-now 查看服务
+    .g-content
+        ng-include(src="'/pages/teacherCenter/centerLeft/centerLeft.html'")
+        .g-content-right
+            .m-right-title 查看服务
+            .m-server
+                .m-type
+                    .u-name 服务类型
+                    .m-box
+                        span.u-type-option {{service.kindTips[data.kind].text}}
+                .m-label
+                    .u-name 特色标签
+                    .m-box
+                        span.u-label-option(ng-repeat="tipTag in service.kindTips[data.kind].data" ng-show="isContain($index+1);") {{tipTag}}
+                .m-way
+                    .u-name 服务方式
+                    .m-box
+                        .m-box-way
+                            span.u-way-option {{talk[data.talkWay]}}
+                            span.u-way-option {{data.address}}
+                .m-preview
+                    .u-name 服务方式
+                    .m-box
+                        span.u-preview-option {{data.freeTime}}
+                .m-times
+                    .u-name 可约次数
+                    .m-box
+                        .u-times-option {{data.count}}
+                        span.u-span 次
+                .m-price
+                    .u-name 价格
+                    .m-box
+                        .u-price-option {{data.price}}
+                        span.u-span 元/
+                        .u-price-option {{data.numeral}}
+                        span.u-span {{data.quantifier}}
+                hr.m-hr
+                .m-img
+                    .u-name 图片展示
+                    .m-box-img
+                        .m-add-img(ng-repeat="(index,imgUrl) in img")
+                            img.u-add-img(ng-src="{{imgUrl | changeImageToServiceStyle}}")
+                            .u-example-img(ng-show="index == 0") 第一张是封面
+                hr.m-hr
+                .m-stitle
+                    .u-name 服务标题
+                    .m-box
+                        .u-stitle {{data.title}}
+                .m-brief
+                    .u-name 服务简介
+                    .m-box
+                        .u-brief {{data.summary}}
+                .m-introduce
+                    .u-name 服务介绍
+                    .m-box
+                        .u-introduce(ng-bind-html="data.content | to_trusted")
+                .m-botton
+                    .u-botton-confirm(ng-click="goConfirm(data.serviceProId)" +
+                    "" ng-show='show') 修改
+                    .u-botton-cancel(ng-click="goBack()") 返回
+    ng-include(src="'/pages/common/footer/footer.html'")

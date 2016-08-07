@@ -1,0 +1,83 @@
+.pc-myMoney
+    .hd
+        ng-include(src="'/pages/common/header/header.html'")
+    .g-title
+        .m-title-root
+            a(href="/") 一英里
+            | &nbsp;>&nbsp;
+            a(href="/myTutor") 个人中心
+            | &nbsp;>&nbsp;
+            a(href="/myStudent") 导师中心
+            | &nbsp;>&nbsp;
+        .m-title-now 我的钱包
+    .g-content
+        ng-include.g-content-left(src="'/pages/teacherCenter/centerLeft/centerLeft.html'")
+        .g-content-right
+            .m-right-title 我的钱包
+            .m-right-ct
+                .ct-yingli
+                    .ct-account-title
+                        label.lab-title 我的英里
+                        label.m-yls
+                            span {{teacher.mile}}
+                            | 英里
+                        img.yls-img(ng-src="{{!mailIsNo?'http://image.1yingli.cn/img/new/yls.png':'http://image.1yingli.cn/img/new/yls_1.png'}}" ng-mouseover="mailIsNo = true" ng-mouseleave="mailIsNo = false")
+                        .u-mail-explain(ng-show="mailIsNo == true")
+                            label.m-triangle
+                            label.m-block-ccontent
+                                | 根据导师在平台上所完成的订单数量、咨询时长等参数、计算出的导师个人“累积英里数”，英里数值可兑换同等里程的机票。
+                    .ct-yingli-block
+                        .ct-yingli-right
+                            .grad
+                            label.nbNo(ng-show="mile>0") 0
+                            label.nbNow(style="-webkit-transform: translateX({{planeLeft}}px);transform: translateX({{planeLeft}}px);-o-transform: translateX({{planeLeft}}px);-moz-transform: translateX({{planeLeft}}px);-ms-transform: translateX({{planeLeft}}px);" ng-class="{'nb-now-fly':mile}") {{mile}}
+                                img(src="http://image.1yingli.cn/img/plane.png" style="-webkit-transform: translateY({{-percent / 3}}px);transform: translateY({{-percent / 3}}px);-o-transform: translateY({{-percent / 3}}px);-moz-transform: translateY({{-percent / 3}}px);-ms-transform: translateY({{-percent / 3}}px);")
+                                .u-point
+                            label.yingli {{total}}
+                        .ct-yingli-left
+                            p.yingliNumber {{mile}}
+                            p.yinglishu 英里数
+                .ct-donation
+                    .ct-account-title
+                        label.lab-title 我的打赏
+                    .m-donation-now
+                        img.u-donation-img(src="http://image.1yingli.cn/img/new/allReward.png")
+                        span.u-sign ￥
+                        | {{rewardNo.allReward}}
+                        span 元
+                        .u-d-name 打赏总收入
+                    .m-take-now
+                        img.u-donation-img(src="http://image.1yingli.cn/img/new/gotReward.png")
+                        span.u-sign ￥
+                        | {{rewardNo.gotReward}}
+                        span 元
+                        .u-d-name 已提现打赏
+                    .m-people-now
+                        img.u-donation-img(src="http://image.1yingli.cn/img/new/rewardNo.png")
+                        | &nbsp;{{rewardNo.rewardNo}}
+                        span 人
+                        .u-d-name 打赏人数
+                .ct-account
+                    .ct-account-title
+                        label.lab-title 我的账户
+                    .ct-account-content
+                        .m-tip(ng-show="!isShowPliEdit && !isShowApyEdit")
+                            p.m-tip-big 您还没有绑定支付账户
+                            p.m-tip-small 赶紧绑定支付账户!!!
+                        .m-block-form
+                            img.ac-ty-logo(ng-src="{{!isShowPliEdit?'http://image.1yingli.cn/img/new/Alipay.png':'http://image.1yingli.cn/img/new/AlipayEd.png'}}")
+                            img.ac-ty-arrow(src="http://image.1yingli.cn/img/new/pay-arrow.png" ng-show="!isShowPliForm")
+                            label.ac-eidt(ng-show="isShowPliEdit" ng-click="isShowPliForm = !isShowPliForm;") 编辑
+                            label.ac-state(ng-show="isShowPliEdit") 已经绑定
+                            p.ac-from(ng-show="isShowPliForm")
+                                input.ac-f-input(placeholder="请输入支付宝账号" ng-model="alipayNo")
+                                label.ac-f-sub(ng-click="editAlipayAcount()") 确定
+                        .m-block-form
+                            img.ac-ty-logo(ng-src="{{!isShowApyEdit?'http://image.1yingli.cn/img/new/PayPal.png':'http://image.1yingli.cn/img/new/PayPalEd.png'}}")
+                            img.ac-ty-arrow(src="http://image.1yingli.cn/img/new/pay-arrow.png" ng-show="!isShowApyForm")
+                            label.ac-eidt(ng-show="isShowApyEdit" ng-click="isShowApyForm = !isShowApyForm;") 编辑
+                            label.ac-state(ng-show="isShowApyEdit") 已经绑定
+                            p.ac-from(ng-show="isShowApyForm")
+                                input.ac-f-input(placeholder="请输入PalPay账号" ng-model="payPayNo")
+                                label.ac-f-sub(ng-click="editPayPalAcount()") 确定
+    ng-include(src="'/pages/common/footer/footer.html'")

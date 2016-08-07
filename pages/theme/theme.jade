@@ -1,0 +1,43 @@
+.pc-theme
+    ng-include(src="'/pages/common/header/header.html'")
+    .g-bd
+        .g-mn
+            .u-head-img
+                img.bg(ng-src="{{bg}}")
+                img.text(ng-src='{{textUrl}}' ng-class="{'text-long':!flag}" ng-show="textUrl")
+                .bg-shade(ng-if="!flag && teachers")
+                    img.shade(ng-src='{{shadeUrl}}')
+            .m-content
+                .m-service-block
+                    a.u-teacher.f-animation(ng-repeat="teacher in teachers" ng-href="/service/{{teacher.serviceProId}}"
+                            analytics-on="click" title="{{teacher.title}}"
+                            analytics-category="theme" analytics-action="teacher" analytics-label="{{teacher.teacherId}}"
+                            target="_blank"  ng-class="{'u-teacher-even': $odd}")
+                        .u-teacher-blcok
+                            .u-teacher-img
+                                img(ng-src="{{teacher.imageUrls.split(',')[0] | changeImageToServiceStyle}}")
+                            p.u-teacher-tittle
+                                span.u-tag {{serviceService.kindTips[teacher.kind].text}}
+                                |{{teacher.title}}
+                            span.u-want(ng-show="!teacher.finishNo || teacher.finishNo<1")
+                                label {{teacher.likeNo}}
+                                |人想见
+                            span.u-want(ng-show="teacher.finishNo && teacher.finishNo>=1")
+                                label {{teacher.finishNo}}
+                                |人见过
+                            p.u-price ¥{{teacher.onsale=='true'?teacher.priceTemp:teacher.price}}/{{teacher.numeral + teacher.quantifier}}
+                            p.u-name {{teacher.teacherName}}
+                            span.u-score(ng-show="teacher.score >= 5")
+                                label {{teacher.score}}
+                                |分
+                            span.u-score(ng-show="teacher.score < 5")
+                                img.u-score-img(src="http://image.1yingli.cn/img/new/noScore.png")
+                                label.u-label 暂无评分
+                            p.u-simpleinfo {{teacher.teacherSimpleInfo}}
+                .u-more(ng-show="flag")
+                    a(ng-href="/search?tips={{themeService.serviceConfig[themeId].tid}}" ng-show="flag")
+                        p.f-animation 查看更多服务
+                div(ng-show="!flag")
+                    ng-include(src="'/pages/common/pager/pager.html'")
+    ng-include(src="'/pages/common/footer/footer.html'")
+

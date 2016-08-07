@@ -1,0 +1,127 @@
+.pc-home
+    .g-hd
+        .g-hd-top.active
+            ng-include(src="'/pages/common/header/header.html'")
+        #slider.g-hg-bg-box(slider number="{{pcHomeTopBg.length}}")
+            a.g-hd-bg(ng-repeat="homeBg in pcHomeTopBg"
+            ng-style="homeBg.bgUrl" ng-href="{{ homeBg.link}}")
+                img.g-hd-show(ng-src="{{homeBg.hdShowUrl}}" ng-show="homeBg.hdShowUrl")
+                img.g-hd-name(ng-src="{{homeBg.hdNameUrl}}" ng-show="homeBg.hdNameUrl")
+        .g-hd-foot
+            .m-hd-footer-ct
+                angucomplete-alt(id="ex5" placeholder="导师/学校/公司/技能/奇遇" pause="400" text-searching="搜索中……" input-changed="inputChanged"
+                selected-object="changeWord" remote-api-handler="searchAPI" text-no-results="暂无相关结果" on-key-down="onKeyDown"
+                remote-url-data-field="result" title-field="trim()" origin-string="true" minlength="1")
+                button(ng-click="toSearch()")
+                    img.u-btimg(src="http://image.1yingli.cn/img/new/glass_white.png")
+                .m-type(ng-mouseenter="show()" ng-mouseleave="hide()")
+                    .u-type-name {{searchAutoCompleteService.searchType==0?'服务':'导师'}}
+                    img.u-type-bt(src="http://image.1yingli.cn/img/new/arrow-down.png")
+                    .u-xian
+                    .m-type-select(ng-mouseenter="show()" ng-mouseleave="hide()")
+                        .u-type-op(ng-click="searchAutoCompleteService.searchType=0;hide()" ng-class="{'u-type-on':searchType == 0}") 服务
+                        hr.u-type-hr
+                        .u-type-op(ng-click="searchAutoCompleteService.searchType=1;hide()" ng-class="{'u-type-on':searchType == 1}") 导师
+    .g-why
+        .m-why-ct
+            ul.m-why-ct-center
+                li.m-why-li
+                    a.m-why-img-01
+                    img.why_self_01(src="http://image.1yingli.cn/img/new/home_jy.png")
+                    p 世界名校精英
+                li.m-why-li
+                    a.m-why-img-02
+                    img.why_self_02(src="http://image.1yingli.cn/img/new/home_jl.png")
+                    p 一对一线上交流
+                li.m-why-li
+                    a.m-why-img-03
+                    img.why_self_03(src="http://image.1yingli.cn/img/new/home_sj.png")
+                    p 在线预约时间
+                li.m-why-li
+                    a.m-why-img-04
+                    img.why_self_04(src="http://image.1yingli.cn/img/new/home_xjb.png")
+                    p 超高性价比
+    .g-ct
+        .m-ct
+            .m-ct-title
+                hr.u-hr
+                .u-title-ct 明星导师
+            #slider1.m-people(slider effect='left' number='3' delay-time='1000' inter-time='4000')
+                div(ng-repeat="(index1,num) in makeArray(3) track by $index")
+                    a.m-p-box(ng-repeat="teacher in hotTeachers.hotTeachers"
+                    ng-href="/teacher/{{teacher.teacherId}}"
+                    ng-show="index1 * 4 <= $index && $index < (index1+1) * 4"
+                    analytics-on="click" analytics-category="home" analytics-action="teacher" analytics-label="{{teacher.teacherId}}"
+                    ng-mouseenter="mouseEnter($event)" ng-mouseleave="mouseLeave($event)"
+                    )
+                        img.u-p-img(ng-src="{{teacher.iconUrl}}")
+                        span.u-want(ng-show="!teacher.finishNo || teacher.finishNo<1") {{teacher.likeNo}}人想见
+                        span.u-want(ng-show="teacher.finishNo && teacher.finishNo>=1") {{teacher.finishNo}}人见过
+                        .u-box-name {{teacher.name}}
+                        .u-box-position {{teacher.simpleinfo}}
+                        .m-img-hide {{teacher.introduce | changeServiceContent}}
+                        //.u-box-topic {{teacher.topic}}
+            .m-moreTeacher
+                a(href="/search?searchType=1")
+                    img(src="http://image.1yingli.cn/img/new/moreTeacher.gif")
+                    span 更多导师
+    .g-server
+        .m-ct
+            .m-ct-title
+                hr.u-hr
+                .u-title-se 热门服务
+            #slider2.m-server(slider tit-cell=".m-page .u-page" trans='<div class="m-page"><div class="u-page">1</div><div class="u-page">2</div><a href="/search" class="u-page-link"></a></div>')
+                div(ng-repeat="(index1,num) in makeArray(2) track by $index")
+                    a.m-s-box(ng-repeat="service in hotTeachers.hotService"
+                    ng-show="index1*6<=$index && $index < (index1+1) * 6" ng-href="/service/{{service.serviceProId}}")
+                        .m-box-img
+                            img.u-box-img(ng-src="{{service.imageUrls.split(',')[0] | changeImageToServiceStyle}}")
+                        .m-box-right
+                            .m-right-tt
+                                .u-tt-show {{serviceService.kindTips[service.kind].text}}
+                                | {{service.title}}
+                            .u-right-name {{service.teacherName}}
+                            .m-right-post
+                                .u-postA {{service.teacherSimpleInfo}}
+                            .m-right-price {{service.price}}元
+                                span.u-price-span /{{service.numeral}}{{service.quantifier}}
+                        .m-score(ng-show="service.score >= 5")
+                            img.u-score-img(src="http://image.1yingli.cn/img/new/score.png")
+                            |{{service.score}}
+                            span 分
+                        .m-scoreN(ng-show="service.score < 5")
+                            img.u-score-img(src="http://image.1yingli.cn/img/new/noScore.png")
+                            | 暂无评分
+                        .u-server-want(ng-show="service.finishNo <=0") {{service.likeNo}}人想见
+                        .u-server-want(ng-show="service.finishNo >0") {{service.finishNo}}人见过
+    .g-theme
+        .m-teacher-img
+            .m-img-title(ng-class="{'m-theme-active':showThemeText == 0}")
+                .u-title-big 一英里
+                .u-tltle-small 你离梦想，只差「一英里」
+            .m-img-title.m-img-theme( ng-repeat="data in themeService.serviceConfig" ng-class="{'m-theme-active':showThemeText == $index +1}")
+                .u-title-big {{data.name}}
+                .u-tltle-small1 {{data.text1}}，{{data.text2}}
+                //.u-tltle-small2
+            .m-img-box
+                a.u-box(
+                ng-repeat="data in themeService.serviceConfig"
+                ng-href="/theme/{{data.id}}"
+                analytics-on="click" analytics-category="home" analytics-action="theme" analytics-label="{{data.id}}"
+                ng-mouseenter="changeShowText($index + 1, data)"
+                ng-mouseleave="changeShowText(0, data)"
+                ng-class="{'u-box-active':showThemeText == $index +1}")
+                    img.u-b-img(ng-src="{{data.headerImg}}")
+                    span {{data.name}}
+    .g-movie-fa
+        .g-movie#movie-bg
+            img(src="http://image.1yingli.cn/img/new/video-bg1.jpg")
+            .m-movie-start(ng-click="playMovie()")
+            .u-movie-text1 面对困难与未知
+            .u-movie-text2 你可以在这里
+            .u-movie-text3 找到各领域的前者
+            .u-movie-text4 将他们的智慧与经验化为己有
+    .u-movie#movie
+        .u-screen#playerShow
+        img.u-close(src="http://image.1yingli.cn/img/close_play.png" ng-click="stopPlay()")
+    ng-include(src="'/pages/common/footer/footer.html'")

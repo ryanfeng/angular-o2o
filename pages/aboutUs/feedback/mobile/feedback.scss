@@ -1,0 +1,57 @@
+.mobile-feedbck{
+  color: #33495f;
+  font-size: 15px;
+  line-height: 20px;
+  background: #f6f9fa;
+  .g-mn{
+    padding: 18px 16px 20px;
+  }
+  .g-mn{
+    text-align: center;
+    .p-t-one{
+      text-align: left;
+      font-size: 20px;
+      line-height: 28px;
+    }
+    .p-t-two{
+      text-align: left;
+      font-size: 13px;
+      line-height: 23px;
+    }
+    ::-webkit-input-placeholder {
+      color: #9aabb8;
+    }
+    :-moz-placeholder {
+      color: #9aabb8;
+    }
+    ::-moz-placeholder {
+      color: #9aabb8;
+    }
+    :-ms-input-placeholder {
+      color: #9aabb8;
+    }
+    .t-c-text{
+      border:1px solid #dddddd;
+      border-radius: 4px;
+      font-size: 15px;
+      width: 100%;
+      padding: 14px;
+      box-sizing: border-box;
+      height: 285px;
+      margin-top: 14px;
+      color: #33495f;
+    }
+    .t-t-sub{
+      width: 120px;
+      height: 35px;
+      line-height: 35px;
+      text-align: center;
+      margin-top: 18px;
+      display: inline-block;
+      background: #56bbe8;
+      color: #ffffff;
+      font-size: 16px;
+      border-radius: 4px;
+    }
+  }
+}

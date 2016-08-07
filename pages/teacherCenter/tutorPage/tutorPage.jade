@@ -1,0 +1,144 @@
+.pc-tutorPage
+    .hd
+        ng-include(src="'/pages/common/header/header.html'")
+    .g-title
+        .m-title-root
+            a(href="/") 一英里
+            | &nbsp;>&nbsp;
+            a(href="/myTutor") 个人中心
+            | &nbsp;>&nbsp;
+            a(href="/myStudent") 导师中心
+            | &nbsp;>&nbsp;
+        .m-title-now 信息修改
+    .g-content
+        ng-include.g-content-left(src="'/pages/teacherCenter/centerLeft/centerLeft.html'")
+        .g-content-right
+            .m-right-title 信息修改
+            .m-right-bgimg
+                .u-bgimg-name 编辑背景图片
+                img.u-bgimg-img(ng-src="{{data.bgUrl ? data.bgUrl :  'http://image.1yingli.cn/img/person_bg.png'}}")
+                .u-bgimg-bt(ng-click="getBackground();isShowBGPanel = true;") 浏览
+            .m-right-education
+                .u-education-name 头衔
+                input.u-education-input(ng-model="data.simpleinfo")
+            .m-right-address
+                .u-address-name 常驻地区
+                input.u-address-input(ng-model="data.address")
+            .m-right-address
+                .u-price-name 价格
+                input.u-price-input(type="number" min="0" ng-model="data.price" ng-blur="formatNumber()")
+                .u-word 元
+                span.u-price-span 建议：开始价格低于300元，随着咨询次数上升，累计好评后再提高价格。
+            .m-right-theme
+                .u-theme-name 主题
+                .u-theme(ng-repeat="theme in data.resources" ng-click="theme.flag = !theme.flag")
+                    img(ng-src="{{theme.flag?theme.srcPC:theme.srcPCNo}}")
+                .u-theme-show1 海外游学
+                .u-theme-show2 求职就业
+                .u-theme-show3 创业助力
+                .u-theme-show4 校园生活
+                .u-theme-show5 猎奇分享
+            .m-right-namef
+                .u-name 话题
+                .m-input
+                    img.u-input-img(src="http://image.1yingli.cn/img/new/icon-edit.png")
+                    input.u-topic-input(ng-model="data.topic")
+                .u-topic-word {{data.serviceTitle.length}}/20
+            .m-right-name
+                .u-name 关于TA
+                .u-textarea.bootStrap
+                    div(text-angular="text-angular" name="aboutContent" ng-model="data.introduce")
+            .m-right-namef
+                .u-name 个人履历
+                .m-school(ng-click="addStudy()")
+                    img.u-png(src="http://image.1yingli.cn/img/new/icon-add.png")
+                    .u-school-word 添加教育经历
+                .m-school-mess(ng-repeat="study in data.studyExperience")
+                    .u-sct-ct {{study.schoolName}} {{study.major}} {{study.degree}}
+                    .u-sct-time {{study.startTime}}-{{study.endTime}}
+                    .m-sct-xg(ng-click="changeStudy($index)")
+                        img.u-ok-img(src="http://image.1yingli.cn/img/new/icon-edit.png")
+                    .m-sct-del(ng-click="removeStudy($index)")
+                        img.u-ok-img(src="http://image.1yingli.cn/img/new/icon-close.png")
+                .m-school-ct(ng-show='showStudy')
+                    .m-school-xy
+                        .u-xy-name 学校：
+                        input.u-xy-input(ng-model="studyExperience.schoolName")
+                    .m-school-xl
+                        .u-xl-name 学历：
+                        input.u-xl-input(ng-model="studyExperience.degree")
+                    .m-school-zy
+                        .u-zy-name 专业：
+                        input.u-zy-input(ng-model="studyExperience.major")
+                    .m-school-sj
+                        .u-sj-name 时间：
+                        .m-sj-select
+                            select.u-st-year(ng-model="studyExperience.startYear")
+                                option(ng-repeat="year in years" value="{{year}}") {{year}}
+                            span 年
+                            select.u-st-month(ng-model="studyExperience.startMonth")
+                                option(ng-repeat="month in months" value="{{month}}") {{month}}
+                            span 月&nbsp;&nbsp;至&nbsp;
+                            select.u-end-year(ng-model="studyExperience.endYear" ng-change="changeEndYear(1)")
+                                option(value="0")
+                                option(ng-repeat="year in years" value="{{year}}") {{year}}
+                            span 年
+                            select.u-end-month(ng-model="studyExperience.endMonth" ng-change="changeEndMonth(1)")
+                                option(value="0") 至今
+                                option(ng-repeat="month in months" value="{{month}}") {{month}}
+                            span 月
+                    .m-school-bt(ng-click="saveStudy()") 保存
+                    .m-school-bt.u-cancel(ng-click="showStudy=false") 取消
+                .m-work(ng-click="addWork()")
+                    img.u-png(src="http://image.1yingli.cn/img/new/icon-add.png")
+                    .u-work-word 添加工作经历
+                .m-work-mess(ng-repeat='work in data.workExperience')
+                    .u-wct-ct {{work.companyName}} {{work.position}}
+                    .u-wct-time {{work.startTime}}-{{work.endTime}}
+                    .m-wct-xg(ng-click="changeWork($index)")
+                        img.u-ok-img(src="http://image.1yingli.cn/img/new/icon-edit.png")
+                    .m-wct-del(ng-click="removeWork($index)")
+                        img.u-ok-img(src="http://image.1yingli.cn/img/new/icon-close.png")
+                .m-work-ct(ng-show="showWork")
+                    .m-work-gs
+                        .u-xy-name 公司：
+                        input.u-xy-input(ng-model="workExperience.companyName")
+                    .m-work-zw
+                        .u-zw-name 职位：
+                        input.u-xlinput(ng-model="workExperience.position")
+                    .m-work-sj
+                        .u-sj-name 时间：
+                        .m-sj-select
+                            select.u-st-year(ng-model="workExperience.startYear")
+                                option(ng-repeat="year in years" value="{{year}}") {{year}}
+                            span 年
+                            select.u-st-month(ng-model="workExperience.startMonth")
+                                option(ng-repeat="month in months" value="{{month}}") {{month}}
+                            span 月&nbsp;&nbsp;至&nbsp;
+                            select.u-end-year(ng-model="workExperience.endYear" ng-change="changeEndYear(2)")
+                                option(value="0")
+                                option(ng-repeat="year in years" value="{{year}}") {{year}}
+                            span 年
+                            select.u-end-month(ng-model="workExperience.endMonth" ng-change="changeEndMonth(2)")
+                                option(value="0") 至今
+                                option(ng-repeat="month in months" value="{{month}}") {{month}}
+                            span 月
+                    .m-work-bt(ng-click="saveWork()") 保存
+                    .m-work-bt.u-cancel(ng-click="showWork = false") 取消
+            .m-right-bottom
+                .u-confirm(ng-click="save()") 确认
+                .u-preview(ng-click="toPreview()") 预览
+                .u-cancel(ng-click="reset()") 取消
+    ng-include(src="'/pages/common/footer/footer.html'")
+    .picturePanel(ng-show="isShowBGPanel")
+        .pictureBar
+            label(ng-click="isShowBGPanel = false") 取消
+            label(ng-click="subChangeBg()") 确定
+        .pictureLists
+            .pictureBlock(ng-repeat="url in urls")
+                img.bg-url(ng-src="{{url}}")
+                .bg-url-bg(ng-click="changeBg(url);")
+                img.bg-changed(src="http://image.1yingli.cn/img/change_picture.png" ng-show="showTrueUrl == url")
+                .bg-changed-bg(ng-show="showTrueUrl == url")
+
+

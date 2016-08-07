@@ -1,0 +1,13 @@
+.mobile-feedbck
+    ng-include(src="'/pages/common/header/mobile/sidebars.html'")
+    ng-include(src="'/pages/common/header/mobile/header.html'")
+    .app
+        .g-mn
+            p.p-t-one 欢迎反馈问题
+            p.p-t-one 您的意见与建议就是我们的动力
+            p.p-t-two 在这里您可以提出遇到的问题
+            p.p-t-two 也可以发表自己的建议个想法
+            p.p-t-two 我们会认真查阅您的反馈的每一个问题
+            textarea.t-c-text(placeholder="问题与建议描述..." ng-model="contentBack")
+            label.t-t-sub(ng-click="submitBack();") 提交反馈
+        ng-include(src="'/pages/common/footer/mobile/footer.html'")

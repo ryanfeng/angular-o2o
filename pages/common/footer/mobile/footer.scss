@@ -1,0 +1,32 @@
+.mobile-footer {
+  .g-ft {
+    width: 100%;
+    text-align: center;
+    background: #eaeef1;
+    color: #33495f;
+  }
+  .u-about-us {
+    border-top: 1px solid #dfe7eb;
+    padding-top: 35px;
+    font-size: 14px;
+  }
+  .u-about-us a:active {
+    color: #56bbe8;
+  }
+  .u-phone {
+    font-size: 22px;
+    padding-top: 15px;
+  }
+  .u-worktime {
+    font-size: 12px;
+    padding-top: 8px;
+    padding-bottom: 34px;
+  }
+  .u-record {
+    font-size: 13px;
+    text-align: center;
+    line-height: 31px;
+    background: #56bbe8;
+    color: #fff;
+  }
+}

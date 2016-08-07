@@ -1,0 +1,99 @@
+//global without namespace, ensure that no conflict
+@import "css/global.scss";
+@import "css/angucomplete-alt.scss";
+@import "css/textAngular.scss";
+@import "css/font-awesome.scss";
+@import "css/font-glyphicon.scss";
+@import "css/ng-tags-input.scss";
+@import "css/layer.scss";
+@import "css/datetimepicker.scss";
+@import "css/rowimg.scss";
+@import "pages/common/header/mobile/sidebar.scss";
+@import "css/icheck-grey.scss";
+//common with namespace-pc
+@import "css/bootstrap.min.scss";
+@import "pages/common/pager/pager.scss";
+@import "pages/common/footer/footer.scss";
+@import 'pages/common/alert/alert.scss';
+@import "pages/modal/uploadImageModal.scss";
+@import "pages/common/layerOrderInfo/orderinfo.scss";
+
+//pages with namespace-pc
+@import "pages/common/header/header.scss";
+@import "pages/theme/theme.scss";
+@import "pages/teacher/teacher.scss";
+@import "pages/home/home.scss";
+@import 'pages/aboutUs/aboutUs.scss';
+@import "pages/search/search.scss";
+@import "pages/bct1/bct1.scss";
+@import 'pages/forget/forget.scss';
+@import 'pages/login/login.scss';
+@import 'pages/passage/passage.scss';
+@import 'pages/register/register.scss';
+@import "pages/bct2/bct2.scss";
+@import "pages/help/help.scss";
+@import "pages/register/protocol/protocol.scss";
+@import "pages/aboutUs/feedback/feedback.scss";
+@import "pages/shopping/shopping.scss";
+@import "pages/service/service.scss";
+//teacherCenter-pc
+@import 'pages/teacherCenter/tutorPage/tutorPage.scss';
+@import 'pages/teacherCenter/myStudent/myStudent.scss';
+@import "pages/teacherCenter/passageList/passageList.scss";
+@import "pages/teacherCenter/editPassage/editPassage.scss";
+@import "pages/teacherCenter/centerLeft/centerLeft.scss";
+@import "pages/teacherCenter/preview/preview.scss";
+@import "pages/teacherCenter/tutorComment/tutorComment.scss";
+@import "pages/teacherCenter/myMoney/myMoney.scss";
+@import "pages/teacherCenter/teacherPreview/teacherPreview.scss";
+@import "pages/teacherCenter/myServer/myServer.scss";
+@import "pages/teacherCenter/addServer/addServer.scss";
+@import "pages/teacherCenter/previewServer/previewServer.scss";
+//personalCenter-pc
+@import "pages/personalCenter/personalHeader/personalHeader.scss";
+@import "pages/personalCenter/messageCenter/messageCenter.scss";
+@import "pages/personalCenter/myTutor/myTutor.scss";
+@import "pages/personalCenter/likeList/likeList.scss";
+@import "pages/personalCenter/comment/comment.scss";
+@import "pages/personalCenter/modifyInformation/modifyInformation.scss";
+@import "pages/personalCenter/account/account.scss";
+//common with namespace-mobile
+@import 'pages/common/header/mobile/header.scss';
+@import "pages/common/footer/mobile/footer.scss";
+@import "pages/common/pager/mobile/pager.scss";
+//pages-mobile
+@import "pages/home/mobile/home.scss";
+@import "pages/theme/mobile/theme.scss";
+@import "pages/search/mobile/search.scss";
+@import "pages/teacher/mobile/teacher.scss";
+@import "pages/teacher/mobile/userOrder.scss";
+@import 'pages/passage/mobile/passage.scss';
+@import 'pages/login/mobile/login.scss';
+@import 'pages/forget/mobile/forget.scss';
+@import 'pages/register/mobile/register.scss';
+@import "pages/aboutUs/mobile/aboutUs.scss";
+@import "pages/help/mobile/help.scss";
+@import "pages/register/protocol/mobile/protocol.scss";
+@import "pages/aboutUs/feedback/mobile/feedback.scss";
+@import "pages/bct1/mobile/bct1.scss";
+@import "pages/bct2/mobile/bct2.scss";
+@import "pages/shopping/mobile/shopping.scss";
+@import "pages/service/mobile/service.scss";
+//personalCenter-mobile
+@import "pages/personalCenter/myTutor/mobile/myTutor.scss";
+@import "pages/personalCenter/messageCenter/mobile/messageCenter.scss";
+@import "pages/personalCenter/likeList/mobile/likeList.scss";
+@import "pages/personalCenter/comment/mobile/comment.scss";
+@import "pages/personalCenter/modifyInformation/mobile/modifyInformation.scss";
+@import "pages/personalCenter/account/mobile/account.scss";
+@import "pages/personalCenter/myTutor/mobile/orderDetail.scss";
+//teacherCenter-mobile
+@import "pages/teacherCenter/myStudent/mobile/myStudent.scss";
+@import "pages/teacherCenter/tutorPage/mobile/tutorPage.scss";
+@import "pages/teacherCenter/tutorComment/mobile/tutorComment.scss";
+@import "pages/teacherCenter/centerLeft/mobile/centerLeft.scss";
+@import "pages/teacherCenter/myMoney/mobile/myMoney.scss";
+@import "pages/teacherCenter/passageList/mobile/passageList.scss";
+@import "pages/teacherCenter/preview/mobile/preview.scss";
+@import "pages/teacherCenter/myServer/mobile/myServer.scss";
+@import "pages/teacherCenter/addServer/mobile/addServer.scss";

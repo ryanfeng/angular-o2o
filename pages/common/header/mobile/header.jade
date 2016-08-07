@@ -1,0 +1,19 @@
+.mobile-header
+    .app.g-hd(ng-controller='HeaderController')
+        img.u-left-menu-img(open-left src="http://image.1yingli.cn/img/mobile-lightblue-menu.png")
+        img.u-right-menu-img(open-right src='http://image.1yingli.cn/img/mobile-lightblue-people.png' ng-if="sessionService.user != undefined")
+        label.red-dot(ng-show="messageNum > 0 || shoppingNum > 0")
+        a(href="/login")
+            img.u-right-menu-img(src='http://image.1yingli.cn/img/mobile-lightblue-people.png' ng-if="sessionService.user == undefined")
+        .u-search
+            .u-select(ng-click="isShowSelect = !isShowSelect")
+                span.s-t {{searchAutoCompleteService.searchType==1?"导师":"服务"}}
+                img.s-img(src="http://image.1yingli.cn/img/new/arrow-down.png")
+                ul(ng-show="isShowSelect")
+                    li(ng-click="searchAutoCompleteService.searchType = 0;toSearch();") 服务
+                    li(ng-click="searchAutoCompleteService.searchType = 1;toSearch();") 导师
+            angucomplete-alt(id="ex5" placeholder="搜索：导师 / 学校 / 专业" pause="400" text-searching="搜索中……" input-class="u-ipt"
+            selected-object="changeWord" remote-api-handler="searchAPI" text-no-results="暂无相关结果" input-changed="inputChanged"
+            on-key-down="onKeyDown" remote-url-data-field="result" title-field="trim()" origin-string="true" minlength="1" default-text="{{searchService.params.word}}")
+            img.u-seacher-button(src="http://image.1yingli.cn/img/new/glass_blue.png" ng-click="toSearch()")
+    .filling

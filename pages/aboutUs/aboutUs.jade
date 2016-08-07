@@ -1,0 +1,103 @@
+ng-include(src="'/pages/common/header/header.html'")
+.pc-aboutUs
+    .g-mn
+        .g-hd
+            ul.m-hd-links
+                li.u-link(ng-click="scroll('#story')") 团队故事
+                //span.f-sep /
+                //li.u-link(ng-click="scroll('#member')") 团队成员
+                span.f-sep /
+                li.u-link(ng-click="scroll('#media')") 媒体报道
+                span.f-sep /
+                li.u-link(ng-click="scroll('#hire')") 招聘岗位
+                span.f-sep /
+                li.u-link(ng-click="scroll('#feed')") 网站反馈
+                span.f-sep /
+                li.u-link(ng-click="scroll('#cooperation')") 商务合作
+        .g-box.g-box-first
+            .g-left
+                .u-tittle#story 团队故事
+                .u-tittle-en Team story
+            .g-right
+                .u-story.
+                    一英里网（www.1yingli.cn）是杭州千询科技有限公司旗下网站，致力于搭建付费制线上一对一经验交流平台。一方面学生可以利用自己的碎片化时间，分享自己的经历、经验、技能，获取相应报酬，另一方面面对困难与未知，学生可以在平台上，找到个领域的前辈，将他们的智慧与经验化为己有。
+        //.g-box
+        //    .g-left
+        //        .u-tittle#member 团队成员
+        //        .u-tittle-en Team members
+        //    .g-right
+        //        .u-peoples
+        //            .u-people(ng-repeat="people in staff")
+        //                img.u-photo(ng-src="{{people.icon}}")
+        //                .u-identity
+        //                    .u-place {{people.position}}
+        //                    .u-name {{people.name}}
+        .g-box
+            .g-left
+                .u-tittle#media 媒体报道
+                .u-tittle-en Media reports
+            .g-right
+                a(href="http://t.cn/Ryp62Iy" target="_blank")
+                    img.u-media(src="http://image.1yingli.cn/img/3812b31bb051f819c316f227d8b44aed2e73e7a8.jpg")
+
+        .g-box.g-box-first
+            .g-left
+                .u-tittle#hire 招聘岗位
+                .u-tittle-en Hiring
+            .g-right
+                .u-hire
+                    h2 职位描述：文案
+                    p
+                        | 1. 公司活动策划案的撰写，产品的宣传推广及文案策划撰写。
+                        br
+                        | 2. 公司网站、微信等各线上平台文字创意及编写工作。
+                        br
+                        | 3. 公司相关各文字内容的编辑工作。
+                        br
+                    h2 职位要求
+                    p
+                        | 1. 具备优秀的文字表达能力，思维敏锐，洞察力强，熟练应用各类办公软件。
+                        br
+                        | 2. 具备较强的项目创意策划和活动执行能力。
+                        br
+                        | 3. 具备较强沟通、协调能力，良好的团队合作精神，工作责任心强。
+                        br
+                    .u-contact
+                        | 我们是充满活力的创业团队，我们是坚持信念的追梦少年。
+                        br
+                        | 我们相信，一英里，是你梦想开始的地方。
+                        h3 简历请投至：contact@1yingli.cn
+
+        .g-box.g-box-first
+            .g-left
+                .u-tittle#feed 网站反馈
+                .u-tittle-en Site feedback
+            .g-right
+                .u-feedback
+                    | 「一英里」正在全力以赴打造最便捷畅通的高校名企精英与万千追梦学子一对一线上交流平台。如果你有任何小意见或者建议，「一英里」欢迎你的反馈。
+                    br
+                    a(href="/feedback") 发送反馈报告
+        .g-box.g-box-first
+            .g-left
+                .u-tittle#cooperation 商务合作
+                .u-tittle-en Business cooperation
+            .g-right
+                .u-cooperation
+                    | 「一英里」拥有网站、微信公众号、搜狐号、头条号等线上平台。<br>
+                    p 联系方式：contact@1yingli.cn
+                    p 地址：杭州市拱墅区萍水街333号御峰大厦1516
+        .g-fl#back-to-top(ng-click="backToTop()")
+            img(src='http://image.1yingli.cn/img/about-us-button.png')
+            p 回到顶部
+ng-include(src="'/pages/common/footer/footer.html'")
+script.
+    window.__lc = window.__lc || {};
+    window.__lc.license = 6994041;
+    (function () {
+        var lc = document.createElement('script');
+        lc.type = 'text/javascript';
+        lc.async = true;
+        lc.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'cdn.livechatinc.com/tracking.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(lc, s);
+    })();

@@ -1,0 +1,140 @@
+.pc-center-left {
+  .g-content-left {
+    width: 169px;
+    height: 595px;
+    position: absolute;
+    left: 1px;
+    top: 0;
+    background-color: #f9f9f9;
+    border-top-left-radius: 2px;
+    border-bottom-left-radius: 2px;
+    box-shadow: -1px 0px 3px rgba(0, 0, 0, .1);
+    margin-top: 2px;
+    z-index: 0;
+  }
+  .m-le-img {
+    width: 120px;
+    height: 120px;
+    float: left;
+    margin: 18px 25px;
+  }
+  .u-le-img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+  }
+  .m-bgcolor {
+    float: left;
+    width: 169px;
+    height: 50px;
+  }
+  .m-bgcolor:hover {
+    background-color: #efefef;
+  }
+  .m-bgcolor .u-bgcolor{
+    background-color: #efefef;
+  }
+  .m-le-server {
+    width: 110px;
+    height: 50px;
+    line-height: 17px;
+    padding: 15px 6px;
+    float: left;
+    font-size: 16px;
+    border-bottom: 1px solid #eee;
+    margin-left: 30px;
+    box-sizing: border-box;
+  }
+  .m-le-student {
+    width: 110px;
+    height: 50px;
+    line-height: 17px;
+    padding: 15px 6px;
+    float: left;
+    font-size: 16px;
+    border-bottom: 1px solid #eee;
+    margin-left: 30px;
+    box-sizing: border-box;
+  }
+  .m-le-wallet {
+    width: 110px;
+    height: 50px;
+    line-height: 17px;
+    padding: 15px 6px;
+    float: left;
+    font-size: 16px;
+    border-bottom: 1px solid #eee;
+    margin-left: 30px;
+    box-sizing: border-box;
+  }
+  .m-le-tutor {
+    width: 110px;
+    height: 50px;
+    line-height: 17px;
+    padding: 15px 6px;
+    float: left;
+    font-size: 16px;
+    border-bottom: 1px solid #eee;
+    margin-left: 30px;
+    box-sizing: border-box;
+  }
+  .m-le-comment {
+    width: 110px;
+    height: 50px;
+    line-height: 17px;
+    padding: 15px 6px;
+    float: left;
+    font-size: 16px;
+    border-bottom: 1px solid #eee;
+    margin-left: 30px;
+    box-sizing: border-box;
+  }
+  .m-le-essay {
+    width: 154px;
+    height: 20px;
+    padding: 15px 10px;
+    float: left;
+    font-size: 16px;
+    margin-left: 25px;
+    cursor: pointer;
+  }
+  .u-stu-img {
+    width: 20px;
+    float: left;
+    margin-right: 13px;
+    margin-top: -1px;
+  }
+  .u-stu-imgt {
+    width: 18px;
+    float: left;
+    margin-right: 13px;
+    margin-top: -1px;
+  }
+  .m-le-none {
+    width: 174px;
+    float: left;
+    text-align: left;
+    font-size: 15px;
+  }
+  .u-le {
+    color: #333;
+    font-size: 15px;
+  }
+  .u-none {
+    width: 128px;
+    height: 20px;
+    color: #999;
+    padding: 5px 0;
+    cursor: pointer;
+    padding-left: 40px;
+    font-size: 13px;
+  }
+  .u-none:hover {
+    color: #66ccff;
+  }
+
+  .u-none-active {
+    background: #56bbe8;
+    color: white;
+  }
+}

@@ -1,0 +1,115 @@
+.mobile-tutorComment {
+  .app {
+    font-size: 14px;
+  }
+  .g-bk {
+    width: 100%;
+    height: auto;
+    background-color: #f8f8f8;
+    display: inline-block;
+    min-height: 400px;
+  }
+  @media (min-height: 569px) {
+    .g-bk {
+      min-height: 530px;
+    }
+  }
+  .m-title {
+    height: 16px;
+    width: 94%;
+    margin: 0 auto;
+    background: #fff;
+    margin-top: 21px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    padding: 12px 0;
+    border: 1px solid #ddd;
+  }
+  .u-tt-img {
+    width: 20px;
+    height: auto;
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 17px;
+    margin-top: -2px;
+    margin-right: 10px;
+  }
+  .u-tt-name {
+    width: 200px;
+    height: auto;
+    color: #33495f;
+    display: inline-block;
+  }
+  .m-content{
+    height: auto;
+    width: 94%;
+    margin: 10px auto 6px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  .m-empty {
+    width: 100%;
+    height: 300px;
+    background: url("http://image.1yingli.cn/img/new/empty-service.png") no-repeat 50% 50%;
+    background-size: contain;
+  }
+  .m-ct-top{
+    width: 100%;
+    height: auto;
+    .u-img{
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      margin: 9px 13px;
+      display: inline-block;
+      vertical-align: top;
+    }
+  }
+  .u-name{
+    width: auto;
+    height: auto;
+    display: inline-block;
+    vertical-align: top;
+    padding-top: 15px;
+    margin-right: 15px;
+    font-size: 15px;
+    color: #141414;
+  }
+  .u-time{
+    width: 120px;
+    height: auto;
+    display: inline-block;
+    vertical-align: top;
+    padding-top: 19px;
+    font-size: 12px;
+    color: #666;
+  }
+  .m-star{
+    width: 80px;
+    height: auto;
+    display: inline-block;
+    vertical-align: top;
+    padding-top: 13px;
+    float: right;
+    margin-right: 10px;
+  }
+  .u-star{
+    width: 15px;
+    height: auto;
+    float: left;
+  }
+  .m-ct-info {
+    width: auto;
+    height: auto;
+    line-height: 18px;
+    margin: 0 13px;
+    margin-bottom: 11px;
+  }
+  .m-page{
+    width: 100%;
+    height: auto;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+}

@@ -1,0 +1,349 @@
+.pc-login {
+  ::-webkit-input-placeholder {
+    color: #c6c6c6;
+  }
+  :-moz-placeholder {
+    color: #c6c6c6;
+  }
+  ::-moz-placeholder {
+    color: #c6c6c6;
+  }
+  :-ms-input-placeholder {
+    color: #c6c6c6;
+  }
+  a:hover {
+    text-decoration: none;
+  }
+  .g-body {
+    width: 100%;
+    min-height: 100vh;
+    box-sizing: border-box;
+    background: url("http://image.1yingli.cn/img/login_new_bg.jpg");
+    background-size: cover;
+    padding-top: 100px;
+    padding-bottom: 300px;
+  }
+  .g-content {
+    width: 350px;
+    min-height: 400px;
+    margin: 0 auto;
+    background: rgba(160, 181, 190, 0.3);
+    border: 1px #eaeef1 solid;
+    border-radius: 4px;
+    position: relative;
+    left: 50%;
+    margin-left: -175px;
+  }
+  .g-content-top {
+    width: 350px;
+    margin: 0 auto;
+    border-bottom: 1px solid #eaeef1;
+    padding-bottom: 15px;
+  }
+  .u-close {
+    position: absolute;
+    width: 15px;
+    top: 10px;
+    right: 10px;
+  }
+  .u-title {
+    line-height: 75px;
+    text-align: center;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: normal;
+  }
+  .m-contact-weibo {
+    color: white;
+  }
+  .m-centent-top-weibo-box {
+    width: 272px;
+    height: 33px;
+    line-height: 33px;
+    margin-left: 39px;
+    background: #66ccff;
+    border-radius: 5px;
+    border: 0 solid;
+    margin-bottom: 10px;
+    text-align: center;
+    position: relative;
+  }
+  .m-centent-top-weixin-box img,.m-centent-top-weibo-box img {
+    position: absolute;
+    left: 20px;
+    top: 4px;
+    height: 26px;
+  }
+  .m-centent-top-weibo-box p {
+    line-height: 33px;
+    font-size: 16px;
+    display: inline-block;
+  }
+  .m-contact-weixin {
+    color: white;
+  }
+  .m-centent-top-weixin-box {
+    width: 272px;
+    height: 33px;
+    line-height: 33px;
+    margin-left: 39px;
+    background: #66ccff;
+    border-radius: 4px;
+    border: 0 solid;
+    text-align: center;
+    position: relative;
+  }
+  .m-centent-top-weixin-box p {
+    line-height: 33px;
+    font-size: 16px;
+    display: inline-block;
+  }
+  .g-content-bottom {
+    width: 350px;
+    margin: 0 auto;
+  }
+  .u-has-error {
+    color: #faa845;
+    font-size: 14px;
+    margin: 1px 39px 8px 39px;
+  }
+  .s-l-m{
+    width: 267px;
+    margin: 20px auto 0px;
+    color: #FFFFFF;
+    line-height: 16px;
+    overflow: hidden;
+  }
+  .s-l-m label{
+    display: inline-block;
+    float: left;
+    padding-right: 10px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  .s-l-m-ph{
+    border-right: 1px solid #eaeef1;
+  }
+  .s-l-m-ph .s-l-m-ph-img{
+    width: 12px;
+    display: inline-block;
+    position: relative;
+    top: 2px;
+    margin-right: 8px;
+    height: 17px;
+    background: url("http://image.1yingli.cn/img/new/lo-phone.png");
+    background-size: cover;
+  }
+  .s-l-m-ph span{
+    position: relative;
+    top: -2px;
+  }
+  .s-l-m-ph-active {
+     .s-l-m-ph-img {
+       background-image: url("http://image.1yingli.cn/img/new/lo-blue-phone.png")
+     }
+     span {
+       color: #66ccff;
+     }
+   }
+
+  .s-l-m-em span{
+    position: relative;
+    top: 2px;
+  }
+  .s-l-m-em .s-l-m-em-img{
+     width: 16px;
+     margin-left: 10px;
+     margin-right: 8px;
+     position: relative;
+     top: 3px;
+     display: inline-block;
+     height: 12px;
+     background: url("http://image.1yingli.cn/img/new/lo-email.png");
+     background-size: cover;
+   }
+  .s-l-m-em-active {
+    .s-l-m-em-img {
+      background-image: url("http://image.1yingli.cn/img/new/lo-blue-email.png")
+    }
+    span {
+      color: #66ccff;
+    }
+  }
+  .u-login-username {
+    width: 263px;
+    border-radius: 4px;
+    height: 31px;
+    line-height: 33px;
+    margin: 5px 39px 8px 39px;
+    border: 1px solid #FFF;
+    padding-left: 7px;
+    font-size: 14px;
+    color: #eaeef1;
+    background: rgba(160, 181, 190, 0.0);
+    -webkit-text-fill-color: #eaeef1 !important;
+  }
+  .u-login-username:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px #A9A39F inset;
+  }
+  .u-login-password {
+    width: 263px;
+    height: 31px;
+    line-height: 33px;
+    margin: 0 39px 5px 39px;
+    border-radius: 4px;
+    border: 1px solid #FFF;
+    padding-left: 7px;
+    font-size: 14px;
+    color: #eaeef1;
+    background: rgba(160, 181, 190, 0.0);
+    letter-spacing: 0px;
+    -webkit-text-fill-color: #eaeef1 !important;
+  }
+  .u-login-password:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px #A9A39F inset;
+  }
+  .u-login {
+    width: 270px;
+    line-height: 33px;
+    margin: 10px auto 20px;
+    background: #66ccff;
+    border-radius: 4px;
+    border: 0 solid;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    display: block;
+  }
+  .m-forget {
+    text-align: center;
+    margin: 10px 0px 2px;
+  }
+  .u-forget {
+    font-size: 14px;
+    color: #66ccff;
+    text-align: center;
+    text-decoration: none;
+  }
+  .m-content-footer-h2 {
+    line-height: 16px;
+    text-align: center;
+    font-size: 14px;
+    color: #c6c6c6;
+    margin-bottom: 30px;
+  }
+  .m-container-footer-h2-a {
+    line-height: 16px;
+    text-align: center;
+    font-size: 14px;
+    color: #66ccff;
+    text-decoration: none;
+  }
+  .m-contact-weibo:hover, .m-contact-weixin:hover {
+    color: #FFFFFF;
+  }
+  .u-forget:hover, .m-container-footer-h2-a:hover {
+    color: #66ccff;
+  }
+
+  .m-form-1{
+    position: relative;
+  }
+  .l-pass-img{
+     width: 26px;
+     height: 12px;
+     position: absolute;
+     top: 11px;
+     right: 50px;
+     display: inline-block;
+     background: url("http://image.1yingli.cn/img/new/pass-no.png");
+     background-size: cover;
+     cursor: pointer;
+  }
+  .l-pass-img-avtive {
+    background: url("http://image.1yingli.cn/img/new/pass-yes.png");
+    background-size: cover;
+    height: 15px;
+    top: 9px;
+  }
+  //选择国旗
+  .short-input{
+    text-indent: 85px;
+  }
+  .m-select {
+    position: absolute;
+    height: 34px;
+    top: 212px;
+    left: 42px;
+    z-index: 999;
+  }
+  .u-select {
+    width: 85px;
+    height: 36px;
+    border-right: 0;
+    cursor: pointer;
+    color: #eaeef1;
+    font-size: 14px;
+    position: relative;
+    .select-country{
+      width: 23px;
+      height: 23px;
+      margin-top: 5px;
+      margin-left: 3px;
+    }
+    label{
+      position: absolute;
+      top: 9px;
+      right: 0px;
+      cursor: pointer;
+    }
+    #phoneCode{
+      position: absolute;
+      top: 9px;
+      left: 28px;
+      width: 35px;
+      text-align: center;
+      display: block;
+      cursor: pointer;
+    }
+    .select-sub{
+      width: 10px;
+      position: absolute;
+      top: 14px;
+      right: 5px;
+      margin-left: 5px;
+      margin-right: 5px;
+    }
+  }
+  .u-select-ul{
+    cursor: pointer;
+    background: rgba(145,145,145,0.7);
+    overflow: hidden;
+    width: 78px;
+    color: #eaeef1;
+    font-size: 14px;
+    border-radius: 8px;
+    padding: 5px 0px 10px 0px;
+  }
+  .u-select-li{
+    height: 23px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    .select-country{
+      width: 22px;
+      height: 22px;
+      padding-left: 5px;
+      padding-right: 5px;
+    }
+    label{
+      cursor: pointer;
+      position: relative;
+      top: -7px;
+    }
+  }
+  .u-select-li:hover{
+    color: #647486;
+    background: rgba(209,218,225,0.7);
+  }
+  //end
+}

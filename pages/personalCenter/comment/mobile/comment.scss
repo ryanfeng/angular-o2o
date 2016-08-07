@@ -1,0 +1,137 @@
+.mobile-comment-center {
+  .g-center {
+    padding-top: 21px;
+    width: 94%;
+    margin-left: 3%;
+    min-height: 350px;
+    .g-center-topic {
+      width: 100%;
+      box-sizing: border-box;
+      height: 40px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      line-height: 40px;
+      font-size: 14px;
+      background: white;
+    }
+    .g-center-topic img {
+      position: relative;
+      left: 17px;
+      width: 20px;
+      top: 6px;
+    }
+    .g-center-topic label {
+      width: 20px;
+      position: relative;
+      left: 30px;
+    }
+    .g-center-block {
+      height: 40px;
+      margin-top: 15px;
+      border: 1px #56bbe8 solid;
+      border-radius: 5px;
+      font-size: 14px;
+      color: #56bbe8;
+      .m-tomy-comment {
+        width: 50%;
+        height: 40px;
+        display: inline-block;
+        line-height: 40px;
+        text-align: center;
+        float: left;
+      }
+      .m-mywr-comment {
+        height: 40px;
+        width: 50%;
+        float: right;
+        display: inline-block;
+        line-height: 40px;
+        text-align: center;
+        background: white;
+        border-radius: 5px;
+      }
+      .select-comment {
+        background: #56bbe8;
+        color: #ffffff;
+        border-radius: 4px;
+      }
+    }
+    .g-center-remind {
+      width: 100%;
+      line-height: 30px;
+      overflow: hidden;
+      padding-bottom: 20px;
+      .m-center-remind {
+        overflow: hidden;
+        margin-top: 10px;
+        width: 100%;
+        box-sizing: border-box;
+        border-radius: 4px;
+        border: 1px solid #ddd;
+        position: relative;
+        padding-bottom: 8px;
+        background: white;
+        .p-img {
+          width: 42px;
+          position: absolute;
+          top: 10px;
+          left: 12px;
+          overflow: hidden;
+          border-radius: 50%;
+        }
+        .p-name {
+          overflow: hidden;
+          position: absolute;
+          font-size: 15px;
+          height: 30px;
+          line-height: 45px;
+          width: 70%;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          color: #33495f;
+          top: 10px;
+          left: 60px;
+        }
+        .p-data {
+          overflow: hidden;
+          font-size: 12px;
+          color: #666666;
+          position: absolute;
+          top: 10px;
+          right: 12px;
+
+        }
+        .p-content {
+          float: left;
+          word-break: break-all;
+          line-height: 20px;
+          font-size: 14px;
+          color: #141414;
+          width: 92%;
+          padding-left: 4%;
+          margin-top: 10px;
+        }
+        .u-star {
+          float: right;
+          width: 15px;
+          margin-top: 33px;
+        }
+        .u-star-first {
+          margin-right: 12px;
+        }
+      }
+      .m-empty {
+        width: 100%;
+        height: 300px;
+        background: url("http://image.1yingli.cn/img/new/empty-service.png") no-repeat 50% 50%;
+        background-size: contain;
+      }
+    }
+  }
+  @media (min-height: 569px) {
+    .g-center {
+      min-height: 500px;
+    }
+  }
+}

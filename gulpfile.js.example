@@ -1,0 +1,81 @@
+var gulp = require('gulp');
+var concat = require('gulp-concat');
+var uglify = require('gulp-uglify');
+
+var wwwroot = './';
+var deploy = './deploy/';
+var paths = {
+    scripts: [
+        "bower_components/jquery/dist/jquery.js",
+        "bower_components/jquery-json/dist/jquery.json.min.js",
+        "bower_components/fastclick/lib/fastclick.js",
+        "bower_components/angular/angular.js",
+        "bower_components/angular-route/angular-route.js",
+        "bower_components/angular-cookies/angular-cookies.js",
+        "bower_components/angular-modal-service/dst/angular-modal-service.js",
+        "bower_components/ng-file-upload/ng-file-upload-all.js",
+        "bower_components/ng-tags-input/ng-tags-input.js",
+        "bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js",
+        "bower_components/angular-ui-bootstrap-datetimepicker/datetimepicker.js",
+        "bower_components/angulartics/src/angulartics.js",
+        "bower_components/angulartics/src/angulartics-baidu.js",
+        "bower_components/ngstorage/ngStorage.js",
+        "bower_components/angular-touch/angular-touch.js",
+        "bower_components/iCheck/icheck.min.js",
+        "libs/**/*.js",
+        "init.js",
+        "js/**/*.js",
+        "directive/*.js",
+        "pages/**/*.js",
+        "service/*.js",
+        "filter/*.js"
+    ],
+    redirect: [
+        "bower_components/jquery/dist/jquery.js",
+        "redirect/jquery.shCircleLoader-min.js",
+        "bower_components/angular/angular.js",
+        "bower_components/angular-cookies/angular-cookies.js",
+        "bower_components/ngstorage/ngStorage.js",
+        "redirect/redirect.js"
+    ]
+};
+
+gulp.task("scripts", function () {
+    gulp.src(paths.scripts)
+        .pipe(concat('app.js'))
+        //.pipe(uglify())
+        .pipe(gulp.dest(wwwroot))
+});
+
+gulp.task("redirect", function () {
+    gulp.src(paths.redirect)
+        .pipe(concat('redirect-new1.js'))
+        //.pipe(uglify())
+        .pipe(gulp.dest(wwwroot))
+});
+
+gulp.task("default", ["scripts", "redirect", "watch"], function () {
+});
+
+gulp.task("scripts-deploy", function () {
+    gulp.src(paths.scripts)
+        .pipe(concat('app.js'))
+        .pipe(uglify())
+        .pipe(gulp.dest(deploy))
+});
+
+gulp.task("redirect-deploy", function () {
+    gulp.src(paths.redirect)
+        .pipe(concat('redirect-new1.js'))
+        .pipe(uglify())
+        .pipe(gulp.dest(deploy))
+});
+
+gulp.task('deploy', ["scripts-deploy", "redirect-deploy"], function () {
+});
+
+
+gulp.task("watch", function () {
+    gulp.watch(paths.scripts, ["scripts"]);
+    gulp.watch(paths.redirect, ["redirect"]);
+});

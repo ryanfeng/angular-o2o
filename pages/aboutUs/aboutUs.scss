@@ -1,0 +1,203 @@
+.pc-aboutUs {
+  background: #eff3f5;
+  .g-mn {
+    width: 980px;
+    margin: auto;
+    padding: 50px 10px 100px;
+    .g-hd {
+      height: 450px;
+      width: 100%;
+      background: url("http://image.1yingli.cn/img/new/about-us-hd-bg.jpg") no-repeat;
+      background-size: 980px 400px;
+      border-radius: 8px;
+      position: relative;
+      color: #33495f;
+      .m-hd-links {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        line-height: 36px;
+        font-size: 18px;
+        color: #56bbe8;
+        .f-sep {
+          margin: 0 10px;
+          display: inline-block;
+        }
+        .u-link {
+          cursor: pointer;
+          display: inline-block;
+        }
+      }
+    }
+
+    .g-box {
+      position: relative;
+      margin-top: 74px;
+      .g-left {
+        position: absolute;
+        width: 30%;
+        bottom: 0;
+        top: 0;
+        left: 0;
+        box-sizing: border-box;
+        border-right: 1px solid #333;
+
+        .u-tittle {
+          text-align: center;
+          font-size: 25px;
+          line-height: 50px;
+        }
+        .u-tittle-en {
+          text-align: center;
+          font-size: 18px;
+        }
+        .u-slogan {
+          position: absolute;
+          top: 50%;
+          text-align: center;
+          color: #56bbe8;
+          width: 100%;
+          font-size: 24px;
+          line-height: 40px;
+          margin-top: -20px;
+        }
+      }
+      .g-right {
+        box-sizing: border-box;
+        padding-left: 30%;
+        width: 100%;
+      }
+
+      .u-story {
+        padding: 5px 40px;
+        font-size: 16px;
+        line-height: 30px;
+        font-weight: lighter;
+        b {
+          line-height: 40px;
+        }
+      }
+      .u-peoples {
+        padding: 0 40px;
+        .u-people {
+          width: 25%;
+          display: inline-block;
+          box-sizing: border-box;
+          padding: 5px;
+          position: relative;
+          .u-photo {
+            display: block;
+            width: 100%;
+            height: 174px;
+            border-radius: 8px;
+          }
+          .u-identity {
+            position: absolute;
+            bottom: 5px;
+            top: 5px;
+            left: 5px;
+            right: 5px;
+            border-radius: 8px;
+            text-align: center;
+            line-height: 20px;
+            color: #000;
+            display: none;
+            .u-place {
+              position: absolute;
+              width: 100%;
+              bottom: 20px;
+            }
+            .u-name {
+              position: absolute;
+              width: 100%;
+              bottom: 0;
+            }
+          }
+        }
+        .u-people:hover {
+          .u-identity {
+            display: block;
+            background: rgba(255, 255, 255, .4);
+          }
+        }
+      }
+      .u-media {
+        margin-left: 20px;
+        width: 200px;
+        height: 200px;
+        padding-bottom: 20px;
+      }
+      .u-hire {
+        margin-left: 40px;
+        font-size: 16px;
+        h1 {
+          line-height: 50px;
+          font-size: 20px;
+        }
+        h2 {
+          font-size: 16px;
+          line-height: 35px;
+        }
+        p {
+          padding-left: 30px;
+          font-size: 16px;
+          line-height: 30px;
+        }
+        .u-contact {
+          text-align: left;
+          margin-left: 30px;
+          margin-top: 30px;
+          font-size: 15px;
+          line-height: 25px;
+          h3 {
+            font-size: 16px;
+            font-weight: normal;
+            line-height: 40px;
+            color: #56bbe8;
+          }
+        }
+      }
+
+      .u-feedback {
+        line-height: 30px;
+        font-size: 16px;
+        margin-left: 40px;
+        padding-top: 5px;
+        a {
+          color: #56bbe8;
+          margin-right: 20px;
+          cursor: pointer;
+          border-bottom: 1px solid #56bbe8;
+          margin-left: 30px;
+        }
+      }
+      .u-cooperation {
+        line-height: 30px;
+        font-size: 16px;
+        margin-left: 40px;
+        padding-top: 5px;
+        p{
+          text-indent: 30px;
+        }
+      }
+    }
+    .g-box-first {
+      margin-top: 44px;
+    }
+
+    .g-fl {
+      position: fixed;
+      left: 50%;
+      margin-left: 460px;
+      bottom: 300px;
+      width: 100px;
+      color: #56bbe8;
+      text-align: center;
+      display: none;
+      cursor: pointer;
+      img {
+        height: 17px;
+      }
+    }
+  }
+}

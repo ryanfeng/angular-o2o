@@ -1,0 +1,17 @@
+.mobile-tutorComment
+    ng-include(src="'/pages/common/header/mobile/sidebars.html'")
+    ng-include(src="'/pages/common/header/mobile/header.html'")
+    .app
+        .g-bk
+            ng-include(src="'/pages/teacherCenter/centerLeft/mobile/centerLeft.html'")
+            .m-content(ng-repeat="account in tutorAccountService.tutorAccount.data")
+                .m-ct-top
+                    img.u-img(ng-src="{{(account.iconUrl)?account.iconUrl:'http://image.1yingli.cn/img/img.png'}}")
+                    .u-name {{account.nickName}}
+                    .u-time {{account.createTime}}
+                    .m-star
+                        img.u-star(ng-repeat="star in getArray(account.score) track by $index")
+                .m-ct-info {{account.content}}
+            .m-empty(ng-show="!tutorAccountService.tutorAccount || !tutorAccountService.tutorAccount.data || tutorAccountService.tutorAccount.data.length < 1")
+        ng-include(src="'/pages/common/pager/mobile/pager.html'")
+        ng-include(src="'/pages/common/footer/mobile/footer.html'")

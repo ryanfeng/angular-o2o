@@ -1,0 +1,23 @@
+.pc-preview
+    .hd
+        ng-include(src="'/pages/common/header/header.html'")
+    .g-mn
+        .m-back
+            a(href="/editPassage" ng-if="passageService.previewStyle == 1")
+                .u-back-button 返回继续编辑
+            a(ng-if="passageService.previewStyle != 1" ng-click="goBack()")
+                .u-back-button 返回列表
+        .g-ct
+            .g-ct-hd
+                .u-title {{passageService.previewPassage.title}}
+                .u-date-time {{passageService.previewPassage.createTime | date: 'yyyy-MM-dd HH:mm': '+0800'}}
+                .u-author 作者：
+                    span.u-name {{sessionService.user.nickName}}
+            .m-passage
+                .bootStrap(ng-bind-html="passageService.previewPassage.content | to_trusted")
+            .m-tags(ng-show="passageService.previewPassage.tag") 标签:
+                .u-tag(ng-repeat="tag in passageService.previewPassage.tag.split(',')") {{tag}}
+    .m-photo
+        img.u-photo(ng-src="{{sessionService.user.iconUrl}}")
+        .u-name {{sessionService.user.nickName}}
+    ng-include(src="'/pages/common/footer/footer.html'")

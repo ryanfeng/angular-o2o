@@ -1,0 +1,27 @@
+.pc-tutorComment
+    .hd
+        ng-include(src="'/pages/common/header/header.html'")
+    .g-title
+        .m-title-root
+            a(href="/") 一英里
+            | &nbsp;>&nbsp;
+            a(href="/myTutor") 个人中心
+            | &nbsp;>&nbsp;
+            a(href="/myStudent") 导师中心
+            | &nbsp;>&nbsp;
+        .m-title-now 查看学员
+    .g-content
+        ng-include(src="'/pages/teacherCenter/centerLeft/centerLeft.html'")
+        .g-content-right
+            .m-right-title 学员给你的评价
+            .m-r-pj-block(ng-repeat="account in tutorAccountService.tutorAccount.data")
+                img.u-img(ng-src="{{(account.iconUrl)?account.iconUrl:'http://image.1yingli.cn/img/img.png'}}")
+                label.u-name {{account.nickName}}
+                .u-star(ng-repeat="star in getArray(account.score) track by $index")
+                label.u-time {{account.createTime}}
+                label.u-con {{account.content}}
+
+            .g-empty(ng-show='data.data.length < 1')
+                img(src='http://image.1yingli.cn/img/new/empty-service.png')
+    ng-include(src="'/pages/common/pager/pager.html'")
+    ng-include(src="'/pages/common/footer/footer.html'")

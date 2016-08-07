@@ -1,0 +1,108 @@
+.mobile-passageList{
+  .app {
+    font-size: 14px;
+  }
+  .g-bk {
+    width: 100%;
+    height: auto;
+    background-color: #f8f8f8;
+    display: inline-block;
+    min-height: 400px;
+  }
+  @media (min-height: 569px) {
+    .g-bk {
+      min-height: 530px;
+    }
+  }
+  .m-title {
+    height: 16px;
+    width: 94%;
+    margin: 0 auto;
+    background: #fff;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    padding: 12px 0;
+    border: 1px solid #ddd;
+  }
+  .u-tt-img {
+    width: 20px;
+    height: auto;
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 17px;
+    margin-top: -2px;
+    margin-right: 10px;
+  }
+  .u-tt-name {
+    margin: 0 4px;
+    height: auto;
+    color: #33495f;
+    display: inline-block;
+  }
+  .u-tt-name-left{
+    margin-left: 0px;
+  }
+  .u-tt-select{
+    color: #56bbe8;
+    border-bottom: 2px solid #56bbe8;
+    padding-bottom: 4px;
+  }
+  .m-content{
+    height: 84px;
+    width: 94%;
+    margin: 0 auto;
+    background: #fff;
+    margin-top: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  .m-empty {
+    width: 100%;
+    height: 300px;
+    background: url("http://image.1yingli.cn/img/new/empty-service.png") no-repeat 50% 50%;
+    background-size: contain;
+  }
+  .u-ct-img{
+    width: 96px;
+    height: 60px;
+    padding: 12px 10px;
+    display: inline-block;
+    vertical-align: top;
+  }
+  .m-ct-right{
+    width: 100%;
+    height: auto;
+    position: relative;
+    left: 0px;
+    top: -76px;
+    padding-left: 112px;
+    padding-right: 18px;
+    box-sizing: border-box;
+    display: inline-block;
+  }
+  .u-ct-essay{
+    width: 100%;
+    height: 40px;
+    font-size: 14px;
+    line-height: 20px;
+    color: #141414;
+    overflow: hidden;
+    margin-top: 8px;
+  }
+  .m-bottom{
+    width: 100%;
+    height: auto;
+    margin-top: 2px;
+  }
+  .u-time{
+    color: #666;
+    width: 78px;
+    float: left;
+  }
+  .u-state{
+    color: #56bbe8;
+    width: 75px;
+    text-align: right;
+    float: right;
+  }
+}

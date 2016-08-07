@@ -1,0 +1,8 @@
+.uploadImageModal
+    .mask(ng-click="close()")
+    .box
+        button.m-img-bt#uploadFile(type="file" ngf-select="upLoadFile($file, $invalidFiles)"
+        accept="image/*" ngf-max-height="10000" ngf-max-size="10MB") 浏览图片
+        span.progress(ng-show="f.progress >= 0")
+            div(style="width:{{f.progress}}%" ng-bind="f.progress + '%'")
+        span {{f.name}} {{errFile.name}} {{errFile.$error}} {{errFile.$errorParam}}

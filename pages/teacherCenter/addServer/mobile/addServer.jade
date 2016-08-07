@@ -1,0 +1,45 @@
+.mobile-addServer
+    ng-include(src="'/pages/common/header/mobile/sidebars.html'")
+    ng-include(src="'/pages/common/header/mobile/header.html'")
+    .app
+        .g-bk
+            .m-title
+                img.u-tt-img(src="http://image.1yingli.cn/img/new/mi.png")
+                .u-tt-name 我的服务
+            ng-include(src="'/pages/teacherCenter/centerLeft/mobile/centerLeft.html'")
+            .m-content
+                .m-ct-top
+                    .u-top-name 编辑
+                    img.u-top-img(src="http://image.1yingli.cn/img/new/icon-pen-blue.png")
+                .m-info-number
+                    .u-name 可约次数
+                    input.u-number-input(type="number" min="1" step="1" ng-model="server.count")
+                    span.u-span 次
+                .m-info-price
+                    .u-name 价格
+                    input.u-price-input(type="number" min="0" step="1" ng-model="server.price")
+                    span.u-span 元 /
+                    input.u-price-input(type="number" min="0" step="1" ng-model="server.numeral")
+                    select.u-price-select(ng-model="server.quantifier")
+                        option(value="次") 次
+                        option(value="小时") 小时
+                .m-info-small
+                    .u-name 是否打折
+                    div(ng-click="server.onsale=false;" ng-class="server.onsale?'u-off': 'u-off-t'" ng-model="server.onsale") off
+                    div(ng-click="server.onsale=true;" ng-class="server.onsale?'u-on':'u-on-f'" ng-model="server.onsale") on
+                .m-info-small
+                    .u-name 折后价格
+                    input.u-small-input(ng-disabled="!server.onsale" ng-model="server.priceTemp")
+                    span.u-span 元
+                .m-info-time
+                    .u-name 空闲时间
+                    input.u-time-input(type="text" ng-model="server.freeTime")
+                .m-info-small
+                    .u-name 上架
+                    div(ng-click="server.onshow=false;" ng-class="server.onshow?'u-off':'u-off-t'" ng-model="server.onshow") off
+                    div(ng-click="server.onshow=true;" ng-class="server.onshow?'u-on':'u-on-f'" ng-model="server.onshow") on
+                    .m-bottom
+                        .u-confirm(ng-click="save()") 保存
+                        .u-cancel(ng-click="goBack()") 取消
+
+        ng-include(src="'/pages/common/footer/mobile/footer.html'")

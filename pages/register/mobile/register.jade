@@ -1,0 +1,53 @@
+.mobile-register
+    div.g-body
+       div.g-content
+          a(ng-click="closeForm();")
+             img.u-register-close(src="http://image.1yingli.cn/img/new/guan.png")
+          form.g-register-form
+             div.m-form-title 注册用户
+             p.m-form-p1
+                input.u-user(type="text" placeholder="昵称" name="nickname" ng-model="nickname" ng-change="nameVa = true")
+                .u-has-error.u-has-error-nick(ng-show="!nameVa") 请输入昵称!
+             p.s-l-m
+                    label.s-l-m-ph(ng-click="isSelectPhone=false" ng-class="{'s-l-m-ph-active':!isSelectPhone}")
+                        span.s-l-m-ph-img
+                        span 手机号
+                    label.s-l-m-em(ng-click="isSelectPhone=true" ng-class="{'s-l-m-em-active':isSelectPhone}")
+                        span.s-l-m-em-img
+                        span 邮箱
+             .m-form-p2
+                input.u-user(type="text" ng-model="username" name="username" ng-change="usernameVa = true" ng-class="{'short-input':!isSelectPhone}" placeholder="{{!isSelectPhone?'手机号':'邮箱'}}")
+                .u-has-error(ng-show="!usernameVa") 请输入手机号或者邮箱!
+                .m-select(ng-mouseleave="isShowCountry=false;" ng-show="!isSelectPhone")
+                    .u-select(ng-click="isShowCountry = !isShowCountry;")
+                        img.select-country(ng-src="{{country.flag}}")
+                        span#phoneCode {{country.code}}
+                        img.select-sub(src="http://image.1yingli.cn/img/new/select-arrow.png")
+                        label |
+                    ul.u-select-ul(ng-if="isShowCountry" )
+                        li.u-select-li(ng-click="selectCountry($index);" ng-repeat="country in countrys")
+                            img.select-country(ng-src="{{country.flag}}")
+                            label {{country.code}}
+             p.m-form-p3
+                input.u-validate1(name="validate" ng-model="validate" type="text" placeholder="4位验证码" ng-change="codeVa=true")
+                img.u-validate-img#validateImage(src="http://service.1yingli.cn/yiyingliService/yiyingli.images" ng-click="refreshValidate();")
+                .u-has-error.u-error-nextline(ng-show="!codeVa") {{codeVaStr}}
+             p.m-form-p4
+                input.u-user(ng-attr-type="{{showPass?'text':'password'}}" name="password" ng-model="password" ng-change="passVa = true" placeholder="输入密码" )
+                span.l-pass-img(ng-class="{'l-pass-img-avtive':showPass}" ng-click="showPass = !showPass")
+                .u-has-error(ng-show="!passVa") 密码必须6~20字符，且不能全为数字。
+             p.m-form-p5
+                input.u-user(ng-attr-type="{{showCoPass?'text':'password'}}" name="copassword" ng-model="copassword" placeholder="确认密码" ng-change="rePassVa = true")
+                span.l-pass-img(ng-class="{'l-pass-img-avtive':showCoPass}" ng-click="showCoPass = !showCoPass")
+                .u-has-error(ng-show="!rePassVa") 密码必须6~20字符，且不能全为数字。
+             p
+                input.u-validate2(type="text" ng-minlength="6" ng-maxlength="6" name="phovalidate" ng-model="phovalidate" placeholder="6位验证码" ng-change="numCodeVa = true")
+                button.u-validate-button(ng-click="getCheckNumber()") {{codeString}}
+                .u-has-error.u-error-next(ng-show="!numCodeVa") 请输入合法的验证码
+             p.m-from-p7
+                img.protocol-img(ng-src="{{isAgreee?'http://image.1yingli.cn/img/new/protocol-no.png':'http://image.1yingli.cn/img/new/protocol-yes.png'}}" ng-click="isAgreee = !isAgreee")
+                |我已阅读并同意
+                a.protocol(href="/protocol" target="_blank") 《服务条款》
+             button.m-form-button(ng-click="register()") 注册
+             .m-form-footer-h2 已有账号?
+                a.m-form-footer-a(href="/login") 去登录

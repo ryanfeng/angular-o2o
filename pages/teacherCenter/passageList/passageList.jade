@@ -1,0 +1,32 @@
+.pc-passageList
+    .hd
+        ng-include(src="'/pages/common/header/header.html'")
+    .g-title
+        .m-title-root
+            a(href="/") 一英里
+            | &nbsp;>&nbsp;
+            a(href="/myTutor") 个人中心
+            | &nbsp;>&nbsp;
+            a(href="/myStudent") 导师中心
+            | &nbsp;>&nbsp;
+        .m-title-now {{passageService.passageStatus[state].text}}
+    .g-content
+        ng-include(src="'/pages/teacherCenter/centerLeft/centerLeft.html'")
+        .g-content-right
+            .m-ri-title1
+                a(href="/editPassage")
+                    img.u-ri-title1-img(src="http://image.1yingli.cn/img/new/icon-pen-blue.png")
+                    .u-title1-name 写文章
+            .m-ri-title2 {{passageService.passageStatus[state].text}}
+            .m-ri-content
+                .m-passage-list(ng-repeat="passage in data.data" )
+                    .m-ri-content-box(ng-click="passageService.listToPreview(passage.passageId)")
+                        img.m-box-img(ng-src="{{passage.imageUrl}}")
+                        .m-box-title {{passage.title}}
+                        .m-box-time {{passage.createTime | date:'yyyy-MM-dd' : '+0800'}}
+                    .m-button(ng-click="remove(passage.passageId)") 删除
+
+                .m-ri-bottom(ng-if="data.count == '0'")
+                    img(src="http://image.1yingli.cn/img/new/empty-service.png")
+                ng-include.m-page-number(src="'/pages/common/pager/pager.html'")
+    ng-include(src="'/pages/common/footer/footer.html'")

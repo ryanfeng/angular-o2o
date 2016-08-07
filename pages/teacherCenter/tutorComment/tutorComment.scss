@@ -1,0 +1,114 @@
+.pc-tutorComment {
+  background-color: #eff3f5;
+  .hd .pc-header {
+    background-color: #fff;
+  }
+  .g-title {
+    width: 980px;
+    height: 20px;
+    padding: 10px;
+    margin: 0 auto;
+    margin-top: 40px;
+    font-size: 16px;
+  }
+  .m-title-root {
+    height: 20px;
+    float: left;
+    color: #9aabb8;
+  }
+  .m-title-now {
+    width: 100px;
+    height: 20px;
+    margin-top: 1px;
+    float: left;
+    color: #66ccff;
+  }
+  .g-content {
+    width: 980px;
+    min-height: 700px;
+    margin: 0 auto;
+    //border: 1px solid #CECECE;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 20px;
+  }
+  .g-content-right {
+    width: 805px;
+    min-height: 700px;
+    float: right;
+    background-color: #fff;
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1);
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+    margin: 2px 2px 2px 0;
+  }
+  .m-right-title {
+    width: 778px;
+    height: 56px;
+    line-height: 56px;
+    font-size: 18px;
+    color: #33495f;
+    margin-left: 16px;
+    padding-left: 6px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #eff3f5;
+    position: relative;
+  }
+  .g-page-number {
+    width: 980px;
+  }
+  .g-empty img {
+    width: 300px;
+    height: auto;
+    margin-left: 261px;
+    margin-top: 144px;
+  }
+  .m-r-pj-block {
+    margin-top: 20px;
+    padding: 0 32px;
+    overflow: hidden;
+    label {
+      display: inline-block;
+      float: left;
+    }
+    .u-img {
+      float: left;
+      width: 56px;
+      height: 56px;
+      margin-right: 16px;
+      border-radius: 50%;
+    }
+    .u-name {
+      margin-top: 4px;
+      color: #8699a9;
+      margin-right: 40px;
+    }
+    .u-time {
+      color: #acbbc6;
+      margin-top: 4px;
+    }
+    .u-title {
+      color: #32669c;
+      margin-top: 8px;
+      margin-bottom: 5px;
+      width: 600px;
+    }
+    .u-con {
+      width: 666px;
+      min-height: 40px;
+      display: -webkit-box;
+      font-size: 13px;
+      line-height: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #eff3f5;
+    }
+    .u-star {
+      width: 15px;
+      height: 15px;
+      float: right;
+      margin-top: 4px;
+      background-image: url(http://image.1yingli.cn/img/star-y.png);
+      background-size: cover;
+    }
+  }
+}

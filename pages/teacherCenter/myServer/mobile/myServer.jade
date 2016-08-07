@@ -1,0 +1,19 @@
+.mobile-myServer
+    ng-include(src="'/pages/common/header/mobile/sidebars.html'")
+    ng-include(src="'/pages/common/header/mobile/header.html'")
+    .app
+        .g-bk
+            ng-include(src="'/pages/teacherCenter/centerLeft/mobile/centerLeft.html'")
+            .m-server-box(ng-repeat="server in data.data" ng-show="data.data.length >0")
+                div(ng-click="goAdd(server.serviceProId)")
+                    img.u-box-img(ng-src="{{server.imageUrls.split(',')[0] | changeImageToServiceStyle}}")
+                    .m-box-right
+                        .m-right-tt {{server.title}}
+                            .u-tt-show {{serviceService.kindTips[server.kind].text}}
+                        .u-right-state-r {{serviceService.proState[server.serviceProState]}}
+                        .m-right-price ￥{{server.price}} / {{server.numeral}}小时
+                img.u-close(src="http://image.1yingli.cn/img/new/delete.png" ng-click="remove(server.serviceProId)")
+            img.u-none-img(src="http://image.1yingli.cn/img/new/empty-service.png" ng-show="data.data == undefined || data.data.length <=0")
+
+    ng-include(src="'/pages/common/pager/mobile/pager.html'")
+    ng-include(src="'/pages/common/footer/mobile/footer.html'")

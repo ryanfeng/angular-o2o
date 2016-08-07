@@ -1,0 +1,232 @@
+.pc-editPassage {
+  background-color: #eff3f6;
+  * {
+    outline: none;
+  }
+  .hd .pc-header {
+    background-color: #fff;
+  }
+  .g-title {
+    width: 980px;
+    height: 20px;
+    padding: 10px;
+    margin: 0 auto;
+    margin-top: 40px;
+    font-size: 16px;
+  }
+  .m-title-root {
+    height: 20px;
+    float: left;
+    color: #9aabb8;
+  }
+  .m-title-now {
+    width: 100px;
+    height: 20px;
+    margin-top: 1px;
+    float: left;
+    color: #66ccff;
+  }
+  .g-content {
+    width: 980px;
+    min-height: 700px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 20px;
+  }
+  .g-content-right {
+    width: 805px;
+    height: auto;
+    min-height: 700px;
+    float: right;
+    background-color: #fff;
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1);
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+    box-sizing: border-box;
+    margin: 2px 2px 2px 0;
+    padding: 15px;
+    .m-right-title {
+      width: 778px;
+      height: 40px;
+      line-height: 26px;
+      font-size: 18px;
+      color: #33495f;
+      padding-left: 7px;
+      box-sizing: border-box;
+      border-bottom: 1px solid #eff3f5;
+      position: relative;
+    }
+    .m-title {
+      font-size: 15px;
+      color: #333;
+      line-height: 25px;
+      box-sizing: border-box;
+    }
+    .m-tags {
+      font-size: 15px;
+      color: #333;
+      line-height: 25px;
+      margin-top: 10px;
+    }
+    .u-title {
+      padding-left: 5px;
+      display: inline-block;
+      width: 600px;
+      line-height: 30px;
+      color: #333;
+      font-size: 16px;
+      height: 30px;
+      box-sizing: border-box;
+      border: 1px solid darkgray;
+      border-radius: 5px;
+    }
+    .u-summary {
+      width: 600px;
+      padding: 0 8px;
+      height: 200px;
+      font-size: 16px;
+      line-height: 30px;
+      box-sizing: border-box;
+      border-radius: 5px;
+      border: 1px solid rgb(169, 169, 169);
+    }
+    .u-tags-input {
+      margin-bottom: 20px;
+      display: inline-block;
+      width: 600px;
+    }
+    .u-tags-input .tags {
+      outline: none;
+      box-shadow: none;
+      -webkit-box-shadow: none;
+      border-radius: 5px;
+    }
+    .u-tags-input .tags.focused {
+      box-shadow: none;
+      -webkit-box-shadow: none;
+    }
+    .m-cover-button {
+      border-radius: 4px;
+      background: white;
+      border: 1px solid #56bbe8;
+      padding: 5px 20px;
+      color: #56bbe8;
+      position: relative;
+    }
+    .m-cover-button:hover {
+      background: #56bbe8;
+      color: white;
+    }
+    .m-cover {
+      width: 180px;
+      height: 130px;
+      display: block;
+    }
+    .bootStrap {
+      margin-top: 20px;
+      margin-bottom: 20px;
+      box-sizing: border-box;
+      border: 1px solid darkgray;
+      border-radius: 5px;
+      overflow: auto;
+      width: 600px;
+      display: inline-block;
+      .ta-scroll-window.ng-scope.ta-text.ta-editor.form-control {
+        border-color: rgb(169, 169, 169);
+      }
+    }
+    .m-buttons {
+      position: relative;
+      margin-top: -35px;
+      height: 35px;
+      margin-left: 200px;
+      .u-button {
+        border-radius: 4px;
+        display: inline-block;
+        background: white;
+        border: 1px solid #56bbe8;
+        padding: 5px 25px;
+        color: #56bbe8;
+        font-size: 18px;
+        cursor: pointer;
+        float: right;
+        margin-left: 20px;
+      }
+      .u-button:hover {
+        color: white;
+        background: #56bbe8;
+      }
+    }
+  }
+  .m-titleE, .m-brief, .m-content, .m-tag, .m-img {
+    width: 100%;
+    margin-top: 20px;
+  }
+  .m-img {
+    margin-bottom: 60px;
+  }
+  .u-name {
+    width: 150px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    display: inline-block;
+    vertical-align: top;
+  }
+  .m-addImg {
+    width: 180px;
+    height: 130px;
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+  }
+  .m-add-img {
+    position: relative;
+    width: 180px;
+    height: 130px;
+    display: inline-block;
+    vertical-align: top;
+    border: 1px dashed #ddd;
+    cursor: pointer;
+  }
+  .u-add-introduce {
+    width: 80px;
+    position: absolute;
+    top: 92px;
+    left: 54px;
+    border-radius: 2px;
+    color: #FFF;
+    font-size: 12px;
+    z-index: 10;
+    cursor: pointer;
+  }
+  .u-add-show {
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    top: 22px;
+    left: 60px;
+    z-index: 10;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  .u-mark {
+    width: 180px;
+    height: 130px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 0;
+    cursor: pointer;
+  }
+  .u-hr {
+    width: 805px;
+    margin-left: -79px;
+    border: 0;
+    background-color: #eff3f5;
+    height: 1px;
+    margin-bottom: 60px;
+  }
+}

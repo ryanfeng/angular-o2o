@@ -1,0 +1,27 @@
+.mobile-user-order
+    .app
+        .m-header
+            img.t-face(ng-src='{{teacher.iconUrl}}')
+            p.simpleInfo {{isService?teacher.serverTopic:teacher.topic}}
+            p.name {{teacher.name}}
+            p.price(ng-show="isService") {{'¥'+(teacher.serviceOnsale?teacher.servicePrice:teacher.servicePriceTemp) +'/'+ teacher.serviceNumeral + teacher.serviceQuantifier}}
+            p.price(ng-show="!isService") {{'¥'+teacher.price+'/20分钟'}}
+            p.timeBack × {{teacher.serviceCount}}
+            img.closeF(src="http://image.1yingli.cn/img/new/mobile-close.png" ng-click="closeOrder()")
+        .m-form
+            ul.m-from-ul
+                li.m-ul-li-o.m-ul-li-top
+                    img.li-o-img(src="http://image.1yingli.cn/img/new/question.png")
+                    label.li-o-label 告诉我您要请教的问题?
+                    textarea.li-o-text(placeholder="例如：关于海外游学、关于求职、关于创业..." ng-model="service.question" ng-disabled="isNotShowOrderDetail")
+                li.m-ul-li-o
+                    img.li-o-img(src="http://image.1yingli.cn/img/new/problem.png")
+                    label.li-o-label 介绍您当前的情况?
+                    textarea.li-o-text(placeholder="简单介绍一下自己的情况，例如：所在院校，专业..." ng-model="service.resume" ng-disabled="isNotShowOrderDetail")
+                li.m-ul-li-o
+                    img.li-o-img(src="http://image.1yingli.cn/img/new/time.png")
+                    label.li-o-label 告诉我您什么时候方便?
+                    textarea.li-o-text(placeholder="你近期方便咨询的时间,例如:9月18号10:00(请以北京时间为准,可填多个)" ng-model="service.selectTime" ng-disabled="isNotShowOrderDetail")
+            p.m-form-sub.m-form-sub-top(ng-show="!isNotShowOrderDetail")
+                button.form-sub(ng-click="closeOrder()") 取消
+                button.form-sub.form-sub-blue(ng-click="subMobileOrder()") 确定预约

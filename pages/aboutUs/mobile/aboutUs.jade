@@ -1,0 +1,83 @@
+.mobile-aboutUs
+    ng-include(src="'/pages/common/header/mobile/sidebars.html'")
+    ng-include(src="'/pages/common/header/mobile/header.html'")
+    .app
+        .g-bk(ng-click="form1=false ;form3=false")
+            img.u-bk(src="http://image.1yingli.cn/img/new/about-us-hd-bg.jpg")
+        .g-mn-top
+            ul.m-top-ul
+                li.m-top-li(style="border-bottom: 3px solid {{aboutC}}")
+                    a.m-top-li-a(ng-click="formAbout(); about()") 关于我们
+                    .m-tog(ng-show="form1")
+                        .u-tog
+                        .m-form1
+                            .u-11(ng-click="value = 1; formJion();") 团队故事
+                            //.u-12(ng-click="value = 2; formJion();") 团队成员
+                            .u-13(ng-click="value = 3; formJion();") 媒体报道
+                li.m-top-li(style="border-bottom: 3px solid {{jionC}}" ng-click="value = 4; formJion(); jion();")
+                    a.m-top-li-a 加入我们
+                li.m-top-li(style="border-bottom: 3px solid {{emailC}}")
+                    a.m-top-li-a(ng-click="formEmail(); email();") 联系我们
+                    .m-tog(ng-show="form3")
+                        .u-tog
+                        .m-form3
+                            .u-31(ng-click="value = 5; formJion();") 网站反馈
+                            .u-32(ng-click="value = 6; formJion();") 商务合作
+        .g-hide(ng-show="value == 1" ng-click="form1=false ;form3=false")
+            .g-title 团队故事
+            .g-ct
+                .m-ct-mg
+                    .u-mg-f
+                        | &nbsp;&nbsp;&nbsp;&nbsp;我们是一群在大洋彼岸相遇相知的追梦少年，恪守激情与梦想，坚持信念与理想，决意帮助更多心怀世界的莘莘学子走向更好的未来，
+                        | 为拥有一技之长的精英导师提供更大的舞台。
+                    .u-bt 你为梦想，我们为你
+        //.g-hide(ng-show="value == 2" ng-click="form1=false ;form3=false")
+        //    .g-title 团队成员
+        //    .g-ct
+        //        .m-ct-personal
+        //            .m-personal-box(ng-repeat="people in staff")
+        //                img.u-p-img(ng-src="{{people.icon}}")
+        //                .u-p-name {{people.name}}
+        //                .u-p-work {{people.position}}
+        .g-hide(ng-show="value == 3" ng-click="form1=false ;form3=false")
+            .g-title 媒体报道
+            .g-ct
+                .m-ct-report
+                    a(href="http://t.cn/Ryp62Iy")
+                        .m-report-box
+                            img.u-rp-img(src="http://image.1yingli.cn/14446628322876d7f4444-39a7-4389-8918-f71941318cf6.jpg@!icon")
+                            .u-rp-title 90后巴蜀男神有点“拽”
+                            .u-rp-message 斯坦福硕士研究生offer、80多万元全额奖学金，这个看似遥不可及的梦想，90后重庆男孩胡钟锴实现了。为这个梦想，他奋斗了7年。
+                            .u-rp-time 2016-06-06
+                            .u-rp-from 重庆晚报
+        .g-hide(ng-show="value == 4" ng-click="form1=false ;form3=false")
+            .g-title 招聘岗位
+            .g-ct
+                .m-ct-recruit
+                    .m-rt-title 文案
+                    .m-rt-need
+                        p.u-p 1. 公司活动策划案的撰写，产品的宣传推广及文案策划撰写。
+                        p.u-p 2. 公司网站、微信等各线上平台文字创意及编写工作。
+                        p.u-p 3. 公司相关各文字内容的编辑工作。
+                    .m-rt-ability
+                        p.u-p 1. 具备优秀的文字表达能力，思维敏锐，洞察力强，熟练应用各类办公软件。
+                        p.u-p 2. 具备较强的项目创意策划和活动执行能力。
+                        p.u-p 3. 具备较强沟通、协调能力，良好的团队合作精神，工作责任心强。
+            .g-bt
+                .u-show 我们是充满活力的创业团队，我们是坚持信念的追梦少年。我们相信，一英里，是你梦想开始的地方。
+                .m-email 简历投至 contact@1yingli.cn
+        .g-hide(ng-show="value == 5" ng-click="form1=false ;form3=false")
+            .g-title 网站反馈
+            .g-feedback
+                .m-ct-show
+                    p.u-show-p 「一英里」正在全力以赴打造最便捷畅通的高校名企精英与万千追梦学子一对一线上交流平台。如果你有任何小意见或者建议，「一英里」欢迎你的反馈。
+        .m-feedback(ng-show="value == 5")
+            .u-feedback-name
+                a.u-feedback(href="/feedback") 点我反馈
+        .g-hide(ng-show="value == 6" ng-click="form1=false ;form3=false")
+            .g-title 网站合作
+            .g-ct
+                .m-ct-work
+                    p.u-show-p 「一英里」拥有网站、微信公众号、搜狐号、头条号等线上平台。
+                    .m-email 联系方式： contact@1yingli.cn
+        ng-include(src="'/pages/common/footer/mobile/footer.html'")

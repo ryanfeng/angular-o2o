@@ -1,0 +1,157 @@
+.pc-myStudent
+    .hd
+        ng-include(src="'/pages/common/header/header.html'")
+    .g-title
+        .m-title-root
+            a(href="/") 一英里
+            | &nbsp;>&nbsp;
+            a(href="/myTutor") 个人中心
+            | &nbsp;>&nbsp;
+            a(href="/myStudent") 导师中心
+            | &nbsp;>&nbsp;
+        .m-title-now 查看学员
+    .g-content
+        ng-include(src="'/pages/teacherCenter/centerLeft/centerLeft.html'")
+        .g-content-right
+            .m-right-title 查看学员
+            .m-right-ct(ng-show='data.data.length >= 1')
+                .m-ct-box(ng-repeat="batch in data.data")
+                    .m-box-title
+                        .u-box-number 流水号：{{batch.batchNo}}
+                        .u-box-time {{batch.createTime | date:'yyyy-MM-dd'}}
+                    .m-img
+                        img.u-img-img(ng-src="{{(batch.userUrl)?batch.userUrl:'http://image.1yingli.cn/img/img.png'}}")
+                        .u-img-name {{batch.userName}}
+                    .m-bright
+                        div(ng-repeat="order in batch.orders")
+                            .m-bright-title
+                                .u-bright-number 订单号：{{order.orderId}}
+                            .m-box-message
+                                img.u-mg-img(ng-src="{{(order.iconUrl)?order.iconUrl:'http://image.1yingli.cn/img/img.png' | changeImageToServiceStyle}}")
+                                .m-show-center
+                                    .m-show-title {{order.title}}
+                                    .m-show-mess {{order.summary}}
+                                    .u-case-show {{order.serviceProId?'服':'聊'}}
+                                    .m-show-price
+                                        .u-show-price {{order.price}}元/{{order.numeral}}{{order.quantifier}}
+                                        .u-show-time ×{{order.count}}
+                                    .m-origin-price(ng-show="order.onsale == 'true'")
+                                        .u-show-price {{order.originPrice}}元/{{order.numeral}}{{order.quantifier}}
+                                        .u-show-time ×{{order.count}}
+                            .u-mg-price {{order.money}}
+                                p(ng-show="order.onsale == 'true'") {{order.originMoney}}
+                            .m-box-detail
+                                .u-state {{orderListService.state[order.state.split(',')[0]].teacher}}
+                                .u-detail(ng-click="changeDetail(order)") 查看详情
+                            .m-box-state(ng-switch="order.state.split(',')[0]")
+                                .u-states(ng-switch-when="0300" ng-click="changeDetailToShowState(order)") 接受订单
+                                .u-states(ng-switch-when="0400" ng-click="changeDetailToShowState(order)") 确认时间
+                                .u-states(ng-switch-when="0500" ng-click="changeDetailToShowState(order)") 查看进度
+                                .u-states(ng-switch-when="1000" ng-click="changeDetailToShowState(order)") 查看进度
+                                .u-states(ng-switch-when="1010" ng-click="changeDetailToShowState(order)") 评价学员
+                    .m-total 合计：{{batch.nowMoney}}元
+
+            .g-empty(ng-show='data.data.length < 1')
+                img(src='http://image.1yingli.cn/img/new/empty-service.png')
+    ng-include(src="'/pages/common/pager/pager.html'")
+    .g-mask(ng-show="showDetail || showState || showComment" ng-click="hide()")
+    .g-detail(ng-show="detail != undefined && showDetail")
+        img.u-tt-img(src="http://image.1yingli.cn/img/new/order-close.png" ng-click="hide()")
+        .m-tittle
+            .u-tittle
+                label {{detail.title}}
+        .m-ct
+            .m-ct-left
+                .u-photo
+                    .img
+                        img(ng-src="{{(detail.iconUrl)?detail.iconUrl:'http://image.1yingli.cn/img/img.png'}}")
+                .u-info
+                    .u-name {{detail.teacherName}}
+                    .u-price 原价：{{detail.originPrice}}元 / {{detail.numeral}}{{detail.quantifier}}
+                    .u-price 实际付款：{{detail.price}}元
+                .u-contact
+                    .u-wechat 微信
+                        span {{detail.contact}}
+                    .u-phone 手机
+                        span {{detail.phone}}
+                    .u-email 邮箱
+                        span {{detail.email}}
+            .m-ct-right
+                .m-question 学员出的问题
+                    .m-question-detail {{detail.question}}
+                .m-status 学员目前的状况
+                    .m-status-detail {{detail.userIntroduce}}
+                .m-time 预约时间
+                    .m-time-detail {{detail.okTime != ''? detail.okTime : detail.selectTimes}}
+        .m-bottom 订单号：{{detail.orderId}}
+    .g-state(ng-show="detail != undefined && showState")
+        img.u-tt-img(src="http://image.1yingli.cn/img/new/order-close.png" ng-click="hide()")
+        .u-state-title 查看进度
+        .m-title {{orderListService.state[detail.state.split(',')[0]].t_operating}}
+        .m-states
+            .u-state
+                .u-triangle(ng-class="{'active1':detail.state.split(',')[0] == '0100' || detail.state.split(',')[0] == '0300' || detail.state.split(',')[0] == '0400' || detail.state.split(',')[0] == '0500' || detail.state.split(',')[0] == '1000' || detail.state.split(',')[0] == '1010'}")
+                    .u-triangle-top
+                    .u-triangle-bottom
+                    .u-number 1
+                .u-title 学员申请
+            .u-state
+                .u-triangle(ng-class="{'active2':detail.state.split(',')[0] == '0300' || detail.state.split(',')[0] == '0400' || detail.state.split(',')[0] == '0500' || detail.state.split(',')[0] == '1000' || detail.state.split(',')[0] == '1010'}")
+                    .u-triangle-top
+                    .u-triangle-bottom
+                    .u-number 2
+                .u-title 导师确认
+            .u-state
+                .u-triangle(ng-class="{'active3':detail.state.split(',')[0] == '0400' || detail.state.split(',')[0] == '0500' || detail.state.split(',')[0] == '1000' || detail.state.split(',')[0] == '1010'}")
+                    .u-triangle-top
+                    .u-triangle-bottom
+                    .u-number 3
+                .u-title 协商时间
+            .u-state
+                .u-triangle(ng-class="{'active4':detail.state.split(',')[0] == '0500' || detail.state.split(',')[0] == '1000' || detail.state.split(',')[0] == '1010'}")
+                    .u-triangle-top
+                    .u-triangle-bottom
+                    .u-number 4
+                .u-title 服务进行
+            .u-state
+                .u-triangle(ng-class="{'active5':detail.state.split(',')[0] == '1000' || detail.state.split(',')[0] == '1010'}")
+                    .u-triangle-top
+                    .u-triangle-bottom
+                    .u-number 5
+                .u-title 双方评价
+        .m-operator(ng-switch="detail.state.split(',')[0]")
+            .m-buttons(ng-switch-when="0300")
+                .u-button(ng-click="acceptOrder()" ng-show="!showRefuse") 接受订单
+                .u-text(ng-click="changeShowRefuse(true)" ng-show="!showRefuse") 拒绝订单
+                .u-button.u-button-refuse(ng-click="refuseOrder(refuseReason)" ng-show="showRefuse") 拒绝订单
+                .u-input(ng-show="showRefuse")
+                    input.u-refuseReason(ng-model="refuseReason" placeholder="请输入拒绝理由（学员可见）")
+            .m-buttons(ng-switch-when="0400")
+                .u-input.u-input-time
+                    .bootStrap
+                        datetimepicker(ng-model="date" date-format="yyyy-MM-dd" show-meridian="false" mousewheel="false" show-spinners="false")
+                .u-button.u-button-time(ng-click="confirmTime(date)") 确认时间
+            .m-buttons(ng-switch-when="0500")
+                .u-button(ng-click="hide()") 确定
+            .m-buttons(ng-switch-when="1000")
+                .u-button(ng-click="hide()") 确定
+            .m-buttons(ng-switch-when="1010")
+                .u-button(ng-click="changeComment()") 评价学员
+    .g-comment(ng-show="showComment")
+        img.u-tt-img(src="http://image.1yingli.cn/img/new/order-close.png" ng-click="hide()")
+        .u-state-title 评价学员
+        .m-text-area
+            textarea.u-textarea(ng-model="comment")
+        .m-star
+            img.u-star(ng-show="starNum>=1" src="http://image.1yingli.cn/img/star-y.png" ng-click="starNum = 0")
+            img.u-star(ng-show="starNum>=2" src="http://image.1yingli.cn/img/star-y.png" ng-click="starNum = 1")
+            img.u-star(ng-show="starNum>=3" src="http://image.1yingli.cn/img/star-y.png" ng-click="starNum = 2")
+            img.u-star(ng-show="starNum>=4" src="http://image.1yingli.cn/img/star-y.png" ng-click="starNum = 3")
+            img.u-star(ng-show="starNum>=5" src="http://image.1yingli.cn/img/star-y.png" ng-click="starNum = 4")
+            img.u-star(ng-show="starNum<1" src="http://image.1yingli.cn/img/star-g.png" ng-click="starNum = 1")
+            img.u-star(ng-show="starNum<2" src="http://image.1yingli.cn/img/star-g.png" ng-click="starNum = 2")
+            img.u-star(ng-show="starNum<3" src="http://image.1yingli.cn/img/star-g.png" ng-click="starNum = 3")
+            img.u-star(ng-show="starNum<4" src="http://image.1yingli.cn/img/star-g.png" ng-click="starNum = 4")
+            img.u-star(ng-show="starNum<5" src="http://image.1yingli.cn/img/star-g.png" ng-click="starNum = 5")
+        .m-confirm(ng-click="makeComment(comment,starNum)") 提交评价
+    ng-include(src="'/pages/common/footer/footer.html'")
